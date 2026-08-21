@@ -3,6 +3,8 @@ node_modules/
 
 *.md
 !README.md
+!changelog.md
+!CHANGELOG.md
 
 # Environment variables
 .env
