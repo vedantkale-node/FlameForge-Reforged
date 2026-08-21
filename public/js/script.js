@@ -360,15 +360,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (modalSubtitle) modalSubtitle.innerText = `${data.title ? data.title.join(', ') : (data.family || 'Genshin Impact')} • ${data.region || 'Teyvat'}`;
             if (modalRarity) modalRarity.innerText = `${data.rarity ? (Array.isArray(data.rarity) ? data.rarity.join('/') : data.rarity) : 5}★`;
             if (modalVision) modalVision.innerText = data.vision || data.family || category.toUpperCase();
-            if (modalDesc) modalDesc.innerText = data.desc || (data.effect ? `2-Pc: ${data.effect.twoPc}\n4-Pc: ${data.effect.fourPc}` : 'No description available.');
+            if (modalDesc) modalDesc.innerText = (data.desc && data.desc !== 'N/A') ? data.desc : (data.effect ? (data.effect.twoPc ? `2-Pc: ${data.effect.twoPc}\n4-Pc: ${data.effect.fourPc}` : (data.effect.onePc ? `1-Pc: ${data.effect.onePc}` : 'No description available.')) : 'No description or lore available.');
 
             // Tags
             if (modalTags) {
                 let tagsHtml = '';
-                if (data.vision) tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-red-600/20 text-red-300 border border-red-500/30 font-bold">${data.vision}</span>`;
-                if (data.weapon) tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-amber-600/20 text-amber-300 border border-amber-500/30">${data.weapon}</span>`;
-                if (data.family) tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-amber-600/20 text-amber-300 border border-amber-500/30">${data.family}</span>`;
-                if (data.region) tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-[#21262d] text-slate-300 border border-[#30363d]">${Array.isArray(data.region) ? data.region.join(', ') : data.region}</span>`;
+                if (data.vision && data.vision !== 'N/A') tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-red-600/20 text-red-300 border border-red-500/30 font-bold">${data.vision}</span>`;
+                if (data.weapon && data.weapon !== 'N/A') tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-amber-600/20 text-amber-300 border border-amber-500/30">${data.weapon}</span>`;
+                if (data.family && data.family !== 'N/A') tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-amber-600/20 text-amber-300 border border-amber-500/30">${data.family}</span>`;
+                if (data.region && data.region !== 'N/A') tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-[#21262d] text-slate-300 border border-[#30363d]">${Array.isArray(data.region) ? data.region.join(', ') : data.region}</span>`;
                 if (data.versionRelease) tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-[#21262d] text-slate-300 border border-[#30363d]">v${data.versionRelease}</span>`;
                 modalTags.innerHTML = tagsHtml;
             }
@@ -381,22 +381,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 const isArtifact = (category === 'artifact' || category === 'artifacts');
 
                 if (isCharacter) {
-                    if (data.birthday) gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-red-400">Birthday</p><p class="font-semibold text-slate-200 mt-0.5">${data.birthday}</p></div>`;
-                    if (data.constellation) gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-red-400">Constellation</p><p class="font-semibold text-slate-200 mt-0.5">${data.constellation}</p></div>`;
-                    if (data.affiliation) gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-red-400">Affiliation</p><p class="font-semibold text-slate-200 mt-0.5">${Array.isArray(data.affiliation) ? data.affiliation.join(', ') : data.affiliation}</p></div>`;
+                    if (data.birthday && data.birthday !== 'N/A') gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-red-400">Birthday</p><p class="font-semibold text-slate-200 mt-0.5">${data.birthday}</p></div>`;
+                    if (data.constellation && data.constellation !== 'N/A') gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-red-400">Constellation</p><p class="font-semibold text-slate-200 mt-0.5">${data.constellation}</p></div>`;
+                    if (data.affiliation && data.affiliation.length) gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-red-400">Affiliation</p><p class="font-semibold text-slate-200 mt-0.5">${Array.isArray(data.affiliation) ? data.affiliation.join(', ') : data.affiliation}</p></div>`;
                     if (data.cv) {
                         gridHtml += `<div class="col-span-2 sm:col-span-3 p-3 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-1"><p class="text-[10px] uppercase font-bold text-amber-400">Voice Actors (CV)</p><div class="flex flex-wrap gap-3 text-xs text-slate-300 font-medium"><span>🎙️ EN: ${data.cv.en || 'N/A'}</span><span>🎙️ JP: ${data.cv.jp || 'N/A'}</span><span>🎙️ CN: ${data.cv.cn || 'N/A'}</span><span>🎙️ KR: ${data.cv.kr || 'N/A'}</span></div></div>`;
                     }
                 } else if (isWeapon) {
-                    if (data.baseAtk) gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">Base ATK (Lv 1)</p><p class="font-semibold text-slate-200 mt-0.5">${data.baseAtk}</p></div>`;
+                    if (data.baseAtk && data.baseAtk !== 'N/A' && data.baseAtk !== 0) {
+                        gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">Base ATK (Lv 1)</p><p class="font-semibold text-slate-200 mt-0.5">${data.baseAtk}</p></div>`;
+                    }
                     if (data.statsTable && data.statsTable.length > 0) {
                         const maxStat = data.statsTable[data.statsTable.length - 1];
-                        gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">Max ATK (${maxStat.level || 'Lv 90'})</p><p class="font-semibold text-slate-200 mt-0.5">${maxStat.baseAtk || 'N/A'}</p></div>`;
+                        if (maxStat && maxStat.baseAtk) {
+                            gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">Max ATK (${maxStat.level || 'Lv 90'})</p><p class="font-semibold text-slate-200 mt-0.5">${maxStat.baseAtk}</p></div>`;
+                        }
                     }
-                    if (data.subStatType) gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">${data.subStatType}</p><p class="font-semibold text-slate-200 mt-0.5">${data.baseSubStat || 'N/A'}</p></div>`;
-                    if (data.family) gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">Weapon Type</p><p class="font-semibold text-slate-200 mt-0.5">${data.family}</p></div>`;
-                    if (data.passive) {
-                        gridHtml += `<div class="col-span-2 sm:col-span-3 p-3.5 rounded-xl bg-[#0d1117] border border-amber-500/30 space-y-1"><p class="text-[10px] uppercase font-bold text-amber-400">Weapon Passive: ${data.affix || 'Refinement Skill'}</p><p class="text-xs text-slate-200 leading-relaxed">${data.passive}</p></div>`;
+                    if (data.subStatType && data.subStatType !== 'N/A' && data.subStatType !== 'None') {
+                        gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">${data.subStatType}</p><p class="font-semibold text-slate-200 mt-0.5">${(data.baseSubStat && data.baseSubStat !== 'N/A') ? data.baseSubStat : 'Scaling'}</p></div>`;
+                    }
+                    if (data.family && data.family !== 'N/A') {
+                        gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">Weapon Type</p><p class="font-semibold text-slate-200 mt-0.5">${data.family}</p></div>`;
+                    }
+                    if (data.passive && data.passive !== 'N/A') {
+                        gridHtml += `<div class="col-span-2 sm:col-span-3 p-3.5 rounded-xl bg-[#0d1117] border border-amber-500/30 space-y-1"><p class="text-[10px] uppercase font-bold text-amber-400">Weapon Passive: ${data.affix && data.affix !== 'N/A' ? data.affix : 'Refinement Skill'}</p><p class="text-xs text-slate-200 leading-relaxed">${data.passive}</p></div>`;
                     }
                 } else if (isArtifact) {
                     if (data.effect) {

@@ -389,8 +389,8 @@ export async function scrapeWeapon(entryId: string | number, options?: ScrapeOpt
     throw new Error(`Category Mismatch!\n"${page.name || entryId}" is a ${categoryName}, not a Weapon.`);
   }
 
-  const name = page.name?.trim();
-  const desc = cleanHtml(page.desc || '');
+  let name = page.name?.trim();
+  let desc = cleanHtml(page.desc || '');
   const icon = page.icon_url || page.header_img || '';
   const wikiUrl = `https://wiki.hoyolab.com/pc/genshin/entry/${entryId}`;
 
@@ -424,29 +424,45 @@ export async function scrapeWeapon(entryId: string | number, options?: ScrapeOpt
 
       if (comp.component_id === 'baseInfo' && compData?.list) {
         for (const item of compData.list) {
-          const key = (item.key || '').toLowerCase().trim();
+          const rawKey = (item.key || '').trim();
+          const key = rawKey.toLowerCase();
           const val = cleanHtml(item.value?.[0] || item.val || '');
 
-          if (key === 'weapon type' || key === 'type') family = val;
-          if (key === 'rarity' || key.includes('star')) {
+          if (key === 'weapon type' || key === 'type') {
+            family = val;
+          } else if (key === 'rarity' || key.includes('star')) {
             const r = parseInt(val, 10);
             if (!isNaN(r)) rarity = r;
-          }
-          if (key === 'source' || key === 'how to obtain') source.push(val);
-          if (key === 'base atk' || key === 'base attack') {
+          } else if (key === 'source' || key === 'how to obtain') {
+            source.push(val);
+          } else if (key === 'base atk' || key === 'base attack') {
             const atk = parseFloat(val);
             if (!isNaN(atk)) baseAtk = atk;
-          }
-          if (key === 'secondary stat' || key === 'substat type') subStatType = val;
-          if (key === 'secondary stat value' || key === 'substat') baseSubStat = val;
-          if (key === 'affix' || key === 'passive name') affix = val;
-          if (key === 'passive' || key === 'passive effect') passive = val;
-          if (key === 'version released' || key === 'version release') {
+          } else if (key.includes('secondary attribute') || key.includes('secondary stat') || key.includes('substat')) {
+            subStatType = val;
+          } else if (key === 'secondary stat value' || key === 'substat value') {
+            baseSubStat = val;
+          } else if (key === 'affix' || key === 'passive name' || key === 'refinement skill') {
+            affix = val;
+          } else if (key === 'passive' || key === 'passive effect' || key === 'skill effect') {
+            passive = val;
+          } else if (key === 'version released' || key === 'version release') {
             const v = parseFloat(val);
             if (!isNaN(v)) versionRelease = v;
+          } else if (key === 'region') {
+            region = val;
+          } else if (key !== 'name' && key !== 'id' && key !== 'description' && val) {
+            // Dynamic HoYoWiki Refinement/Passive Skill: The key itself is the skill name and val is the effect!
+            if (affix === 'N/A') affix = rawKey;
+            if (passive === 'N/A') passive = val;
           }
-          if (key === 'region') region = val;
         }
+      }
+
+      // Extract weapon lore description from story module if available
+      if (comp.component_id === 'story' && compData?.list) {
+        const storyText = compData.list.map((s: any) => cleanHtml(s.desc || '')).filter(Boolean).join('\n\n');
+        if (storyText) desc = storyText;
       }
 
       // Stats table component if available
