@@ -137,13 +137,24 @@ const deleteUserByAdmin = async (req: Request, res: Response) => {
             req.flash('error', 'You cannot delete your own admin account from the directory!');
             return res.status(400).redirect('/dashboard');
         }
-        const deletedUser = await User.findByIdAndDelete(id);
-        if (!deletedUser) {
+
+        const userToDelete = await User.findById(id);
+        if (!userToDelete) {
             req.flash('error', 'User not found or already deleted!');
             return res.status(404).redirect('/dashboard');
         }
-        logger.info(`Admin ${req.session.user} deleted user ${deletedUser.username}`);
-        req.flash('success', `User @${deletedUser.username} was permanently deleted.`);
+
+        if (userToDelete.role === 'admin') {
+            const adminCount = await User.countDocuments({ role: 'admin' });
+            if (adminCount <= 1) {
+                req.flash('error', 'Cannot delete the last remaining administrator!');
+                return res.status(400).redirect('/dashboard');
+            }
+        }
+
+        await User.findByIdAndDelete(id);
+        logger.info(`Admin ${req.session.user} deleted user ${userToDelete.username}`);
+        req.flash('success', `User @${userToDelete.username} was permanently deleted.`);
         return res.status(200).redirect('/dashboard');
     } catch (error) {
         logger.error(`Error deleting user by admin: ${error}`);
@@ -161,6 +172,21 @@ const updateUserBasic = async (req: Request, res: Response) => {
         if (!userToUpdate) {
             req.flash('error', 'User not found!');
             return res.status(404).redirect('/dashboard');
+        }
+
+        // Self-demotion safeguard: Admin cannot demote their own account
+        if (req.session.uid === id && role && role !== 'admin') {
+            req.flash('error', 'You cannot demote your own administrator account!');
+            return res.status(400).redirect('/dashboard');
+        }
+
+        // Last-admin safeguard: Cannot demote the last remaining admin in the system
+        if (userToUpdate.role === 'admin' && role && role !== 'admin') {
+            const adminCount = await User.countDocuments({ role: 'admin' });
+            if (adminCount <= 1) {
+                req.flash('error', 'Cannot demote the last remaining administrator!');
+                return res.status(400).redirect('/dashboard');
+            }
         }
 
         if (firstName) userToUpdate.firstName = firstName.trim();
