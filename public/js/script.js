@@ -398,7 +398,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
                     if (data.subStatType && data.subStatType !== 'N/A' && data.subStatType !== 'None') {
-                        gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">${data.subStatType}</p><p class="font-semibold text-slate-200 mt-0.5">${(data.baseSubStat && data.baseSubStat !== 'N/A') ? data.baseSubStat : 'Scaling'}</p></div>`;
+                        const val = (data.baseSubStat && data.baseSubStat !== 'N/A') ? data.baseSubStat : (data.statsTable?.[0]?.subStat || '');
+                        gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">Secondary Stat</p><p class="font-semibold text-slate-200 mt-0.5">${data.subStatType}${val ? ` <span class="text-xs font-normal text-amber-300">(${val})</span>` : ''}</p></div>`;
                     }
                     if (data.family && data.family !== 'N/A') {
                         gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">Weapon Type</p><p class="font-semibold text-slate-200 mt-0.5">${data.family}</p></div>`;

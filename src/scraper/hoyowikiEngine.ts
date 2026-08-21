@@ -465,14 +465,37 @@ export async function scrapeWeapon(entryId: string | number, options?: ScrapeOpt
         if (storyText) desc = storyText;
       }
 
-      // Stats table component if available
-      if (comp.component_id === 'attribute_table' && compData?.list) {
-        for (const row of compData.list) {
-          statsTable.push({
-            level: row.level || row.key || '',
-            baseAtk: row.baseAtk || row.atk || 0,
-            subStat: row.subStat || row.secondary || ''
-          });
+      // Stats table / Ascension component (Weapon baseAtk, baseSubStat, statsTable)
+      if (comp.component_id === 'ascension' && compData?.list) {
+        for (const item of compData.list) {
+          const levelKey = item.key || '';
+          const headerValues = item.combatList?.[0]?.values || [];
+          const dataValues = item.combatList?.[1]?.values || [];
+
+          if (dataValues.length >= 2) {
+            const atkAfter = dataValues[1] && dataValues[1] !== '-' ? parseFloat(dataValues[1]) : NaN;
+            const atkBefore = dataValues[0] && dataValues[0] !== '-' ? parseFloat(dataValues[0]) : NaN;
+            const currentAtk = !isNaN(atkAfter) ? atkAfter : (!isNaN(atkBefore) ? atkBefore : 0);
+
+            const currentSubStat = dataValues[2] && dataValues[2] !== '-' ? cleanHtml(dataValues[2]) : '';
+
+            // Capture sub-stat type name if available in header
+            if ((subStatType === 'N/A' || !subStatType) && headerValues[2]) {
+              subStatType = cleanHtml(headerValues[2]);
+            }
+
+            // Capture Lv.1 base stats
+            if ((levelKey === 'Lv.1' || levelKey.includes('1')) && !levelKey.includes('10') && baseAtk === 0) {
+              if (currentAtk > 0) baseAtk = currentAtk;
+              if (currentSubStat) baseSubStat = currentSubStat;
+            }
+
+            statsTable.push({
+              level: levelKey,
+              baseAtk: currentAtk,
+              subStat: currentSubStat
+            });
+          }
         }
       }
     }
