@@ -1,234 +1,189 @@
 <div align="center">
 
-<img src="https://i.postimg.cc/wTYmZB8m/flameforge-hero.png">
+<img src="https://i.postimg.cc/wTYmZB8m/flameforge-hero.png" alt="FlameForge Reforged Hero" width="100%">
 
-[![GitHub forks](https://img.shields.io/github/forks/vedantkale-node/FlameForge-Reforged.svg)](https://github.com/vedantkale-node/FlameForge-Reforged/network)&nbsp;&nbsp;&nbsp;&nbsp;
-[![GitHub contributors](https://img.shields.io/github/contributors/vedantkale-node/FlameForge-Reforged.svg)](https://github.com/vedantkale-node/FlameForge-Reforged/graphs/contributors)&nbsp;&nbsp;&nbsp;&nbsp;
-[![GitHub license](https://img.shields.io/github/license/vedantkale-node/FlameForge-Reforged.svg)](https://github.com/vedantkale-node/FlameForge-Reforged/blob/main/LICENSE)
+# 🔥 FlameForge (Reforged)
+### *High-Performance Unofficial Genshin Impact Game Data & RESTful Engine*
 
-<img src="https://raw.githubusercontent.com/vedantkale-node/FlameForge-Reforged/main/public/assets/images/ult.webp">
+[![Version](https://img.shields.io/badge/version-2.0.0-red.svg?style=for-the-badge)](./changelog.md)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![OpenAPI 3.0](https://img.shields.io/badge/OpenAPI-3.0-green.svg?style=for-the-badge&logo=openapi-initiative&logoColor=white)](#-api-endpoints--documentation)
 
-<h2 style="font-size: 32px;"> FlameForge Platform </h2>
+<p align="center">
+  <b>FlameForge Reforged</b> is a modular, developer-grade RESTful API and real-time game data scraper platform for <b>Genshin Impact</b>. Built from the ground up with TypeScript, Express, MongoDB, and Cloudinary CDN.
+</p>
 
-<p>This is an unofficial Genshin Impact API that delivers comprehensive data on characters, weapons, and artifacts. Built with Node.js, Express, and MongoDB, this API provides developers with seamless access to essential Genshin Impact information. Explore character details, weapon stats, and artifact attributes, all within the framework of a robust and user-friendly API.</p>
-
-[Report Bug](./docs/bug-report.md) ·
-[Request Feature](./docs/feature-request.md)
+[Explore Swagger API Docs](https://flameforge.glitch.me/) · [Changelog](./changelog.md) · [Report Issue](https://github.com/vedantkale-node/flameforge-reforged/issues)
 
 </div>
 
-## Table of Contents
+---
 
-1. [Features](#features)
-   1. [API](#api)
-   2. [Dashboard](#dashboard)
-2. [Installation](#installation)
-3. [Documentation](#documentation)
-4. [Engineering Case Study](#Engineering-case-study)
-5. [Contributing](#contributing)
-6. [License](#license)
-7. [Contact](#contact)
-8. [Acknowledgement](#acknowledgement)
-9. [Demo and Screenshots](#demo-and-screenshots)
-10. [Changelog](#changelog)
+## 📑 Table of Contents
 
-## Features
+- [✨ Key Features](#-key-features)
+- [⚡ Scraper Studio](#-hoyowiki-scraper-studio)
+- [🔌 API Endpoints & Documentation](#-api-endpoints--documentation)
+- [🛡️ Security & Architecture](#️-security--architecture)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🚀 Quick Start & Installation](#-quick-start--installation)
+- [⚙️ Environment Configuration](#️-environment-configuration)
+- [📜 Changelog](#-changelog)
+- [👤 Author & License](#-author--license)
+
+---
 
-### API
+## ✨ Key Features
 
-#### Character Information:
+### 🌟 Deep Genshin Impact Dataset
+- **Characters**: Complete attributes, region, vision, rarity, birthday, voice actors (EN, JP, CN, KR), full **Lv1–13 combat talent scaling matrices**, and **C1–C6 constellations**.
+- **Weapons**: Base ATK, secondary stats, **Lv1–90 progression curves**, passive skill scaling, and awakened artwork.
+- **Artifacts**: 2-Piece and 4-Piece bonus descriptions, plus individual piece artwork and lore for all **5 relic pieces** (Flower, Plume, Sands, Goblet, Circlet).
 
-- Retrieve detailed information about characters including images.
+### ⚡ RESTful Query Engine
+- **Multi-Dimensional Filtering**: Query by Vision (`pyro`, `hydro`, etc.), Weapon Type (`claymore`, `sword`, etc.), Rarity (`4`, `5`), Region (`mondstadt`, `inazuma`, etc.), or Family.
+- **Payload Projections (`infoSize`)**: Use standard lightweight payloads for list views or `?infoSize=full` for full talent matrices and constellation trees.
+- **Alias Flexibility**: Fully supports `/api/v1/*` as well as `/api/*` and `/v1/*` route mounts.
 
-#### Weapon Information:
+---
 
-- Retrieve detailed information about weapons including stats, passive and images.
+## 🕷️ HoYoWiki Scraper Studio
 
-#### Artifact Information:
+FlameForge Reforged features a high-speed concurrency crawler built using `p-limit` worker concurrency pools:
 
-- Retrieve detailed information about artifacts including 2pc, 4pc effects and images.
+- **~15-Second Full Universe Ingestion**: Crawls and structures the entire HoYoWiki universe in seconds.
+- **Live Preview Studio**: Test and inspect raw JSON payloads for any character, weapon, or artifact by URL or ID before committing to MongoDB.
+- **Single & Category Sync**: Synchronize single items, entire categories, or the complete universe with real-time UI logging.
+- **Concurrency Mutex Lock**: Built-in 15-minute lock prevents overlapping batch syncs and upstream rate limiting.
+- **Automated Cloudinary Mirroring**: Automatically downloads and mirrors external HoYo asset URLs directly to Cloudinary CDN for permanent, zero-broken-link uptime.
 
-### Dashboard
+---
 
-- User Authentication and Authorization
-- Email verification
+## 🔌 API Endpoints & Documentation
 
-#### User:
+Interactive API documentation with dark mode is hosted on the root path `/` powered by Swagger UI and OpenAPI 3.0.
 
-- User limited features:
-  - Upload Character info as JSON
-  - Upload Weapon info as JSON
-  - Upload Artifact info as JSON
-  - Upload images to the server
-  - User account deletion
+| Method | Endpoint | Description | Query Parameters |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/v1/characters` | Retrieve array of characters | `?vision=`, `?region=`, `?weapon=`, `?rarity=`, `?infoSize=` |
+| `GET` | `/api/v1/character` | Fetch character by name / random | `?name=`, `?infoSize=` |
+| `GET` | `/api/v1/weapons` | Retrieve array of weapons | `?rarity=`, `?family=`, `?type=`, `?infoSize=` |
+| `GET` | `/api/v1/weapon` | Fetch weapon by name / random | `?name=`, `?infoSize=` |
+| `GET` | `/api/v1/artifacts` | Retrieve array of artifact sets | `?infoSize=` |
+| `GET` | `/api/v1/artifact` | Fetch artifact set by name / random | `?name=`, `?infoSize=` |
+| `GET` | `/api/v1/openapi.json`| Raw OpenAPI 3.0 JSON specification | None |
 
-#### Admin:
+#### Sample Request:
+```bash
+curl -X GET "https://flameforge.glitch.me/api/v1/character?name=diluc&infoSize=full" -H "Accept: application/json"
+```
 
-- All features available to Users, plus:
-  - Export characters, weapons and artifacts as JSON
-  - Edit characters, weapons and artifacts information
-  - Delete characters, weapons and artifacts information
-  - User information
+---
 
-## Prerequisites
+## 🛡️ Security & Architecture
 
-Before setting up and using the FlameForge Platform, ensure that you have the following prerequisites:
+FlameForge Reforged has been engineered according to modern enterprise security standards:
 
-- Node.js and npm: - Install Node.js and npm on your machine. You can download them from nodejs.org.
-  <br>
+- **IDOR Protection**: Strict ownership verification (`req.session.uid === req.params.id` or `role === 'admin'`) and instant session revocation.
+- **SSRF Shielding**: URL parsing and private IP blocking (`127.0.0.1`, `10.*`, `192.168.*`, `169.254.*`) on server-side upload controllers.
+- **ReDoS Prevention**: Escaped regular expression meta-characters (`.*+?^${}()|[]\`) across all API filter builders.
+- **Database Schema Normalization**: Database-level unique, trimmed, and lowercased indexes on `email` and `username`.
+- **Proxy-Aware Rate Limiting**: Dedicated rate limiters (`apiLimiter`, `authLimiter`, `scraperLimiter`, `imageUploadLimiter`) configured with `trust proxy` true client IP detection.
+- **Session Security**: `connect-mongo` session storage with `httpOnly: true`, `secure: true` (in production), and `sameSite: 'lax'`.
+- **Upload Hardening**: 5MB memory ceiling with MIME-type and `.json` extension verification.
 
-- MongoDB: - Set up a MongoDB instance or use MongoDB Atlas. Obtain the connection URL for configuring the API.
-  <br>
+---
 
-- Git: - Install Git for version control. You can download it from git-scm.com.
-  <br>
+## 🛠️ Tech Stack
 
-- Cloudinary Account (Optional):
-  - If you plan to use Cloudinary for image management, create a Cloudinary account and obtain the Cloudinary API credentials.
+- **Runtime & Language**: Node.js (ESM), TypeScript
+- **Framework & Routing**: Express.js
+- **Database & ODM**: MongoDB, Mongoose, Connect-Mongo
+- **Template Engine**: Express Handlebars (`.hbs`)
+- **Asset Storage & CDN**: Cloudinary CDN
+- **Security & Utilities**: Helmet CSP, Bcrypt, Express-Rate-Limit, Express-Validator, Nodemailer
+- **Web Scraping**: Cheerio, Axios, P-Limit
+- **Styling**: Tailwind CSS & Tabler Icons (Diluc Matte Dark Aesthetic)
 
-Now that you have the necessary prerequisites, you're ready to proceed with the installation and usage of the FlameForge Platform.
+---
 
-## Installation
+## 🚀 Quick Start & Installation
 
-1.  Clone Repository or Download Zip: - Clone this repository using git or download the zip file, If downloading, extract the contents after completion.
-    <br>
+### 1. Clone Repository
+```bash
+git clone https://github.com/vedantkale-node/flameforge-reforged.git
+cd flameforge-reforged
+```
 
-2.  Rename Environment File: - Locate the file named `sample.env` and rename it to `.env`.
-    <br>
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-3.  Edit the `.env` file and customize the following parameters:
+### 3. Setup Environment Variables
+Create a `.env` file based on `sample.env`:
+```bash
+cp sample.env .env
+```
 
-        ```
-        # Set your preferred port (default is 3000 if not provided)
-        PORT=
+### 4. Build & Run
+```bash
+# Build TypeScript and Tailwind styles
+npm run build
 
-        # Provide the URL for your MongoDB/Atlas database
-        DB=
+# Start production server
+npm start
 
-        # Secret string for session cookies (leave empty if not needed)
-        SECRET=
+# Or start full development mode (Nodemon + Tailwind Watcher)
+npm run dev:all
+```
 
-        # Your email ID for automated verification mails (optional, only required for email verification)
-        SERVER_EMAIL=
+---
 
-        # Enter your email password for automated verification mails (leave empty if not needed)
-        SERVER_EMAIL_SECRET=
+## ⚙️ Environment Configuration
 
-        # Your own email address (optional, used for specific features like notifications)
-        MY_EMAIL=
+```env
+# Server Port
+PORT=4000
+NODE_ENV=development
 
-        # Cloudinary cloud name for image storage (optional, used for image upload features)
-        CLOUDINARY_CLOUD_NAME=
+# MongoDB Connection String
+DB=mongodb://127.0.0.1:27017/flameforge
 
-        # Cloudinary API key for image storage (optional, used for image upload features)
-        CLOUDINARY_API_KEY=
+# Session Security Secret
+SECRET=your_super_secret_session_key
 
-        # Cloudinary API secret for image storage (optional, used for image upload features)
-        CLOUDINARY_API_SECRET=
-        ```
+# Email Notification Service (Nodemailer)
+SERVER_EMAIL=your_server_email@gmail.com
+SERVER_EMAIL_SECRET=your_app_password
+ADMIN_EMAIL=vedantsapalkar99@gmail.com
 
-    <br>
+# Cloudinary CDN Credentials
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 
-4.  Option Terminal: - Navigate to the root folder of the project in your terminal.
-    <br>
+# Optional Client CORS Origin
+CLIENT_ORIGIN=http://localhost:3000
+```
 
-5.  Install Dependencies: - Execute the following command to install typescript and nodemon:
-    (If you have already installed TypeScript and nodemon globally, you can skip the following command.)
-    `    npm install typescript, nodemon -g` - Execute the following command to install all required modules:
-    `    npm install`
-    <br>
+---
 
-6.  Transpile TypeScript Code: - Execute the following command to transpile all TypeScript code to JavaScript
-    `    npm run make`
-    <br>
+## 📜 Changelog
 
-7.  Build Tailwind: - For tailwind development, you can run the optional command to build tailwind css
-    `    npm run build`
-    <br>
+Detailed release notes and version history are available in [changelog.md](./changelog.md).
 
-8.  Start the Server:
-    - Finally, start the server with the following command:
-    ```
-    npm run start
-    ```
+---
 
-These installation steps, ensure a comprehensive setup of the application. If you have any questions or encounter issues, feel free to reach out for assistance.
+## 👤 Author & License
 
-## Documentation
+- **Lead Architect & Developer**: [Vedant Kale](https://vedantkale.in)  
+- **Email**: [vedantkale.node@gmail.com](mailto:vedantkale.node@gmail.com)  
+- **Repository**: [https://github.com/vedantkale-node/flameforge-reforged](https://github.com/vedantkale-node/flameforge-reforged)
 
-For comprehensive guidance on utilizing FlameForge API endpoints, including parameter details, response formats, and example payloads, please refer to:
+Distributed under the **ISC License**.
 
-API Documentation [Documentation](https://flameforge-api.onrender.com/)
-Dashboard Page: [Dashboard](https://flameforge-api.onrender.com/dashboard)
-
-<!-- add actual link -->
-
-For information on installation, configuration, and initial setup of FlameForge Platform, please follow the instructions under the [Installation](#installation) section.
-
-## Engineering Case Study
-
-Want to learn how FlameForge was designed and built?
-
-📖 Read the full case study: [Engineering Case Study](./docs/case-study.md)
-
-Topics covered:
-
-- Architecture decisions
-- Authentication & RBAC
-- Admin dashboard design
-- JSON import/export workflows
-- Cloudinary image uploads
-- Challenges and lessons learned
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
-
-1. Fork the project, specifically from the development branch.
-2. Clone your forked repository to your local machine.
-3. Create a new branch for your feature (`git checkout -b feature/AmazingFeature`).
-4. Implement your changes and commit them (`git commit -m "Add some AmazingFeature"`).
-5. Push your changes to the branch (`git push origin feature/AmazingFeature`).
-6. Open a pull request, ensuring that the base branch is set to the development branch.
-
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-## Contact
-
-Vedant - vedantsapalkar99@gmail.com <br>
-Project Link: https://github.com/vedantkale-node/FlameForge-Reforged <br>
-Main Link: https://flameforge.glitch.me/
-
-## Acknowledgement
-
-FlameForge Platform was designed and developed independently, with a focus on building a scalable and maintainable backend system.
-
-Contributions, feedback, and suggestions are always welcome to help improve and evolve the project.
-
-— Vedant
-
-## Demo and Screenshots
-
-![register](https://i.postimg.cc/qvrdTv9j/dashboard-register.png)
-![login](https://i.postimg.cc/zGkYX1N5/dashboard-login.png)
-![character](https://i.postimg.cc/W4KWs9dT/dashboard-characters.png)
-![artifact](https://i.postimg.cc/MGX32kK9/dashboard-weapons.png)
-![weapon](https://i.postimg.cc/MGX32kK9/dashboard-weapons.png)
-![imgUploader](https://i.postimg.cc/KjtsqnvF/dashboard-image-uploader.png)
-![adminControl](https://i.postimg.cc/sfW8gRP8/dashboard-admin-control.png)
-![editCharacter](https://i.postimg.cc/dVwgfSyf/admin-control-edit-character.png)
-![editWeapon](https://i.postimg.cc/3JgPnHdp/admin-control-edit-weapon.png)
-![editArtifact](https://i.postimg.cc/v86Rxny0/admin-control-edit-artifacts.png)
-![home](https://i.postimg.cc/4NT0KFB3/dashboard-home.png)
-![people](https://i.postimg.cc/jdVpHjdt/dashboard-people.png)
-![settings](https://i.postimg.cc/Px9BFXWb/dashboard-settings.png)
-![report](https://i.postimg.cc/3JmHVvbk/report.png)
-![documentation](https://i.postimg.cc/43NkYF4c/documentation.png)
-
-## Changelog
-
-You can find the detailed changelog [here](https://github.com/vedantkale-node/FlameForge-Reforged/blob/main/changelog.md)
+> *Disclaimer: FlameForge Reforged is an unofficial fan-made game data platform. Genshin Impact and all related assets, game content, and imagery are trademarks and copyrights of miHoYo / Cognosphere Pte. Ltd.*

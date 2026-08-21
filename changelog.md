@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [2.0.0] - 2026-08-21 — *FlameForge Reforged Overhaul*
+## [2.0.0] - 2026-08-21 — *FlameForge Reforged*
 
 ### ⚡ Engine & Architecture
 - **TypeScript Migration**: Full codebase rewrite from JavaScript to modular, type-safe TypeScript with ESM modules.
@@ -34,12 +34,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Entity Inspector Modal**: Dynamic modal adapting tabs based on entity category (auto-hiding character talents/constellations for weapons and artifacts, and displaying 5-piece relic cards).
 - **Responsive Mobile Polish**: Direct touch feedback on cards, overflow-protected flash toast notifications (<360px viewports), and full PWA webmanifest suite.
 
----
-
-## [1.0.0] - 2024-01-12 — *Legacy Prototype*
-
-### Added
-- Initial Express.js REST API with `/api/characters`, `/api/weapons`, and `/api/artifacts`.
-- Basic Handlebars dashboard with CSV/JSON upload and export functionality.
-- Nodemailer email verification and basic user registration toggle.
-- Cloudinary single-image uploader and basic Swagger documentation.
