@@ -19,7 +19,6 @@ export interface IWeapon extends Document {
     versionRelease?: number | string;
     region?: string;
     family?: string;
-    type?: string;
     images: {
         icon?: string;
         original?: string;

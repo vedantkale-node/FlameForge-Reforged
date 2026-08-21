@@ -371,8 +371,7 @@ export async function scrapeCharacter(entryId: string | number, options?: Scrape
     talents,
     constellations,
     stories,
-    voiceLines,
-    cdata
+    voiceLines
   };
 }
 

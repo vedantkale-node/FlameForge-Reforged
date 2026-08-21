@@ -109,10 +109,6 @@ const characterSchema = new Schema<ICharacter>({
     constellations: [constellationSchema],
     stories: [storySchema],
     voiceLines: [voiceLineSchema],
-    cdata: {
-        type: [String],
-        default: []
-    },
     skin: {
         title: { type: String },
         profile: { type: String },

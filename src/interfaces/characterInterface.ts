@@ -70,7 +70,6 @@ export interface ICharacter extends Document {
     constellations?: IConstellation[];
     stories?: ICharacterStory[];
     voiceLines?: IVoiceLine[];
-    cdata?: string[];
     skin?: {
         title: string;
         profile: string;

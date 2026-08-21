@@ -52,9 +52,6 @@ const weaponSchema = new Schema<IWeapon>({
         type: String,
         default: 'Sword'
     },
-    type: {
-        type: String
-    },
     images: {
         icon: { type: String },
         original: { type: String },

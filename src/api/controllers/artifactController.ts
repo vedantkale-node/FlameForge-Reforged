@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import Artifact from "../../models/artifactModel.js";
 import { apiLogger } from "../../helpers/logger.js";
 
-const MINIMAL_PROJECTION = '-_id -__v -cdata -fullSet.sands -fullSet.plume -fullSet.circlet -fullSet.goblet -fullSet.flower.piece -fullSet.flower.title -fullSet.flower.desc';
-const FULL_PROJECTION = '-_id -__v -cdata';
+const MINIMAL_PROJECTION = '-_id -__v -fullSet.sands -fullSet.plume -fullSet.circlet -fullSet.goblet -fullSet.flower.piece -fullSet.flower.title -fullSet.flower.desc';
+const FULL_PROJECTION = '-_id -__v';
 
 function escapeRegex(text: string): string {
     return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -45,9 +45,9 @@ const getSingleArtifact = async (req: Request, res: Response) => {
 
         // Random artifact sample if no name specified
         const projectionObj: Record<string, number> = isFull
-            ? { __v: 0, _id: 0, cdata: 0 }
+            ? { __v: 0, _id: 0 }
             : {
-                __v: 0, _id: 0, cdata: 0,
+                __v: 0, _id: 0,
                 'fullSet.sands': 0, 'fullSet.plume': 0, 'fullSet.circlet': 0,
                 'fullSet.goblet': 0, 'fullSet.flower.piece': 0, 'fullSet.flower.title': 0, 'fullSet.flower.desc': 0
             };

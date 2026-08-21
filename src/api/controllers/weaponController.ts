@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import Weapon from "../../models/weaponModel.js";
 import { apiLogger } from "../../helpers/logger.js";
 
-const MINIMAL_PROJECTION = '-_id -__v -statsTable -passives -cdata -images.original -images.awakened -images.gacha -source -baseSubStat -affix -passive -versionRelease -region -wikiUrl';
-const FULL_PROJECTION = '-_id -__v -cdata';
+const MINIMAL_PROJECTION = '-_id -__v -statsTable -images.original -images.awakened -images.gacha -source -baseSubStat -affix -passive -versionRelease -region -wikiUrl';
+const FULL_PROJECTION = '-_id -__v';
 
 function escapeRegex(text: string): string {
     return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -45,9 +45,9 @@ const getSingleWeapon = async (req: Request, res: Response) => {
 
         // Random weapon sample if no name specified
         const projectionObj: Record<string, number> = isFull
-            ? { __v: 0, _id: 0, cdata: 0 }
+            ? { __v: 0, _id: 0 }
             : {
-                __v: 0, _id: 0, statsTable: 0, passives: 0, cdata: 0,
+                __v: 0, _id: 0, statsTable: 0,
                 'images.original': 0, 'images.awakened': 0, 'images.gacha': 0,
                 source: 0, baseSubStat: 0, affix: 0, passive: 0, versionRelease: 0,
                 region: 0, wikiUrl: 0

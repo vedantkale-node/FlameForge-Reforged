@@ -389,6 +389,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 } else if (isWeapon) {
                     if (data.baseAtk) gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">Base ATK (Lv 1)</p><p class="font-semibold text-slate-200 mt-0.5">${data.baseAtk}</p></div>`;
+                    if (data.statsTable && data.statsTable.length > 0) {
+                        const maxStat = data.statsTable[data.statsTable.length - 1];
+                        gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">Max ATK (${maxStat.level || 'Lv 90'})</p><p class="font-semibold text-slate-200 mt-0.5">${maxStat.baseAtk || 'N/A'}</p></div>`;
+                    }
                     if (data.subStatType) gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">${data.subStatType}</p><p class="font-semibold text-slate-200 mt-0.5">${data.baseSubStat || 'N/A'}</p></div>`;
                     if (data.family) gridHtml += `<div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d]"><p class="text-[10px] uppercase font-bold text-amber-400">Weapon Type</p><p class="font-semibold text-slate-200 mt-0.5">${data.family}</p></div>`;
                     if (data.passive) {
@@ -396,6 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 } else if (isArtifact) {
                     if (data.effect) {
+                        if (data.effect.onePc) gridHtml += `<div class="col-span-2 sm:col-span-3 p-3 rounded-xl bg-[#0d1117] border border-indigo-500/30 space-y-0.5"><p class="text-[10px] uppercase font-bold text-indigo-400">1-Piece Set Bonus</p><p class="text-xs text-slate-200 leading-relaxed">${data.effect.onePc}</p></div>`;
                         if (data.effect.twoPc) gridHtml += `<div class="col-span-2 sm:col-span-3 p-3 rounded-xl bg-[#0d1117] border border-indigo-500/30 space-y-0.5"><p class="text-[10px] uppercase font-bold text-indigo-400">2-Piece Set Bonus</p><p class="text-xs text-slate-200 leading-relaxed">${data.effect.twoPc}</p></div>`;
                         if (data.effect.fourPc) gridHtml += `<div class="col-span-2 sm:col-span-3 p-3 rounded-xl bg-[#0d1117] border border-indigo-500/30 space-y-0.5"><p class="text-[10px] uppercase font-bold text-indigo-400">4-Piece Set Bonus</p><p class="text-xs text-slate-200 leading-relaxed">${data.effect.fourPc}</p></div>`;
                     }
@@ -406,10 +411,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             { label: 'Sands of Eon', item: data.fullSet.sands },
                             { label: 'Goblet of Eonothem', item: data.fullSet.goblet },
                             { label: 'Circlet of Logos', item: data.fullSet.circlet }
-                        ].filter(p => p.item && p.item.name);
+                        ].filter(p => p.item && (p.item.title || p.item.name || p.item.icon));
 
                         if (pieces.length > 0) {
-                            gridHtml += `<div class="col-span-2 sm:col-span-3 p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-2"><p class="text-[10px] uppercase font-bold text-indigo-300">Set Relic Pieces (${pieces.length})</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">${pieces.map(p => `<div class="flex items-center gap-2.5 p-2 rounded-lg bg-[#161b22] border border-[#30363d]"><img src="${p.item.icon || '/assets/images/artifacts.webp'}" class="w-8 h-8 rounded-lg object-cover border border-[#30363d] bg-[#0d1117]"><div><p class="font-bold text-white text-[11px]">${p.item.name}</p><p class="text-[9px] text-slate-400">${p.label}</p></div></div>`).join('')}</div></div>`;
+                            gridHtml += `<div class="col-span-2 sm:col-span-3 p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-2"><p class="text-[10px] uppercase font-bold text-indigo-300">Set Relic Pieces (${pieces.length})</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">${pieces.map(p => `<div class="flex items-center gap-2.5 p-2 rounded-lg bg-[#161b22] border border-[#30363d]"><img src="${p.item.icon || '/assets/images/artifacts.webp'}" class="w-8 h-8 rounded-lg object-cover border border-[#30363d] bg-[#0d1117]"><div><p class="font-bold text-white text-[11px]">${p.item.title || p.item.name}</p><p class="text-[9px] text-slate-400">${p.label}</p></div></div>`).join('')}</div></div>`;
                         }
                     }
                 }
