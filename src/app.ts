@@ -206,6 +206,14 @@ app.get('/docs', (req: Request, res: Response) => {
     res.redirect('/');
 });
 
+app.get('/favicon.ico', (_req: Request, res: Response) => {
+    res.sendFile(join(__dirname, '../public/assets/favicon/favicon.ico'));
+});
+
+app.get('/site.webmanifest', (_req: Request, res: Response) => {
+    res.sendFile(join(__dirname, '../public/assets/favicon/site.webmanifest'));
+});
+
 app.get('*', (req: Request, res: Response) => {
     res.render('404', {
         title: '404! Not Found!'
