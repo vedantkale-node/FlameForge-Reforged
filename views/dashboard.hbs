@@ -1,0 +1,1124 @@
+<!-- Toast Notifications -->
+<div id="alertBox" class="toast-box text-white bg-emerald-700 border border-emerald-500/50">
+</div>
+<div id="alertBoxError" class="toast-box text-white bg-red-800 border border-red-500/50">
+</div>
+
+{{> dashboard/logoutModal}}
+
+<div class="bg-[#0d1117] fixed inset-0 z-50 flex flex-col justify-center items-center" id="loader">
+  <span class="loader mb-3"></span>
+  <p class="text-slate-400 font-medium text-xs tracking-wider uppercase">Loading FlameForge...</p>
+</div>
+
+<!-- ==================================================== -->
+<!-- VIEW INFO / ENTITY DETAILS MODAL (Clean Matte Dark) -->
+<!-- ==================================================== -->
+<div class="modal hidden fixed inset-0 z-50 flex justify-center items-center p-3 sm:p-6 overflow-y-auto" id="modal-view-info">
+  <div class="modal-card bg-[#161b22] text-white w-full max-w-4xl max-h-[90vh] rounded-2xl border border-[#30363d] shadow-2xl flex flex-col overflow-hidden">
+    
+    <!-- Modal Header Banner -->
+    <div class="p-5 sm:p-6 border-b border-[#30363d] bg-[#0d1117] flex items-start justify-between">
+      <div class="flex items-center space-x-4">
+        <div class="relative">
+          <img id="modalInfoImg" src="/assets/images/characters.webp" alt="entity" class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover border border-[#30363d] bg-[#0d1117]" />
+          <span id="modalInfoVisionBadge" class="absolute -bottom-1 -right-1 px-2 py-0.2 rounded text-[9px] font-black uppercase bg-red-600 text-white">Pyro</span>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h3 id="modalInfoName" class="text-xl sm:text-2xl font-bold text-white">Diluc</h3>
+            <span id="modalInfoRarity" class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold text-xs border border-amber-500/30">5★</span>
+          </div>
+          <p id="modalInfoSubtitle" class="text-xs text-slate-400 mt-0.5">The Darknight Hero &bull; Dawn Winery</p>
+          <div id="modalInfoTags" class="flex flex-wrap gap-1.5 mt-2 text-[11px]">
+          </div>
+        </div>
+      </div>
+      <button id="btn-close-view-info" class="p-2 rounded-xl bg-[#21262d] hover:bg-red-600 text-slate-300 hover:text-white transition-colors cursor-pointer">
+        <i class="ti ti-x text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Modal Navigation Tabs -->
+    <div class="px-6 py-2 border-b border-[#30363d] bg-[#161b22] flex space-x-2 overflow-x-auto text-xs font-semibold">
+      <button class="modal-tab-btn px-3 py-1.5 rounded-lg bg-red-600/20 text-red-300 border border-red-500/30 cursor-pointer" data-tab="tab-overview">Overview & Lore</button>
+      <button class="modal-tab-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white cursor-pointer" data-tab="tab-talents">Combat Talents</button>
+      <button class="modal-tab-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white cursor-pointer" data-tab="tab-constellations">Constellations</button>
+      <button class="modal-tab-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white cursor-pointer" data-tab="tab-stories">Stories & Audio</button>
+      <button class="modal-tab-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white cursor-pointer" data-tab="tab-rawjson">Raw JSON</button>
+    </div>
+
+    <!-- Modal Content Body -->
+    <div class="p-6 overflow-y-auto space-y-4 text-sm max-h-[60vh]" id="modalInfoBody">
+      
+      <!-- Tab 1: Overview -->
+      <div id="tab-overview" class="modal-tab-pane space-y-4">
+        <div class="p-4 rounded-xl bg-[#0d1117] border border-[#30363d]">
+          <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Description & Lore</p>
+          <p id="modalInfoDesc" class="text-slate-300 text-xs leading-relaxed"></p>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs" id="modalInfoAttrGrid">
+        </div>
+      </div>
+
+      <!-- Tab 2: Talents -->
+      <div id="tab-talents" class="modal-tab-pane hidden space-y-3">
+        <div id="modalInfoTalentsList" class="space-y-3">
+          <p class="text-xs text-slate-400">No combat talents available.</p>
+        </div>
+      </div>
+
+      <!-- Tab 3: Constellations -->
+      <div id="tab-constellations" class="modal-tab-pane hidden space-y-3">
+        <div id="modalInfoConstellationsList" class="space-y-3">
+          <p class="text-xs text-slate-400">No constellations available.</p>
+        </div>
+      </div>
+
+      <!-- Tab 4: Stories & Audio -->
+      <div id="tab-stories" class="modal-tab-pane hidden space-y-4">
+        <div id="modalInfoStoriesList" class="space-y-3"></div>
+        <div id="modalInfoVoiceList" class="space-y-3 pt-4 border-t border-[#30363d]"></div>
+      </div>
+
+      <!-- Tab 5: Raw JSON -->
+      <div id="tab-rawjson" class="modal-tab-pane hidden">
+        <div class="p-4 rounded-xl bg-[#0d1117] border border-[#30363d] overflow-x-auto max-h-80">
+          <pre class="text-xs text-slate-300 font-mono"><code id="modalInfoJsonCode">{}</code></pre>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="p-4 border-t border-[#30363d] bg-[#0d1117] flex justify-between items-center text-xs">
+      <span class="text-slate-400">FlameForge Entity Inspector</span>
+      <button id="btn-modal-copy-json" class="px-3 py-1.5 rounded-lg bg-[#21262d] text-slate-200 hover:text-white border border-[#30363d] transition-colors font-medium cursor-pointer flex items-center gap-1.5">
+        <i class="ti ti-copy text-sm"></i>
+        <span>Copy Full JSON</span>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Delete Character Modal -->
+<div class="delete-modal-mob modal hidden fixed inset-0 z-50 flex justify-center items-center p-4" id="modal-delete-character">
+  <div class="modal-card bg-[#161b22] text-white p-6 w-full max-w-md rounded-2xl border border-[#30363d] shadow-2xl">
+    <div class="flex items-center text-rose-400 mb-3">
+      <i class="ti ti-alert-triangle text-2xl mr-2"></i>
+      <p class="text-lg font-bold">Confirm Deletion</p>
+    </div>
+    <p class="text-slate-300 text-sm mb-6">Are you sure you want to delete this character? This action cannot be undone.</p>
+    <div class="flex justify-end space-x-3">
+      <button id="btn-delete-character-modal-close" class="btn-delete-character-modal-close px-4 py-2 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 text-xs font-semibold transition-colors cursor-pointer">Cancel</button>
+      <form method="POST" id="character-delete-form">
+        <button type="submit" id="btn-modal-delete" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold transition-colors cursor-pointer">Delete Character</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Weapon Modal -->
+<div class="delete-modal-mob modal hidden fixed inset-0 z-50 flex justify-center items-center p-4" id="modal-delete-weapon">
+  <div class="modal-card bg-[#161b22] text-white p-6 w-full max-w-md rounded-2xl border border-[#30363d] shadow-2xl">
+    <div class="flex items-center text-rose-400 mb-3">
+      <i class="ti ti-alert-triangle text-2xl mr-2"></i>
+      <p class="text-lg font-bold">Confirm Deletion</p>
+    </div>
+    <p class="text-slate-300 text-sm mb-6">Are you sure you want to delete this weapon from the database?</p>
+    <div class="flex justify-end space-x-3">
+      <button id="btn-delete-weapon-modal-close" class="btn-delete-weapon-modal-close px-4 py-2 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 text-xs font-semibold transition-colors cursor-pointer">Cancel</button>
+      <form method="POST" id="weapon-delete-form">
+        <button type="submit" id="btn-modal-delete-weapon" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold transition-colors cursor-pointer">Delete Weapon</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Artifact Modal -->
+<div class="delete-modal-mob modal hidden fixed inset-0 z-50 flex justify-center items-center p-4" id="modal-delete-artifact">
+  <div class="modal-card bg-[#161b22] text-white p-6 w-full max-w-md rounded-2xl border border-[#30363d] shadow-2xl">
+    <div class="flex items-center text-rose-400 mb-3">
+      <i class="ti ti-alert-triangle text-2xl mr-2"></i>
+      <p class="text-lg font-bold">Confirm Deletion</p>
+    </div>
+    <p class="text-slate-300 text-sm mb-6">Are you sure you want to delete this artifact set?</p>
+    <div class="flex justify-end space-x-3">
+      <button id="btn-delete-artifact-modal-close" class="btn-delete-artifact-modal-close px-4 py-2 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 text-xs font-semibold transition-colors cursor-pointer">Cancel</button>
+      <form method="POST" id="artifact-delete-form">
+        <button type="submit" id="btn-modal-delete-artifact" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold transition-colors cursor-pointer">Delete Artifact</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Delete User Modal (Admin Only) -->
+<div class="delete-modal-mob modal hidden fixed inset-0 z-50 flex justify-center items-center p-4 bg-black/80 backdrop-blur-xs" id="modal-delete-user">
+  <div class="modal-card bg-[#161b22] text-white p-6 w-full max-w-md rounded-2xl border border-rose-500/40 shadow-2xl space-y-4">
+    <div class="flex items-center text-rose-400">
+      <i class="ti ti-alert-triangle text-2xl mr-2"></i>
+      <p class="text-base font-bold">Delete User Account</p>
+    </div>
+    <p class="text-slate-300 text-xs leading-relaxed">
+      Are you sure you want to permanently delete user <span id="deleteUserName" class="font-bold text-white font-mono">@user</span>? All their profile data will be permanently removed.
+    </p>
+    <div class="flex justify-end space-x-3 pt-2">
+      <button id="btn-delete-user-modal-close" type="button" class="btn-delete-user-modal-close px-4 py-2 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 text-xs font-semibold transition-colors cursor-pointer">Cancel</button>
+      <form method="POST" id="user-delete-form">
+        <button type="submit" id="btn-confirm-delete-user" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold transition-colors cursor-pointer">Delete User</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Basic User Info Modal (Admin Only) -->
+<div class="modal hidden fixed inset-0 z-50 flex justify-center items-center p-4 bg-black/80 backdrop-blur-xs" id="modal-edit-user">
+  <div class="modal-card bg-[#161b22] text-white p-6 w-full max-w-md rounded-2xl border border-[#30363d] shadow-2xl space-y-4">
+    <div class="flex items-center justify-between pb-3 border-b border-[#30363d]">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+          <i class="ti ti-user-edit text-base"></i>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-white">Edit User Info</p>
+          <p class="text-[11px] text-slate-400" id="editUserSubtitle">@username</p>
+        </div>
+      </div>
+      <button id="btn-edit-user-modal-close" type="button" class="btn-edit-user-modal-close p-1 rounded-lg text-slate-400 hover:text-white hover:bg-[#21262d] transition-colors cursor-pointer">
+        <i class="ti ti-x text-base"></i>
+      </button>
+    </div>
+
+    <form method="POST" id="user-edit-form" class="space-y-3.5">
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-400 mb-1">First Name</label>
+          <input type="text" name="firstName" id="editUserFirstName" required class="w-full bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-amber-500 rounded-xl px-3 py-2 outline-none transition-colors" />
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-400 mb-1">Last Name</label>
+          <input type="text" name="lastName" id="editUserLastName" required class="w-full bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-amber-500 rounded-xl px-3 py-2 outline-none transition-colors" />
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-[11px] font-semibold text-slate-400 mb-1">User Role</label>
+        <select name="role" id="editUserRole" class="w-full bg-[#0d1117] text-slate-200 text-xs border border-[#30363d] focus:border-amber-500 rounded-xl px-3 py-2 outline-none transition-colors cursor-pointer">
+          <option value="user">User (Standard Member)</option>
+          <option value="moderator">Moderator</option>
+          <option value="admin">Administrator</option>
+        </select>
+      </div>
+
+      <div class="flex justify-end gap-2.5 pt-3 border-t border-[#30363d]">
+        <button id="btn-edit-user-modal-cancel" type="button" class="btn-edit-user-modal-close px-4 py-2 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 text-xs font-semibold transition-colors cursor-pointer">Cancel</button>
+        <button type="submit" class="px-5 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white text-xs font-bold transition-all shadow-md shadow-amber-600/20 cursor-pointer">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Mobile Header Bar -->
+<div class="hamburger bg-[#161b22] sm:hidden z-40 p-4 flex justify-between items-center border-b border-[#30363d] sticky top-0">
+  <div class="flex justify-center items-center">
+    <img src="/assets/images/dawn.webp" width="26" height="26" alt="FlameForge" class="mr-2">
+    <p class="text-white font-bold text-sm tracking-wide">FlameForge</p>
+  </div>
+  <button class="p-2 rounded-lg bg-[#21262d] text-slate-200 cursor-pointer" id="hamburger-btn">
+    <i class="ti ti-menu-2 text-lg"></i>
+  </button>
+</div>
+
+<!-- Main Layout Shell -->
+<div class="min-h-screen flex justify-end bg-[#0d1117] text-slate-100 font-sans">
+  
+  <!-- Sidebar Shell -->
+  <div id="sidebar-main" class="sidebar-main-mob sidebar bg-[#161b22] fixed top-0 left-0 h-full w-64 lg:w-72 p-3 border-r border-[#30363d] flex flex-col justify-between z-40 transition-all duration-200">
+    {{> dashboard/sidebar}}
+  </div>
+
+  <!-- Main Content Workspace -->
+  <div class="main-mob main w-full sm:w-[calc(100%-16rem)] lg:w-[calc(100%-18rem)] px-4 sm:px-8 py-6 overflow-y-auto transition-all duration-200" id="content">
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Top Title -->
+      <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#30363d]">
+        <h1 class="text-xl sm:text-2xl font-bold text-white tracking-wide flex items-center" id="heading">
+          Overview
+        </h1>
+      </div>
+
+      <div id="content-data">
+        
+        <!-- SECTION 0: Overview -->
+        <section id="content-0" class="space-y-6">
+          <!-- Main Hero Banner Card (Diluc Reforged Theme) -->
+          <div class="p-6 sm:p-10 rounded-3xl bg-[#161b22] border border-red-500/40 shadow-2xl relative overflow-hidden" style="background-image: linear-gradient(135deg, rgba(13, 17, 23, 0.75) 0%, rgba(22, 27, 34, 0.5) 50%, rgba(13, 17, 23, 0.88) 100%), url('/assets/images/namecards/diluc.webp'); background-size: cover; background-position: center;">
+            <!-- Flame Glow Accent -->
+            <div class="absolute -top-20 -right-20 w-80 h-80 bg-red-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-3xl space-y-4">
+              <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-red-500/25 text-red-300 border border-red-500/50 backdrop-blur-sm shadow-md">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse"></span>
+                Teyvat High-Performance Data Architecture
+              </div>
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+                FlameForge <span class="bg-gradient-to-r from-red-400 via-amber-400 to-rose-400 bg-clip-text text-transparent">Reforged</span>
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-light max-w-2xl">
+                Direct integration with official HoYoWiki static endpoints. Access combat talents, Lv1-13 attribute scaling matrices, constellation tiers, weapon curves, and story lore in high-speed JSON.
+              </p>
+              
+              <div class="flex flex-wrap items-center gap-2.5 pt-2">
+                {{#if (eq role 'admin')}}
+                <button id="btnQuickOpenStudio" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shadow-md shadow-amber-600/30">
+                  <i class="ti ti-bolt text-sm"></i>
+                  <span>Scraper Studio</span>
+                </button>
+                {{/if}}
+                <a href="/" target="_blank" class="px-4 py-2.5 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-200 hover:text-white border border-[#30363d] font-semibold text-xs transition-colors flex items-center gap-2 cursor-pointer">
+                  <i class="ti ti-book text-sm text-amber-400"></i>
+                  <span>OpenAPI Docs</span>
+                </a>
+                <a href="/about" class="px-4 py-2.5 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-200 hover:text-white border border-[#30363d] font-semibold text-xs transition-colors flex items-center gap-2 cursor-pointer">
+                  <i class="ti ti-info-circle text-sm text-indigo-400"></i>
+                  <span>System Architecture</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Universe Metrics 4-Card Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+            <!-- Characters Stat Card -->
+            <div class="p-4 rounded-2xl bg-[#161b22] border border-[#30363d] hover:border-red-500/50 transition-all flex items-center justify-between group shadow-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-400 shrink-0">
+                  <i class="ti ti-users text-xl"></i>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Characters</p>
+                  <p class="text-xl font-black text-white tracking-wide">{{characterCount}}</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-red-500/20 text-red-300 border border-red-500/30">Archive</span>
+            </div>
+
+            <!-- Weapons Stat Card -->
+            <div class="p-4 rounded-2xl bg-[#161b22] border border-[#30363d] hover:border-amber-500/50 transition-all flex items-center justify-between group shadow-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                  <i class="ti ti-swords text-xl"></i>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Weapons</p>
+                  <p class="text-xl font-black text-white tracking-wide">{{weaponCount}}</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">Armory</span>
+            </div>
+
+            <!-- Artifacts Stat Card -->
+            <div class="p-4 rounded-2xl bg-[#161b22] border border-[#30363d] hover:border-indigo-500/50 transition-all flex items-center justify-between group shadow-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
+                  <i class="ti ti-sparkles text-xl"></i>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Artifact Sets</p>
+                  <p class="text-xl font-black text-white tracking-wide">{{artifactCount}}</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Relics</span>
+            </div>
+
+            <!-- Community Stat Card -->
+            <div class="p-4 rounded-2xl bg-[#161b22] border border-[#30363d] hover:border-emerald-500/50 transition-all flex items-center justify-between group shadow-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                  <i class="ti ti-user-check text-xl"></i>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Community</p>
+                  <p class="text-xl font-black text-white tracking-wide">{{users.length}}</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Adventurers</span>
+            </div>
+          </div>
+
+          <!-- System Telemetry & Quick Architecture Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Engine Telemetry Card -->
+            <div class="p-5 sm:p-6 rounded-2xl bg-[#161b22] border border-[#30363d] space-y-4 shadow-xl">
+              <div class="flex items-center justify-between pb-3 border-b border-[#30363d]">
+                <div class="flex items-center gap-2">
+                  <i class="ti ti-activity-heartbeat text-red-400 text-lg"></i>
+                  <h3 class="text-xs font-bold uppercase tracking-wider text-slate-200">System Telemetry & Health</h3>
+                </div>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Live & Healthy
+                </span>
+              </div>
+              <div class="grid grid-cols-2 gap-3 text-xs">
+                <div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-1">
+                  <p class="text-[10px] text-slate-400 uppercase font-mono">Database Cluster</p>
+                  <p class="font-bold text-white flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span> MongoDB Atlas
+                  </p>
+                </div>
+                <div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-1">
+                  <p class="text-[10px] text-slate-400 uppercase font-mono">Crawler Engine</p>
+                  <p class="font-bold text-white flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-amber-400"></span> ~15s Concurrency
+                  </p>
+                </div>
+                <div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-1">
+                  <p class="text-[10px] text-slate-400 uppercase font-mono">REST Endpoints</p>
+                  <p class="font-bold text-white flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-indigo-400"></span> v1 & v2 OpenAPI 3.0
+                  </p>
+                </div>
+                <div class="p-3 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-1">
+                  <p class="text-[10px] text-slate-400 uppercase font-mono">Static Assets</p>
+                  <p class="font-bold text-white flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-rose-400"></span> Local Mirroring
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Developer Launchpad & Endpoints Card -->
+            <div class="p-5 sm:p-6 rounded-2xl bg-[#161b22] border border-[#30363d] space-y-4 shadow-xl flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-2 pb-3 border-b border-[#30363d]">
+                  <i class="ti ti-rocket text-amber-400 text-lg"></i>
+                  <h3 class="text-xs font-bold uppercase tracking-wider text-slate-200">Developer Quick Endpoints</h3>
+                </div>
+                <div class="space-y-2 mt-3 text-xs font-mono">
+                  <div class="p-2.5 rounded-xl bg-[#0d1117] border border-[#30363d] flex items-center justify-between">
+                    <span class="text-slate-300"><span class="text-emerald-400 font-bold">GET</span> /api/v1/characters</span>
+                    <a href="/api/v1/characters" target="_blank" class="text-[10px] text-slate-400 hover:text-white underline">Test ↗</a>
+                  </div>
+                  <div class="p-2.5 rounded-xl bg-[#0d1117] border border-[#30363d] flex items-center justify-between">
+                    <span class="text-slate-300"><span class="text-emerald-400 font-bold">GET</span> /api/v1/weapons</span>
+                    <a href="/api/v1/weapons" target="_blank" class="text-[10px] text-slate-400 hover:text-white underline">Test ↗</a>
+                  </div>
+                  <div class="p-2.5 rounded-xl bg-[#0d1117] border border-[#30363d] flex items-center justify-between">
+                    <span class="text-slate-300"><span class="text-emerald-400 font-bold">GET</span> /api/v1/artifacts</span>
+                    <a href="/api/v1/artifacts" target="_blank" class="text-[10px] text-slate-400 hover:text-white underline">Test ↗</a>
+                  </div>
+                </div>
+              </div>
+              <div class="pt-2">
+                <a href="/" target="_blank" class="w-full py-2 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-200 hover:text-white border border-[#30363d] text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
+                  <i class="ti ti-external-link text-sm"></i> Interactive Swagger Console
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- SECTION 1: Characters -->
+        <section id="content-1" class="space-y-5" style="display:none;">
+          <!-- Quick Sync & Instant Search/Filter Bar -->
+          <div class="matte-card-diluc p-4 sm:p-5 rounded-2xl bg-[#161b22] border border-[#30363d] shadow-xl space-y-4">
+            <!-- Search & Filters Row -->
+            <div class="flex flex-col md:flex-row gap-3 items-stretch md:items-center">
+              <div class="flex-1 relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-sm">
+                  <i class="ti ti-search"></i>
+                </span>
+                <input type="text" id="charSearchInput" placeholder="Search characters by name, vision, weapon..." class="w-full bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-red-500 rounded-xl pl-10 pr-4 py-2.5 outline-none transition-all placeholder-slate-500" />
+              </div>
+              <div class="flex gap-2.5">
+                <select id="charVisionFilter" class="bg-[#0d1117] text-slate-200 text-xs border border-[#30363d] focus:border-red-500 rounded-xl px-3.5 py-2.5 outline-none transition-all cursor-pointer">
+                  <option value="">All Elements</option>
+                  <option value="Pyro">Pyro (Fire)</option>
+                  <option value="Hydro">Hydro (Water)</option>
+                  <option value="Anemo">Anemo (Wind)</option>
+                  <option value="Electro">Electro (Lightning)</option>
+                  <option value="Dendro">Dendro (Nature)</option>
+                  <option value="Cryo">Cryo (Frost)</option>
+                  <option value="Geo">Geo (Earth)</option>
+                </select>
+                <select id="charRarityFilter" class="bg-[#0d1117] text-slate-200 text-xs border border-[#30363d] focus:border-red-500 rounded-xl px-3.5 py-2.5 outline-none transition-all cursor-pointer">
+                  <option value="">All Rarities</option>
+                  <option value="5">5★ Legendary</option>
+                  <option value="4">4★ Epic</option>
+                </select>
+              </div>
+            </div>
+
+            {{#if (isStaff role)}}
+            <!-- Staff Quick-Sync Sub-Bar -->
+            <div class="flex flex-col sm:flex-row gap-2.5 pt-3.5 border-t border-[#30363d]/80 items-stretch sm:items-center">
+              <div class="flex items-center gap-1.5 text-red-400 text-xs font-bold shrink-0">
+                <i class="ti ti-bolt text-sm"></i>
+                <span>Quick Sync:</span>
+              </div>
+              <input type="text" id="quickCharInput" placeholder="HoYoWiki URL or Entry ID (e.g. 43 for Diluc)" class="flex-1 bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-red-500 rounded-xl px-3.5 py-2 outline-none transition-all placeholder-slate-500" />
+              <button id="btnQuickCharSync" class="px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-bold text-xs transition-all shadow-md shadow-red-600/20 flex items-center justify-center gap-1.5 cursor-pointer shrink-0">
+                <i class="ti ti-cloud-download text-sm"></i>
+                <span>Sync Character</span>
+              </button>
+            </div>
+            {{/if}}
+          </div>
+
+          <!-- Character Cards Grid -->
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-bold text-slate-200 uppercase tracking-wider">Characters (<span id="charVisibleCount">{{characterCount}}</span>)</h3>
+              {{#if (eq role 'admin')}}
+              <a href="/dashboard/characters/download" class="text-xs text-red-400 hover:underline flex items-center gap-1">
+                <i class="ti ti-download text-sm"></i> Export JSON
+              </a>
+              {{/if}}
+            </div>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2.5" id="charCardsGrid">
+              {{#each characters}}
+              <div class="char-card group relative rounded-xl overflow-hidden {{#if (eq this.rarity 5)}}border-5star{{else}}border-4star{{/if}} p-2 flex flex-col items-center hover:border-red-500 active:scale-95 transition-all cursor-pointer" data-category="character" data-id="{{this._id}}" data-name="{{this.name}}" data-vision="{{this.vision}}" data-rarity="{{this.rarity}}" data-weapon="{{this.weapon}}">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden mb-1 flex items-center justify-center bg-[#0d1117] relative">
+                  <img src="{{this.images.profile}}" alt="{{this.name}}" class="w-full h-full object-cover" loading="lazy" />
+                  <span class="absolute top-0.5 left-0.5 px-1 py-0.2 rounded text-[8px] font-extrabold uppercase bg-black/70 text-red-300">{{this.vision}}</span>
+                </div>
+                <p class="text-[11px] font-bold text-center text-slate-100 truncate w-full px-0.5">{{this.name}}</p>
+                <div class="text-[9px] flex items-center mt-0.5 {{#if (eq this.rarity 5)}}text-amber-400{{else}}text-purple-400{{/if}}">
+                  {{#if (eq this.rarity 5)}}★★★★★{{else}}★★★★{{/if}}
+                </div>
+                
+                <!-- Action Hover Overlay (View Info Only - Desktop only) -->
+                <div class="hidden md:flex absolute inset-0 bg-[#0d1117]/90 opacity-0 group-hover:opacity-100 items-center justify-center transition-opacity px-1">
+                  <button title="View Info" data-category="character" data-id="{{this._id}}" class="view-info-btn px-2.5 py-1.5 rounded-lg bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/40 transition-all flex items-center justify-center gap-1 text-[11px] font-bold cursor-pointer shadow-md">
+                    <i class="ti ti-eye text-sm"></i>
+                    <span>Inspect</span>
+                  </button>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: Weapons -->
+        <section id="content-2" class="space-y-5" style="display:none;">
+          <!-- Quick Sync & Search Bar -->
+          <div class="matte-card-diluc p-4 sm:p-5 rounded-2xl bg-[#161b22] border border-[#30363d] shadow-xl space-y-4">
+            <!-- Search & Filters Row -->
+            <div class="flex flex-col md:flex-row gap-3 items-stretch md:items-center">
+              <div class="flex-1 relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-sm">
+                  <i class="ti ti-search"></i>
+                </span>
+                <input type="text" id="weapSearchInput" placeholder="Search weapons by name, family, rarity..." class="w-full bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-amber-500 rounded-xl pl-10 pr-4 py-2.5 outline-none transition-all placeholder-slate-500" />
+              </div>
+              <div class="flex gap-2.5">
+                <select id="weapFamilyFilter" class="bg-[#0d1117] text-slate-200 text-xs border border-[#30363d] focus:border-amber-500 rounded-xl px-3.5 py-2.5 outline-none transition-all cursor-pointer">
+                  <option value="">All Weapon Types</option>
+                  <option value="Sword">Sword</option>
+                  <option value="Claymore">Claymore</option>
+                  <option value="Polearm">Polearm</option>
+                  <option value="Bow">Bow</option>
+                  <option value="Catalyst">Catalyst</option>
+                </select>
+                <select id="weapRarityFilter" class="bg-[#0d1117] text-slate-200 text-xs border border-[#30363d] focus:border-amber-500 rounded-xl px-3.5 py-2.5 outline-none transition-all cursor-pointer">
+                  <option value="">All Rarities</option>
+                  <option value="5">5★ Legendary</option>
+                  <option value="4">4★ Epic</option>
+                  <option value="3">3★ Rare</option>
+                </select>
+              </div>
+            </div>
+
+            {{#if (isStaff role)}}
+            <!-- Staff Quick-Sync Sub-Bar -->
+            <div class="flex flex-col sm:flex-row gap-2.5 pt-3.5 border-t border-[#30363d]/80 items-stretch sm:items-center">
+              <div class="flex items-center gap-1.5 text-amber-400 text-xs font-bold shrink-0">
+                <i class="ti ti-bolt text-sm"></i>
+                <span>Quick Sync:</span>
+              </div>
+              <input type="text" id="quickWeaponInput" placeholder="HoYoWiki URL or Weapon Entry ID" class="flex-1 bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-amber-500 rounded-xl px-3.5 py-2 outline-none transition-all placeholder-slate-500" />
+              <button id="btnQuickWeaponSync" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold text-xs transition-all shadow-md shadow-amber-600/20 flex items-center justify-center gap-1.5 cursor-pointer shrink-0">
+                <i class="ti ti-cloud-download text-sm"></i>
+                <span>Sync Weapon</span>
+              </button>
+            </div>
+            {{/if}}
+          </div>
+
+          <!-- Weapons Grid -->
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-bold text-slate-200 uppercase tracking-wider">Weapons (<span id="weapVisibleCount">{{weaponCount}}</span>)</h3>
+              {{#if (eq role 'admin')}}
+              <a href="/dashboard/weapons/download" class="text-xs text-amber-400 hover:underline flex items-center gap-1">
+                <i class="ti ti-download text-sm"></i> Export JSON
+              </a>
+              {{/if}}
+            </div>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2.5" id="weapCardsGrid">
+              {{#each weapons}}
+              <div class="weap-card group relative rounded-xl overflow-hidden {{#if (eq this.rarity 5)}}border-5star{{else if (eq this.rarity 4)}}border-4star{{else}}border border-[#30363d] bg-[#161b22]{{/if}} p-2 flex flex-col items-center hover:border-amber-500 active:scale-95 transition-all cursor-pointer" data-category="weapon" data-id="{{this._id}}" data-name="{{this.name}}" data-family="{{this.family}}" data-rarity="{{this.rarity}}">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden mb-1 flex items-center justify-center bg-[#0d1117]">
+                  <img src="{{this.images.icon}}" alt="{{this.name}}" class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <p class="text-[11px] font-bold text-center text-slate-100 truncate w-full px-0.5">{{this.name}}</p>
+                <div class="text-[9px] flex items-center mt-0.5 {{#if (eq this.rarity 5)}}text-amber-400{{else if (eq this.rarity 4)}}text-purple-400{{else}}text-slate-400{{/if}}">
+                  {{this.rarity}}★ {{this.family}}
+                </div>
+                
+                <!-- Action Hover Overlay (View Info Only - Desktop only) -->
+                <div class="hidden md:flex absolute inset-0 bg-[#0d1117]/90 opacity-0 group-hover:opacity-100 items-center justify-center transition-opacity px-1">
+                  <button title="View Info" data-category="weapon" data-id="{{this._id}}" class="view-info-btn px-2.5 py-1.5 rounded-lg bg-amber-600/30 hover:bg-amber-600 text-amber-300 hover:text-white border border-amber-500/40 transition-all flex items-center justify-center gap-1 text-[11px] font-bold cursor-pointer shadow-md">
+                    <i class="ti ti-eye text-sm"></i>
+                    <span>Inspect</span>
+                  </button>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: Artifacts -->
+        <section id="content-3" class="space-y-5" style="display:none;">
+          <!-- Quick Sync & Search Bar -->
+          <div class="matte-card-diluc p-4 sm:p-5 rounded-2xl bg-[#161b22] border border-[#30363d] shadow-xl space-y-4">
+            <!-- Search Row -->
+            <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
+              <div class="flex-1 relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-sm">
+                  <i class="ti ti-search"></i>
+                </span>
+                <input type="text" id="artSearchInput" placeholder="Search artifact sets by name..." class="w-full bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-indigo-500 rounded-xl pl-10 pr-4 py-2.5 outline-none transition-all placeholder-slate-500" />
+              </div>
+            </div>
+
+            {{#if (isStaff role)}}
+            <!-- Staff Quick-Sync Sub-Bar -->
+            <div class="flex flex-col sm:flex-row gap-2.5 pt-3.5 border-t border-[#30363d]/80 items-stretch sm:items-center">
+              <div class="flex items-center gap-1.5 text-indigo-400 text-xs font-bold shrink-0">
+                <i class="ti ti-bolt text-sm"></i>
+                <span>Quick Sync:</span>
+              </div>
+              <input type="text" id="quickArtifactInput" placeholder="HoYoWiki URL or Artifact Set Entry ID" class="flex-1 bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-indigo-500 rounded-xl px-3.5 py-2 outline-none transition-all placeholder-slate-500" />
+              <button id="btnQuickArtifactSync" class="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold text-xs transition-all shadow-md shadow-indigo-600/20 flex items-center justify-center gap-1.5 cursor-pointer shrink-0">
+                <i class="ti ti-cloud-download text-sm"></i>
+                <span>Sync Artifact</span>
+              </button>
+            </div>
+            {{/if}}
+          </div>
+
+          <!-- Artifacts Grid -->
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-bold text-slate-200 uppercase tracking-wider">Artifact Sets (<span id="artVisibleCount">{{artifactCount}}</span>)</h3>
+              {{#if (eq role 'admin')}}
+              <a href="/dashboard/artifacts/download" class="text-xs text-indigo-400 hover:underline flex items-center gap-1">
+                <i class="ti ti-download text-sm"></i> Export JSON
+              </a>
+              {{/if}}
+            </div>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2.5" id="artCardsGrid">
+              {{#each artifacts}}
+              <div class="art-card group relative rounded-xl overflow-hidden border border-[#30363d] bg-[#161b22] p-2 flex flex-col items-center hover:border-indigo-500 active:scale-95 transition-all cursor-pointer" data-category="artifact" data-id="{{this._id}}" data-name="{{this.name}}">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden mb-1 flex items-center justify-center bg-[#0d1117]">
+                  <img src="{{this.fullSet.flower.icon}}" alt="{{this.name}}" class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <p class="text-[11px] font-bold text-center text-slate-100 truncate w-full px-0.5">{{this.name}}</p>
+                <div class="text-[9px] text-indigo-300 mt-0.5">5★ Set</div>
+                
+                <!-- Action Hover Overlay (View Info Only - Desktop only) -->
+                <div class="hidden md:flex absolute inset-0 bg-[#0d1117]/90 opacity-0 group-hover:opacity-100 items-center justify-center transition-opacity px-1">
+                  <button title="View Info" data-category="artifact" data-id="{{this._id}}" class="view-info-btn px-2.5 py-1.5 rounded-lg bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white border border-indigo-500/40 transition-all flex items-center justify-center gap-1 text-[11px] font-bold cursor-pointer shadow-md">
+                    <i class="ti ti-eye text-sm"></i>
+                    <span>Inspect</span>
+                  </button>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 8: ⚡ HoYoWiki Scraper Studio -->
+        {{#if (isStaff role)}}
+        <section id="content-8" class="space-y-6" style="display:none;">
+          <!-- Scraper Header -->
+          <div class="matte-card-diluc p-6 rounded-2xl">
+            <div class="flex items-center justify-between flex-wrap gap-3">
+              <div>
+                <span class="px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-red-500/20 text-red-400 border border-red-500/30 inline-flex items-center mb-1">
+                  Direct HoYoWiki Engine
+                </span>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">HoYoWiki Scraper Studio</h2>
+                <p class="text-slate-300 text-xs mt-0.5">Live data extraction, Cloudinary mirroring, and database synchronization.</p>
+              </div>
+              <div>
+                {{#if (eq role 'admin')}}
+                <label class="flex items-center cursor-pointer p-2.5 rounded-xl bg-[#0d1117] border border-[#30363d] text-xs text-slate-200 hover:border-red-500/50 transition-colors" title="Toggle automatic Cloudinary image mirroring">
+                  <input type="checkbox" id="cloudinaryToggle" checked class="mr-2 accent-red-500 w-4 h-4 rounded cursor-pointer" />
+                  <span>Mirror Images to Cloudinary</span>
+                </label>
+                {{else}}
+                <label class="flex items-center p-2.5 rounded-xl bg-[#0d1117]/80 border border-[#30363d] text-xs text-slate-300 select-none cursor-not-allowed" title="Cloudinary image mirroring is enabled by default (Admin managed)">
+                  <input type="checkbox" id="cloudinaryToggle" checked disabled class="mr-2 accent-red-500 w-4 h-4 rounded opacity-80 cursor-not-allowed" />
+                  <span>Mirror Images to Cloudinary</span>
+                  <span class="text-[10px] text-amber-400/90 font-mono ml-2 font-semibold">[Admin Managed]</span>
+                </label>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+
+          <!-- Single Entry Live Fetcher -->
+          <div class="matte-card p-5 rounded-2xl">
+            <h3 class="text-sm font-bold text-white mb-1 flex items-center gap-1.5">
+              <i class="ti ti-search text-red-400 text-base"></i>
+              <span>Single-Entry Live Inspector & Importer</span>
+            </h3>
+            <p class="text-xs text-slate-400 mb-3">Fetch any character, weapon, or artifact by URL or ID. Inspect details before syncing.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
+              <div class="sm:col-span-3">
+                <select id="scraperCategory" class="w-full matte-input px-3 py-2 rounded-lg text-xs bg-[#0b0e14]">
+                  <option value="character">Character (Menu 2)</option>
+                  <option value="weapon">Weapon (Menu 4)</option>
+                  <option value="artifact">Artifact (Menu 5)</option>
+                </select>
+              </div>
+              <div class="sm:col-span-6">
+                <input type="text" id="scraperEntryInput" placeholder="HoYoWiki URL or Entry ID (e.g. 43 for Diluc, 50 for Furina)" class="w-full matte-input px-3.5 py-2 rounded-lg text-xs" />
+              </div>
+              <div class="sm:col-span-3 flex space-x-2">
+                <button id="btnScraperPreview" class="flex-1 px-3 py-2 rounded-lg bg-[#21262d] hover:bg-[#30363d] text-slate-200 text-xs font-bold transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
+                  <i class="ti ti-eye text-sm"></i> <span>Preview</span>
+                </button>
+                <button id="btnScraperSync" class="flex-1 px-3 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
+                  <i class="ti ti-cloud-upload text-sm"></i> <span>Sync</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Dynamic Live Preview Box -->
+            <div id="scraperPreviewContainer" class="hidden mt-4 pt-4 border-t border-[#30363d]">
+              <div class="p-4 rounded-xl bg-[#0d1117] border border-[#30363d]">
+                <div class="flex items-start justify-between flex-wrap gap-3 mb-3">
+                  <div class="flex items-center space-x-3">
+                    <img id="prevImg" src="" alt="preview" class="w-14 h-14 rounded-xl object-cover border border-[#30363d] bg-[#161b22]" />
+                    <div>
+                      <h4 id="prevName" class="text-base font-bold text-white"></h4>
+                      <div class="flex items-center space-x-1.5 text-xs mt-0.5">
+                        <span id="prevRarity" class="px-2 py-0.2 rounded bg-amber-500/20 text-amber-300 font-bold"></span>
+                        <span id="prevVision" class="px-2 py-0.2 rounded bg-red-500/20 text-red-300"></span>
+                        <span id="prevWeapon" class="px-2 py-0.2 rounded bg-[#21262d] text-slate-300"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <span id="prevStatusBadge" class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Ready for Import</span>
+                </div>
+
+                <p id="prevDesc" class="text-xs text-slate-300 leading-relaxed mb-3"></p>
+                <div id="prevDetails" class="space-y-2 text-xs"></div>
+              </div>
+            </div>
+          </div>
+
+          {{#if (eq role 'admin')}}
+          <!-- Universe Batch Sync (Admin Only) -->
+          <div class="matte-card p-5 rounded-2xl">
+            <h3 class="text-sm font-bold text-white mb-1 flex items-center gap-1.5">
+              <i class="ti ti-refresh text-amber-400 text-base"></i>
+              <span>Universe Batch Sync Deck</span>
+            </h3>
+            <p class="text-xs text-slate-400 mb-4">Batch synchronize entire datasets directly from HoYoWiki into local MongoDB with worker pools.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div class="p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] flex flex-col justify-between">
+                <div>
+                  <p class="text-xs font-bold text-white">128 Characters</p>
+                  <p class="text-[11px] text-slate-400">Talents, Scaling & Lore</p>
+                </div>
+                <button id="btnSyncChars" class="mt-3 w-full py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
+                  <i class="ti ti-download text-sm"></i> <span>Sync Characters (~4s)</span>
+                </button>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] flex flex-col justify-between">
+                <div>
+                  <p class="text-xs font-bold text-white">245 Weapons</p>
+                  <p class="text-[11px] text-slate-400">Stats Table & Passives</p>
+                </div>
+                <button id="btnSyncWeaps" class="mt-3 w-full py-2 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
+                  <i class="ti ti-download text-sm"></i> <span>Sync Weapons (~9s)</span>
+                </button>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] flex flex-col justify-between">
+                <div>
+                  <p class="text-xs font-bold text-white">63 Artifacts</p>
+                  <p class="text-[11px] text-slate-400">Full 5-Piece Sets</p>
+                </div>
+                <button id="btnSyncArts" class="mt-3 w-full py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
+                  <i class="ti ti-download text-sm"></i> <span>Sync Artifacts (~2s)</span>
+                </button>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-[#0d1117] border border-red-500/30 flex flex-col justify-between">
+                <div>
+                  <p class="text-xs font-bold text-red-300">Entire Universe</p>
+                  <p class="text-[11px] text-slate-400">All 436 Entities</p>
+                </div>
+                <button id="btnSyncUniverse" class="mt-3 w-full py-2 rounded-lg bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-md shadow-red-600/30">
+                  <i class="ti ti-rocket text-sm"></i> <span>🚀 Sync All (~15s)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+
+          <!-- Execution Console Stream (Visible to Staff) -->
+          <div class="matte-card p-5 rounded-2xl">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs text-slate-300 font-mono font-bold flex items-center">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span> Engine Execution Stream
+              </span>
+              <button id="btnClearConsole" class="text-[11px] text-slate-400 hover:text-white font-mono cursor-pointer px-2.5 py-1 rounded-lg bg-[#21262d] hover:bg-[#30363d] transition-colors">Clear Stream</button>
+            </div>
+            <div id="scraperConsoleBox" class="p-3.5 rounded-xl bg-[#0b0e14] border border-[#30363d] font-mono text-xs text-slate-300 space-y-1 max-h-48 overflow-y-auto">
+              <p class="text-slate-500">> HoYoWiki Scraper Engine v2.0 connected. Ready for commands.</p>
+            </div>
+          </div>
+        </section>
+        {{/if}}
+
+        <!-- SECTION 4: Database Admin Control -->
+        {{#if (eq role 'admin')}}
+        <section id="content-4" class="space-y-5" style="display:none;">
+          
+          <!-- Search & Multi-Filter Control Panel -->
+          <div class="matte-card-diluc p-5 rounded-2xl bg-[#161b22] border border-[#30363d] shadow-xl space-y-4">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 pb-3 border-b border-[#30363d]">
+              <div>
+                <h3 class="text-sm font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+                  <i class="ti ti-shield-lock text-red-400 text-base"></i>
+                  <span>Database Admin Center</span>
+                </h3>
+                <p class="text-[11px] text-slate-400 mt-0.5">Manage records, inspect metadata, download archives, and modify entities.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <a href="/dashboard/characters/download" title="Export Characters JSON" class="px-3 py-1.5 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 hover:text-white border border-[#30363d] text-xs font-semibold flex items-center gap-1.5 transition-colors">
+                  <i class="ti ti-download text-red-400"></i> Characters
+                </a>
+                <a href="/dashboard/weapons/download" title="Export Weapons JSON" class="px-3 py-1.5 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 hover:text-white border border-[#30363d] text-xs font-semibold flex items-center gap-1.5 transition-colors">
+                  <i class="ti ti-download text-amber-400"></i> Weapons
+                </a>
+                <a href="/dashboard/artifacts/download" title="Export Artifacts JSON" class="px-3 py-1.5 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 hover:text-white border border-[#30363d] text-xs font-semibold flex items-center gap-1.5 transition-colors">
+                  <i class="ti ti-download text-indigo-400"></i> Artifacts
+                </a>
+              </div>
+            </div>
+
+            <!-- Global Search & Selectors Toolbar -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <!-- Search Bar -->
+              <div class="sm:col-span-2 relative">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 text-xs">
+                  <i class="ti ti-search"></i>
+                </span>
+                <input type="text" id="adminSearchInput" placeholder="Search by name, region, family, element..." class="w-full bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-red-500 rounded-xl pl-8 pr-3 py-2 outline-none transition-all placeholder-slate-500" />
+              </div>
+
+              <!-- Category Filter Selector -->
+              <div>
+                <select id="adminCategoryFilter" class="w-full bg-[#0d1117] text-slate-200 text-xs border border-[#30363d] focus:border-red-500 rounded-xl px-3 py-2 outline-none transition-all cursor-pointer">
+                  <option value="all">📁 All Categories (All Records)</option>
+                  <option value="character">🎴 Characters ({{characterCount}})</option>
+                  <option value="weapon">⚔️ Weapons ({{weaponCount}})</option>
+                  <option value="artifact">🏺 Artifacts ({{artifactCount}})</option>
+                </select>
+              </div>
+
+              <!-- Rarity Filter Selector -->
+              <div>
+                <select id="adminRarityFilter" class="w-full bg-[#0d1117] text-slate-200 text-xs border border-[#30363d] focus:border-red-500 rounded-xl px-3 py-2 outline-none transition-all cursor-pointer">
+                  <option value="all">⭐ All Rarities</option>
+                  <option value="5">5★ Legendary</option>
+                  <option value="4">4★ Epic</option>
+                  <option value="3">3★ Rare</option>
+                  <option value="2">2★ Uncommon</option>
+                  <option value="1">1★ Common</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Second Filter Row: Vision & Weapon Type -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div>
+                <select id="adminVisionFilter" class="w-full bg-[#0d1117] text-slate-200 text-xs border border-[#30363d] focus:border-red-500 rounded-xl px-3 py-2 outline-none transition-all cursor-pointer">
+                  <option value="all">🔮 All Elements / Visions</option>
+                  <option value="Pyro">🔥 Pyro</option>
+                  <option value="Hydro">💧 Hydro</option>
+                  <option value="Anemo">🌪️ Anemo</option>
+                  <option value="Electro">⚡ Electro</option>
+                  <option value="Dendro">🌿 Dendro</option>
+                  <option value="Cryo">❄️ Cryo</option>
+                  <option value="Geo">🪨 Geo</option>
+                </select>
+              </div>
+
+              <div>
+                <select id="adminWeaponFilter" class="w-full bg-[#0d1117] text-slate-200 text-xs border border-[#30363d] focus:border-red-500 rounded-xl px-3 py-2 outline-none transition-all cursor-pointer">
+                  <option value="all">⚔️ All Weapon Types</option>
+                  <option value="Sword">🗡️ Sword</option>
+                  <option value="Claymore">🗡️ Claymore</option>
+                  <option value="Polearm">🔱 Polearm</option>
+                  <option value="Bow">🏹 Bow</option>
+                  <option value="Catalyst">📖 Catalyst</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Characters Management List -->
+          <div id="adminCharSection" class="admin-data-section">
+            <h3 class="text-xs font-bold text-slate-400 mb-2 uppercase tracking-wider flex items-center justify-between">
+              <span>Characters (<span id="adminCharVisibleCount">{{characterCount}}</span>)</span>
+            </h3>
+            <div class="space-y-1.5 text-xs">
+              {{#each characters}}
+              <div class="character-list p-2.5 rounded-xl bg-[#161b22] border border-[#30363d] flex items-center justify-between hover:border-red-500/50 transition-colors" data-name="{{this.name}}" data-vision="{{this.vision}}" data-weapon="{{this.weapon}}" data-rarity="{{this.rarity}}" data-category="character">
+                <div class="flex items-center space-x-3">
+                  <img src="{{this.images.profile}}" alt="{{this.name}}" class="w-8 h-8 rounded-lg object-cover bg-[#0d1117]" onerror="this.src='/assets/images/characters.webp'" />
+                  <div>
+                    <p class="character-title font-bold text-white">{{this.name}}</p>
+                    <p class="text-[11px] text-slate-400">{{this.rarity}}★ {{this.vision}} {{this.weapon}}</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                  <button title="View Info" data-category="character" data-id="{{this._id}}" class="view-info-btn p-1.5 rounded-lg bg-[#21262d] text-slate-300 hover:text-white cursor-pointer">
+                    <i class="ti ti-eye text-sm"></i>
+                  </button>
+                  <a href="/dashboard/character/edit/{{this._id}}" class="p-1.5 rounded-lg bg-[#21262d] text-amber-300 hover:text-amber-200 cursor-pointer">
+                    <i class="ti ti-edit text-sm"></i>
+                  </a>
+                  <button data-characterid="{{this._id}}" class="delete-character-btn p-1.5 rounded-lg bg-[#21262d] text-rose-400 hover:text-rose-300 cursor-pointer">
+                    <i class="ti ti-trash text-sm"></i>
+                  </button>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+
+          <!-- Weapons Management List -->
+          <div id="adminWeapSection" class="admin-data-section mt-6">
+            <h3 class="text-xs font-bold text-slate-400 mb-2 uppercase tracking-wider flex items-center justify-between">
+              <span>Weapons (<span id="adminWeapVisibleCount">{{weaponCount}}</span>)</span>
+            </h3>
+            <div class="space-y-1.5 text-xs">
+              {{#each weapons}}
+              <div class="weapon-list p-2.5 rounded-xl bg-[#161b22] border border-[#30363d] flex items-center justify-between hover:border-amber-500/50 transition-colors" data-name="{{this.name}}" data-family="{{this.family}}" data-weapon="{{this.family}}" data-rarity="{{this.rarity}}" data-category="weapon">
+                <div class="flex items-center space-x-3">
+                  <img src="{{this.images.icon}}" alt="{{this.name}}" class="w-8 h-8 rounded-lg object-cover bg-[#0d1117]" onerror="this.src='/assets/images/weapons.webp'" />
+                  <div>
+                    <p class="weapon-title font-bold text-white">{{this.name}}</p>
+                    <p class="text-[11px] text-slate-400">{{this.rarity}}★ {{this.family}}</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                  <button title="View Info" data-category="weapon" data-id="{{this._id}}" class="view-info-btn p-1.5 rounded-lg bg-[#21262d] text-slate-300 hover:text-white cursor-pointer">
+                    <i class="ti ti-eye text-sm"></i>
+                  </button>
+                  <a href="/dashboard/weapon/edit/{{this._id}}" class="p-1.5 rounded-lg bg-[#21262d] text-amber-300 hover:text-amber-200 cursor-pointer">
+                    <i class="ti ti-edit text-sm"></i>
+                  </a>
+                  <button data-weaponid="{{this._id}}" class="delete-weapon-btn p-1.5 rounded-lg bg-[#21262d] text-rose-400 hover:text-rose-300 cursor-pointer">
+                    <i class="ti ti-trash text-sm"></i>
+                  </button>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+
+          <!-- Artifacts Management List -->
+          <div id="adminArtSection" class="admin-data-section mt-6">
+            <h3 class="text-xs font-bold text-slate-400 mb-2 uppercase tracking-wider flex items-center justify-between">
+              <span>Artifact Sets (<span id="adminArtVisibleCount">{{artifactCount}}</span>)</span>
+            </h3>
+            <div class="space-y-1.5 text-xs">
+              {{#each artifacts}}
+              <div class="artifact-list p-2.5 rounded-xl bg-[#161b22] border border-[#30363d] flex items-center justify-between hover:border-indigo-500/50 transition-colors" data-name="{{this.name}}" data-category="artifact">
+                <div class="flex items-center space-x-3">
+                  <img src="{{this.fullSet.flower.icon}}" alt="{{this.name}}" class="w-8 h-8 rounded-lg object-cover bg-[#0d1117]" onerror="this.src='/assets/images/artifacts.webp'" />
+                  <div>
+                    <p class="artifact-title font-bold text-white">{{this.name}}</p>
+                    <p class="text-[11px] text-slate-400">5★ Artifact Set</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                  <button title="View Info" data-category="artifact" data-id="{{this._id}}" class="view-info-btn p-1.5 rounded-lg bg-[#21262d] text-slate-300 hover:text-white cursor-pointer">
+                    <i class="ti ti-eye text-sm"></i>
+                  </button>
+                  <a href="/dashboard/artifact/edit/{{this._id}}" class="p-1.5 rounded-lg bg-[#21262d] text-indigo-300 hover:text-indigo-200 cursor-pointer">
+                    <i class="ti ti-edit text-sm"></i>
+                  </a>
+                  <button data-artifactid="{{this._id}}" class="delete-artifact-btn p-1.5 rounded-lg bg-[#21262d] text-rose-400 hover:text-rose-300 cursor-pointer">
+                    <i class="ti ti-trash text-sm"></i>
+                  </button>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+
+          <!-- Empty Search State -->
+          <div id="adminNoResults" class="hidden p-8 rounded-2xl bg-[#161b22] border border-[#30363d] text-center space-y-2">
+            <i class="ti ti-database-search text-3xl text-slate-500"></i>
+            <p class="text-xs font-bold text-slate-300">No database records match your filter criteria.</p>
+            <p class="text-[11px] text-slate-500">Try changing your search query, clearing filters, or switching category.</p>
+          </div>
+
+        </section>
+        {{/if}}
+
+        <!-- SECTION 5: Users Directory -->
+        <section id="content-5" class="space-y-5" style="display:none;">
+          <!-- Search & Header Bar -->
+          <div class="matte-card-diluc p-4 sm:p-5 rounded-2xl bg-[#161b22] border border-[#30363d] shadow-xl space-y-3">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div>
+                <h3 class="text-sm font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+                  <i class="ti ti-users text-amber-400 text-base"></i>
+                  <span>User Directory (<span id="userVisibleCount">{{users.length}}</span>)</span>
+                </h3>
+                <p class="text-[11px] text-slate-400 mt-0.5">Explore community members, adventurers, and database administrators.</p>
+              </div>
+              <div class="w-full sm:w-72 relative">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 text-xs">
+                  <i class="ti ti-search"></i>
+                </span>
+                <input type="text" id="userSearchInput" placeholder="Search members by name, username, role..." class="w-full bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-amber-500 rounded-xl pl-8 pr-3 py-2 outline-none transition-all placeholder-slate-500" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Users Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="usersCardsGrid">
+            {{#each users}}
+            <div class="user-card group rounded-2xl bg-[#161b22] border border-[#30363d] overflow-hidden hover:border-slate-500/60 transition-all shadow-lg flex flex-col" data-name="{{this.firstName}} {{this.lastName}}" data-username="{{this.username}}" data-role="{{this.role}}">
+              
+              <!-- Namecard Banner Header -->
+              <div class="h-20 sm:h-24 w-full relative bg-[#0d1117] overflow-hidden" style="background-image: linear-gradient(180deg, rgba(13, 17, 23, 0.3) 0%, rgba(22, 27, 34, 0.95) 100%), url('{{#if this.namecard}}{{this.namecard}}{{else}}/assets/images/namecards/diluc.webp{{/if}}'); background-size: cover; background-position: center;">
+                <!-- Role Badge -->
+                <div class="absolute top-2.5 right-2.5">
+                  {{#if (eq this.role 'admin')}}
+                  <span class="px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-red-600/90 text-white border border-red-400 shadow-md">Admin</span>
+                  {{else if (eq this.role 'moderator')}}
+                  <span class="px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-amber-600/90 text-white border border-amber-400 shadow-md">Moderator</span>
+                  {{else}}
+                  <span class="px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-[#0d1117]/80 text-slate-300 border border-[#30363d] backdrop-blur-xs">Member</span>
+                  {{/if}}
+                </div>
+              </div>
+
+              <!-- User Body & Overlapping Avatar -->
+              <div class="px-4 pb-4 pt-0 flex-1 flex flex-col -mt-8 relative z-10">
+                <div class="flex items-end justify-between mb-2.5">
+                  <div class="relative">
+                    <img src="{{#if this.profilePic}}{{this.profilePic}}{{else}}/assets/images/profilePics/diluc_skin.webp{{/if}}" alt="{{this.username}}" class="w-14 h-14 rounded-2xl object-cover border-2 border-[#161b22] bg-[#0d1117] shadow-xl" onerror="this.src='/assets/images/profilePics/diluc_skin.webp'" />
+                  </div>
+                  {{#if (eq ../role 'admin')}}
+                  <!-- Admin Actions -->
+                  <div class="flex items-center gap-1.5 pb-1">
+                    <button type="button" title="Edit Basic Info" class="btn-edit-user-modal p-1.5 rounded-lg bg-[#21262d] hover:bg-amber-600 text-amber-300 hover:text-white border border-[#30363d] transition-colors cursor-pointer" data-id="{{this._id}}" data-firstname="{{this.firstName}}" data-lastname="{{this.lastName}}" data-username="{{this.username}}" data-role="{{this.role}}">
+                      <i class="ti ti-edit text-xs"></i>
+                    </button>
+                    <button type="button" title="Delete User" class="btn-delete-user-modal p-1.5 rounded-lg bg-[#21262d] hover:bg-rose-600 text-rose-300 hover:text-white border border-[#30363d] transition-colors cursor-pointer" data-id="{{this._id}}" data-username="{{this.username}}">
+                      <i class="ti ti-trash text-xs"></i>
+                    </button>
+                  </div>
+                  {{/if}}
+                </div>
+
+                <div class="space-y-0.5">
+                  <h4 class="font-bold text-white text-sm truncate leading-snug">{{this.firstName}} {{this.lastName}}</h4>
+                  <p class="text-xs text-slate-400 font-mono truncate">@{{this.username}}</p>
+                </div>
+              </div>
+
+            </div>
+            {{/each}}
+          </div>
+        </section>
+
+        <!-- SECTION 6: Settings -->
+        <section id="content-6" class="space-y-5" style="display:none;">
+          <div class="matte-card-diluc p-6 rounded-2xl bg-[#161b22] border border-[#30363d] shadow-xl space-y-6">
+            {{#if (eq role 'admin')}}
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <i class="ti ti-adjustments text-red-400 text-lg"></i>
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200">Global System Configuration</h4>
+              </div>
+              <form action="/misc/setting" method="POST" class="flex items-center justify-between p-4 rounded-xl bg-[#0d1117] border border-[#30363d]">
+                <div>
+                  <p class="font-semibold text-slate-200 text-xs">Public User Registration</p>
+                  <p class="text-[11px] text-slate-400">Allow new users to sign up via /register route</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <label class="switch">
+                    <input type="checkbox" name="registerRoute" id="registerRoute" value="true" {{#if (eq settings.registerRoute true)}} checked {{/if}}>
+                    <span class="slider"></span>
+                  </label>
+                  <button type="submit" class="px-4 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs transition-colors uppercase cursor-pointer">Save</button>
+                </div>
+              </form>
+            </div>
+            {{else}}
+            <div class="text-center py-6 space-y-2">
+              <i class="ti ti-settings text-slate-500 text-3xl"></i>
+              <p class="text-sm font-semibold text-slate-300">System Configuration</p>
+              <p class="text-xs text-slate-500">Administrator settings are managed by system admins.</p>
+              <div class="pt-3">
+                <a href="/dashboard/profile" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-white text-xs font-semibold border border-[#30363d] transition-colors">
+                  <i class="ti ti-user-edit text-red-400"></i>
+                  <span>Manage Profile & Customization</span>
+                </a>
+              </div>
+            </div>
+            {{/if}}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script defer type="text/javascript" src="/js/script.js"></script>
+
+{{#if messages.success}}
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    if (typeof showAlertBox === 'function') {
+      showAlertBox('{{messages.success}}');
+    }
+  });
+</script>
+{{/if}}
+{{#if messages.error}}
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    if (typeof showAlertErrorBox === 'function') {
+      showAlertErrorBox('{{messages.error}}');
+    }
+  });
+</script>
+{{/if}}

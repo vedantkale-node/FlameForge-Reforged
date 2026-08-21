@@ -1,0 +1,33 @@
+/* FlameForge Responsive Breakpoints */
+@media screen and (max-width: 768px) {
+    #sidebar-main,
+    .sidebar,
+    .sidebar-mob,
+    .sidebar-main-mob {
+        transform: translateX(-100%);
+        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 50 !important;
+    }
+    #sidebar-main.sidebar-active,
+    .sidebar.sidebar-active,
+    .sidebar-mob.sidebar-active,
+    .sidebar-main-mob.sidebar-active {
+        transform: translateX(0);
+        display: flex !important;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) !important;
+    }
+    .main-mob {
+        width: 100% !important;
+    }
+    .modal-card {
+        width: 95% !important;
+        max-width: 95% !important;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    body {
+        overflow-x: hidden;
+    }
+}

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swagger API Docs | FlameForge Reforged</title>
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css" />
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/tabler-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="FlameForge (Reforged)" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  <style>
+    /* Hide Swagger default topbar and Schemas/Models section */
+    .swagger-ui .topbar,
+    .swagger-ui section.models {
+      display: none !important;
+    }
+
+    /* Standard Swagger UI Dark Mode */
+    .swagger-ui {
+      color: #e6edf3;
+      font-family: inherit;
+    }
+
+    .swagger-ui .wrapper {
+      padding: 0;
+      max-width: 100%;
+    }
+
+    /* Info container */
+    .swagger-ui .info {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .swagger-ui .info .title {
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Title Version & OAS Badges */
+    .swagger-ui .info .title small {
+      display: inline-flex !important;
+      align-items: center !important;
+      vertical-align: middle !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      padding: 3px 10px !important;
+      border-radius: 9999px !important;
+      background: #21262d !important;
+      color: #e6edf3 !important;
+      border: 1px solid #30363d !important;
+      line-height: normal !important;
+      box-sizing: border-box !important;
+      margin: 0 !important;
+    }
+
+    .swagger-ui .info .title small pre,
+    .swagger-ui .info .title small span,
+    .swagger-ui .info .title small.version-stamp pre,
+    .swagger-ui .info .title small.version-pragma span {
+      background: transparent !important;
+      border: none !important;
+      color: inherit !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: inherit !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      box-shadow: none !important;
+    }
+
+    .swagger-ui .info .title small.version-pragma {
+      background: rgba(16, 185, 129, 0.15) !important;
+      color: #34d399 !important;
+      border-color: rgba(16, 185, 129, 0.35) !important;
+    }
+
+    .swagger-ui .info p,
+    .swagger-ui .info li,
+    .swagger-ui .info table {
+      color: #8b949e;
+    }
+
+    .swagger-ui .info a {
+      color: #58a6ff;
+    }
+
+    /* Servers / Schemes bar */
+    .swagger-ui .scheme-container {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      box-shadow: none;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+    }
+
+    .swagger-ui .schemes-title,
+    .swagger-ui .servers-title {
+      color: #c9d1d9;
+    }
+
+    .swagger-ui select {
+      background: #0d1117;
+      color: #ffffff;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 6px 10px;
+    }
+
+    /* Opblock Tags */
+    .swagger-ui .opblock-tag {
+      color: #ffffff;
+      border-bottom: 1px solid #30363d;
+    }
+
+    .swagger-ui .opblock-tag small {
+      color: #8b949e;
+    }
+
+    .swagger-ui svg {
+      fill: #8b949e;
+    }
+
+    /* Default Swagger Method Blocks in Dark Mode */
+    .swagger-ui .opblock {
+      border-radius: 8px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .swagger-ui .opblock.opblock-get {
+      background: rgba(73, 204, 144, 0.1);
+      border-color: #49cc90;
+    }
+
+    .swagger-ui .opblock.opblock-post {
+      background: rgba(73, 144, 226, 0.1);
+      border-color: #4990e2;
+    }
+
+    .swagger-ui .opblock.opblock-put {
+      background: rgba(252, 161, 48, 0.1);
+      border-color: #fca130;
+    }
+
+    .swagger-ui .opblock.opblock-delete {
+      background: rgba(249, 62, 62, 0.1);
+      border-color: #f93e3e;
+    }
+
+    .swagger-ui .opblock.opblock-patch {
+      background: rgba(80, 227, 194, 0.1);
+      border-color: #50e3c2;
+    }
+
+    .swagger-ui .opblock .opblock-summary-path,
+    .swagger-ui .opblock .opblock-summary-path__deprecated {
+      color: #f0f6fc;
+    }
+
+    .swagger-ui .opblock .opblock-summary-description {
+      color: #8b949e;
+    }
+
+    /* Expanded Body & Section Headers (Parameters & Responses strips) */
+    .swagger-ui .opblock-body {
+      background: #0d1117 !important;
+    }
+
+    .swagger-ui .opblock-section-header,
+    .swagger-ui .opblock .opblock-section-header,
+    .swagger-ui .responses-wrapper .opblock-section-header {
+      background: #161b22 !important;
+      border-bottom: 1px solid #30363d !important;
+      box-shadow: none !important;
+    }
+
+    .swagger-ui .opblock-section-header h4,
+    .swagger-ui .opblock-section-header label,
+    .swagger-ui .opblock .opblock-section-header h4,
+    .swagger-ui .opblock .opblock-section-header label {
+      color: #e6edf3 !important;
+    }
+
+    /* Tables */
+    .swagger-ui table thead tr th {
+      color: #8b949e !important;
+      border-bottom: 1px solid #30363d !important;
+    }
+
+    .swagger-ui table tbody tr td {
+      border-bottom: 1px solid #21262d !important;
+      color: #c9d1d9 !important;
+    }
+
+    .swagger-ui .parameter__name {
+      color: #f0f6fc !important;
+    }
+
+    .swagger-ui .parameter__type {
+      color: #8b949e !important;
+    }
+
+    .swagger-ui .parameter__in {
+      color: #6e7681 !important;
+    }
+
+    .swagger-ui .parameter__default,
+    .swagger-ui .parameter__default span,
+    .swagger-ui input[disabled],
+    .swagger-ui select[disabled],
+    .swagger-ui textarea[disabled] {
+      background: #21262d !important;
+      color: #8b949e !important;
+      border-color: #30363d !important;
+    }
+
+    /* Inputs and Forms */
+    .swagger-ui input[type=text],
+    .swagger-ui input[type=password],
+    .swagger-ui input[type=search],
+    .swagger-ui input[type=email],
+    .swagger-ui textarea {
+      background: #161b22;
+      color: #f0f6fc;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+    }
+
+    /* Code Blocks & Responses */
+    .swagger-ui .highlight-code,
+    .swagger-ui .opblock-body pre,
+    .swagger-ui .responses-inner pre,
+    .swagger-ui .curl-command pre,
+    .swagger-ui .microlight:not(small *) {
+      background: #161b22 !important;
+      color: #7ee787 !important;
+      border: 1px solid #30363d;
+    }
+
+    .swagger-ui .responses-inner {
+      background: #0d1117;
+    }
+
+    .swagger-ui .response-col_status {
+      color: #7ee787;
+    }
+
+    .swagger-ui .response-col_description {
+      color: #c9d1d9;
+    }
+
+    /* Buttons */
+    .swagger-ui .btn {
+      color: #c9d1d9;
+      border-color: #30363d;
+      background-color: #21262d;
+      border-radius: 6px;
+    }
+
+    .swagger-ui .btn:hover {
+      background-color: #30363d;
+      color: #ffffff;
+    }
+
+    .swagger-ui .btn.execute {
+      background-color: #4990e2;
+      color: #ffffff;
+      border-color: #4990e2;
+    }
+
+    .swagger-ui .btn.try-out__btn {
+      background-color: transparent;
+      border-color: #4990e2;
+      color: #58a6ff;
+    }
+
+    /* Models & Schemas */
+    .swagger-ui section.models {
+      border: 1px solid #30363d;
+      background: #161b22;
+      border-radius: 10px;
+    }
+
+    .swagger-ui section.models h4 {
+      color: #f0f6fc;
+      border-bottom: 1px solid #30363d;
+    }
+
+    .swagger-ui .model-box {
+      background: #0d1117;
+    }
+
+    .swagger-ui .model-title {
+      color: #f0f6fc;
+    }
+
+    .swagger-ui .model {
+      color: #c9d1d9;
+    }
+
+    .swagger-ui .prop-type {
+      color: #ff7b72;
+    }
+
+    .swagger-ui .prop-format {
+      color: #8b949e;
+    }
+
+    /* Response & Parameter Tabs */
+    .swagger-ui .tab li button.tablinks {
+      color: #8b949e;
+      background: transparent;
+    }
+
+    .swagger-ui .tab li.active button.tablinks {
+      color: #58a6ff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="bg-[#0d1117] text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- ========================================== -->
+  <!-- TOP RESPONSIVE HEADER -->
+  <!-- ========================================== -->
+  <header class="bg-[#161b22] border-b border-[#30363d] px-4 sm:px-8 py-3.5 sticky top-0 z-50 flex items-center justify-between shadow-xl">
+    <div class="flex items-center gap-2.5 sm:gap-3 overflow-hidden">
+      <a href="/" class="flex items-center gap-2 group flex-shrink-0">
+        <img src="/assets/images/dawn.webp" width="28" height="28" alt="FlameForge" class="w-7 h-7 flex-shrink-0 transition-transform group-hover:scale-105">
+        <div class="flex items-baseline gap-1 truncate">
+          <span class="text-base font-bold text-white tracking-wide">FlameForge</span>
+          <span class="text-[10px] font-bold text-red-400 uppercase tracking-wider">(Reforged)</span>
+        </div>
+      </a>
+      <span class="hidden md:inline-block px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-red-500/15 text-red-300 border border-red-500/30 shrink-0">OpenAPI 3.0</span>
+    </div>
+
+    <!-- Navigation Actions -->
+    <div class="flex items-center gap-1.5 sm:gap-2.5 text-xs font-semibold shrink-0">
+      <a href="/dashboard" class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-200 hover:text-white border border-[#30363d] transition-colors flex items-center justify-center gap-1.5 cursor-pointer" title="Dashboard">
+        <i class="ti ti-layout-dashboard text-base sm:text-sm text-red-400"></i>
+        <span class="hidden sm:inline">Dashboard</span>
+      </a>
+      <a href="/about" class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-200 hover:text-white border border-[#30363d] transition-colors flex items-center justify-center gap-1.5 cursor-pointer" title="About FlameForge">
+        <i class="ti ti-info-circle text-base sm:text-sm text-amber-400"></i>
+        <span class="hidden sm:inline">About</span>
+      </a>
+      <a href="/api/openapi.json" target="_blank" class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-red-600/20 hover:bg-red-600/30 text-red-300 border border-red-500/40 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 cursor-pointer" title="View raw OpenAPI 3.0 JSON specification">
+        <i class="ti ti-file-code text-base sm:text-sm"></i>
+        <span class="hidden sm:inline">JSON Spec</span>
+      </a>
+      <a href="https://github.com/vedantkale-node/FlameForge-Reforged" target="_blank" rel="noopener noreferrer" class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 hover:text-white border border-[#30363d] transition-colors flex items-center justify-center gap-1.5 cursor-pointer" title="GitHub Repository">
+        <i class="ti ti-brand-github text-base sm:text-sm"></i>
+        <span class="hidden sm:inline">GitHub</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- HERO SHOWCASE BANNER -->
+  <!-- ========================================== -->
+  <div class="w-full bg-[#0d1117] border-b border-[#30363d]/60 px-4 sm:px-8 py-6 sm:py-10">
+    <div class="max-w-6xl mx-auto space-y-5">
+      
+      <!-- Diluc Themed Hero Card -->
+      <div class="p-5 sm:p-10 rounded-3xl bg-[#161b22] border border-red-500/40 shadow-2xl relative overflow-hidden" style="background-image: linear-gradient(135deg, rgba(13, 17, 23, 0.78) 0%, rgba(22, 27, 34, 0.55) 50%, rgba(13, 17, 23, 0.92) 100%), url('/assets/images/namecards/diluc.webp'); background-size: cover; background-position: center;">
+        <!-- Flame Glow Accent -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-red-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-3xl space-y-3.5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-red-500/25 text-red-300 border border-red-500/50 backdrop-blur-sm shadow-md">
+            <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse"></span>
+            OpenAPI 3.0 Interactive Documentation
+          </div>
+          <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+            FlameForge <span class="bg-gradient-to-r from-red-400 via-amber-400 to-rose-400 bg-clip-text text-transparent">Reforged</span>
+          </h1>
+          <p class="text-sm sm:text-base text-slate-200 font-semibold leading-relaxed">
+            Production-Grade Genshin Impact RESTful Engine & Universe Database
+          </p>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl font-light">
+            Comprehensive JSON datasets covering characters, Lv1–13 combat talent scaling matrices, C1–C6 constellation bonuses, weapon ascension curves, and full 5-piece artifact sets.
+          </p>
+
+          <!-- Quick Actions & Stats -->
+          <div class="pt-1 flex flex-wrap items-center gap-2.5 sm:gap-3">
+            <a href="#swagger-ui" class="px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-bold text-xs transition-all flex items-center gap-2 shadow-lg shadow-red-600/30">
+              <i class="ti ti-terminal-2 text-base"></i>
+              <span>Explore REST Endpoints</span>
+            </a>
+            <a href="/dashboard" class="px-3.5 sm:px-4 py-2.5 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-200 hover:text-white border border-[#30363d] font-semibold text-xs transition-colors flex items-center gap-2">
+              <i class="ti ti-layout-dashboard text-sm text-red-400"></i>
+              <span>Open Dashboard</span>
+            </a>
+            <a href="/about" class="px-3.5 sm:px-4 py-2.5 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-200 hover:text-white border border-[#30363d] font-semibold text-xs transition-colors flex items-center gap-2">
+              <i class="ti ti-cpu text-sm text-amber-400"></i>
+              <span>Architecture & Dev Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Highlight Badges -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-xs">
+        <div class="p-3.5 sm:p-4 rounded-2xl bg-[#161b22] border border-[#30363d] flex items-center gap-3">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-400 shrink-0">
+            <i class="ti ti-bolt text-lg"></i>
+          </div>
+          <div>
+            <p class="font-bold text-white">~15s Concurrent Crawler</p>
+            <p class="text-[11px] text-slate-400">Direct HoYoWiki extraction</p>
+          </div>
+        </div>
+        <div class="p-3.5 sm:p-4 rounded-2xl bg-[#161b22] border border-[#30363d] flex items-center gap-3">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+            <i class="ti ti-database text-lg"></i>
+          </div>
+          <div>
+            <p class="font-bold text-white">MongoDB Layer & CDN</p>
+            <p class="text-[11px] text-slate-400">Full schema storage with zero truncation</p>
+          </div>
+        </div>
+        <div class="p-3.5 sm:p-4 rounded-2xl bg-[#161b22] border border-[#30363d] flex items-center gap-3">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
+            <i class="ti ti-shield-check text-lg"></i>
+          </div>
+          <div>
+            <p class="font-bold text-white">RBAC & Rate Limiting</p>
+            <p class="text-[11px] text-slate-400">Hardened production security suite</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MAIN SWAGGER UI WORKSPACE -->
+  <!-- ========================================== -->
+  <main class="flex-1 w-full max-w-6xl mx-auto py-6 sm:py-8 px-3 sm:px-6 lg:px-8">
+    <div id="swagger-ui" class="w-full"></div>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- PAGE FOOTER -->
+  <!-- ========================================== -->
+  <footer class="py-6 border-t border-[#30363d] text-center text-xs text-slate-500 bg-[#161b22] px-4">
+    <p>FlameForge Reforged v2.0.0 &bull; Built with passion by <a href="https://vedantkale.in" target="_blank" class="text-red-400 hover:underline font-semibold">Vedant Kale</a></p>
+    <p class="text-[10px] font-mono text-slate-600 mt-1">Genshin Impact is a registered trademark of Cognosphere / miHoYo. Unofficial Developer API.</p>
+  </footer>
+
+  <!-- Swagger UI CDN Bundle -->
+  <script src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-bundle.js"></script>
+  <script>
+    window.onload = function() {
+      SwaggerUIBundle({
+        url: "/api/openapi.json",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIBundle.SwaggerUIStandalonePreset
+        ],
+        layout: "BaseLayout",
+        defaultModelsExpandDepth: -1,
+        defaultModelExpandDepth: -1,
+        docExpansion: "list"
+      });
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<div class="min-h-[100dvh] min-h-screen flex items-center justify-center p-4 sm:p-6 bg-[#0d1117] text-slate-100 relative overflow-x-hidden font-sans">
+  
+  <!-- Toast Notification Container -->
+  <div id="alertBox" class="toast-box text-white bg-emerald-800 border border-emerald-500/50">
+  </div>
+  <div id="alertBoxError" class="toast-box text-white bg-red-800 border border-red-500/50">
+  </div>
+
+  <!-- Matte Register Card -->
+  <div class="relative w-[92%] sm:w-full max-w-[420px] sm:max-w-[460px] z-10 my-auto">
+    <div class="matte-card-diluc p-6 sm:p-8 md:p-9 shadow-2xl relative overflow-hidden border border-red-500/30 rounded-2xl">
+      
+      <!-- Top Subtle Flame Accent Line -->
+      <div class="absolute top-0 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r from-red-600 via-amber-500 to-red-600"></div>
+
+      <!-- Header Section -->
+      <div class="flex flex-col items-center text-center mb-6 sm:mb-7">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/15 border border-red-500/30 text-red-400 text-[10px] sm:text-[11px] font-bold tracking-wider uppercase mb-2.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+          <span>Registration Portal</span>
+        </div>
+        
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Create Account</h1>
+        <p class="text-xs text-slate-400 mt-1 max-w-xs leading-relaxed">Join the FlameForge developer platform to manage datasets and access REST APIs.</p>
+      </div>
+
+      <!-- Flash Message Banners -->
+      {{#if messages.error}}
+      <div class="mb-4 flex items-start gap-2 p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 text-xs leading-relaxed">
+        <i class="ti ti-alert-triangle text-red-400 text-base shrink-0 mt-0.5"></i>
+        <span>{{messages.error}}</span>
+      </div>
+      {{/if}}
+
+      {{#if messages.success}}
+      <div class="mb-4 flex items-start gap-2 p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs leading-relaxed">
+        <i class="ti ti-circle-check text-emerald-400 text-base shrink-0 mt-0.5"></i>
+        <span>{{messages.success}}</span>
+      </div>
+      {{/if}}
+
+      <!-- Register Form -->
+      <form action="/sign-up" method="POST" id="registerForm" class="space-y-3 sm:space-y-3.5" novalidate>
+        
+        <!-- Name Fields Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="firstName" class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">First Name</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <i class="ti ti-user text-base"></i>
+              </div>
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                class="w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs text-white placeholder-slate-500 outline-none matte-input"
+                placeholder="Diluc"
+                required
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="lastName" class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Last Name</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <i class="ti ti-user text-base"></i>
+              </div>
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                class="w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs text-white placeholder-slate-500 outline-none matte-input"
+                placeholder="Ragnvindr"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Field -->
+        <div>
+          <label for="email" class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Email Address</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="ti ti-mail text-base"></i>
+            </div>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-xl text-xs text-white placeholder-slate-500 outline-none matte-input"
+              placeholder="diluc@dawnwinery.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+        </div>
+
+        <!-- Username Field -->
+        <div>
+          <label for="username" class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Username</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="ti ti-at text-base"></i>
+            </div>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              class="w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-xl text-xs text-white placeholder-slate-500 outline-none matte-input"
+              placeholder="darknight_hero"
+              required
+              autocomplete="username"
+            />
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div>
+          <label for="password" class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Password</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="ti ti-lock text-base"></i>
+            </div>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="w-full pl-10 pr-10 py-2.5 sm:py-3 rounded-xl text-xs text-white placeholder-slate-500 outline-none matte-input"
+              placeholder="At least 8 characters"
+              required
+              autocomplete="new-password"
+            />
+            <button
+              type="button"
+              id="showPasswordBtn"
+              aria-label="Toggle password visibility"
+              class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-red-300 transition-colors cursor-pointer"
+            >
+              <i id="showHideIcon" class="ti ti-eye-off text-base"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Confirm Password Field -->
+        <div>
+          <label for="confirmPassword" class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Confirm Password</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="ti ti-shield-lock text-base"></i>
+            </div>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              class="w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-xl text-xs text-white placeholder-slate-500 outline-none matte-input"
+              placeholder="Re-enter password"
+              required
+              autocomplete="new-password"
+            />
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          id="registerBtn"
+          class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-bold text-xs tracking-wider uppercase transition-all shadow-lg shadow-red-600/30 flex items-center justify-center gap-2 mt-5 cursor-pointer"
+        >
+          <i class="ti ti-user-plus text-base"></i>
+          <span>Create Account</span>
+        </button>
+      </form>
+
+      <!-- Bottom Navigation -->
+      <div class="mt-5 pt-4 border-t border-[#30363d] flex items-center justify-between text-xs text-slate-400">
+        <a href="/sign-in" class="hover:text-red-400 transition-colors flex items-center gap-1">
+          <i class="ti ti-arrow-left text-xs"></i>
+          <span>Already have an account? Sign In</span>
+        </a>
+        <a href="/" class="hover:text-white transition-colors">API Docs</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script defer src="/js/register.js"></script>

@@ -1,0 +1,228 @@
+<div class="min-h-screen bg-[#0d1117] text-slate-100 font-sans py-10 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-5xl mx-auto space-y-10">
+    
+    <!-- Top Navigation Header -->
+    <div class="flex items-center justify-between pb-5 border-b border-[#30363d] gap-2">
+      <div class="flex items-center gap-2.5">
+        <!-- Back Button -->
+        <button onclick="window.history.length > 1 ? window.history.back() : window.location.href='/dashboard'" class="p-2 sm:px-3 sm:py-2 rounded-xl bg-[#161b22] hover:bg-[#21262d] border border-[#30363d] text-slate-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5" title="Go Back">
+          <i class="ti ti-arrow-left text-base text-slate-300"></i>
+          <span class="hidden sm:inline text-xs font-semibold">Back</span>
+        </button>
+
+        <div class="flex items-center gap-2.5">
+          <img src="/assets/images/dawn.webp" width="28" height="28" alt="FlameForge" class="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0">
+          <div>
+            <div class="flex items-baseline gap-1.5">
+              <span class="text-sm sm:text-base font-bold text-white tracking-wide">FlameForge</span>
+              <span class="text-[10px] sm:text-xs font-bold text-red-400 uppercase tracking-wider">(Reforged)</span>
+            </div>
+            <p class="hidden sm:block text-[10px] text-slate-400 font-mono">v2.0.0 Architecture & Documentation</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons (Icon only on mobile, text on desktop) -->
+      <div class="flex items-center gap-2">
+        <a href="/dashboard" class="inline-flex items-center gap-1.5 p-2 sm:px-3.5 sm:py-2 rounded-xl bg-[#161b22] hover:bg-[#21262d] border border-[#30363d] text-xs font-semibold text-slate-300 hover:text-white transition-colors cursor-pointer" title="Go to Dashboard">
+          <i class="ti ti-layout-dashboard text-base sm:text-sm text-red-400"></i>
+          <span class="hidden sm:inline">Dashboard</span>
+        </a>
+        <a href="/" class="inline-flex items-center gap-1.5 p-2 sm:px-3.5 sm:py-2 rounded-xl bg-[#161b22] hover:bg-[#21262d] border border-[#30363d] text-xs font-semibold text-slate-300 hover:text-white transition-colors cursor-pointer" title="View API Docs">
+          <i class="ti ti-book text-base sm:text-sm text-amber-400"></i>
+          <span class="hidden sm:inline">API Docs</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Banner -->
+    <div class="p-8 sm:p-12 rounded-3xl bg-[#161b22] border border-red-500/40 shadow-2xl relative overflow-hidden" style="background-image: linear-gradient(135deg, rgba(13, 17, 23, 0.72) 0%, rgba(22, 27, 34, 0.45) 50%, rgba(13, 17, 23, 0.85) 100%), url('/assets/images/namecards/diluc.webp'); background-size: cover; background-position: center;">
+      <!-- Flame Glow Accent -->
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-red-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="relative z-10 max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-red-500/25 text-red-300 border border-red-500/50 backdrop-blur-sm shadow-md">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse"></span>
+          Teyvat High-Performance Data Architecture
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+          FlameForge <span class="bg-gradient-to-r from-red-400 via-amber-400 to-rose-400 bg-clip-text text-transparent">Reforged</span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-200 font-semibold leading-relaxed">
+          Next-Gen Genshin Impact Game Data & REST Engine
+        </p>
+        <p class="text-sm text-slate-300 leading-relaxed max-w-2xl font-light">
+          A robust, modular developer platform and RESTful API powering complete datasets for Genshin Impact characters, weapons, combat talents, constellation scalings, progression tables, and artifacts.
+        </p>
+        <div class="pt-2 flex flex-wrap items-center gap-3">
+          <span class="px-3 py-1 rounded-lg bg-[#0d1117]/85 text-slate-300 text-xs font-mono border border-[#30363d] backdrop-blur-sm">Node.js &bull; Express &bull; TypeScript</span>
+          <span class="px-3 py-1 rounded-lg bg-[#0d1117]/85 text-slate-300 text-xs font-mono border border-[#30363d] backdrop-blur-sm">MongoDB &bull; Cloudinary CDN</span>
+          <span class="px-3 py-1 rounded-lg bg-[#0d1117]/85 text-slate-300 text-xs font-mono border border-[#30363d] backdrop-blur-sm">~15s Scraper Engine</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: System Capabilities & Architecture -->
+    <div class="space-y-6">
+      <div class="flex items-center gap-2.5">
+        <i class="ti ti-cpu text-red-400 text-xl"></i>
+        <h2 class="text-xl font-bold text-white tracking-tight">System Architecture & Technical Capabilities</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        
+        <!-- Card 1: HoYoWiki High-Speed Scraper Engine -->
+        <div class="matte-card p-6 rounded-2xl bg-[#161b22] border border-[#30363d] hover:border-amber-500/40 transition-all space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <i class="ti ti-bolt text-xl"></i>
+          </div>
+          <h3 class="text-base font-bold text-white">HoYoWiki High-Speed Scraper Studio</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Proprietary crawler engine leveraging worker concurrency pools (<code class="text-amber-300">p-limit</code>) to extract deep structured data across the entire HoYoWiki universe in ~15 seconds. Pulls Lv1–13 combat talent scaling matrices, C1–C6 constellations, full weapon progression curves, and artifact sets.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 rounded bg-[#0d1117] border border-[#30363d]">Concurrent Workers</span>
+            <span class="px-2 py-0.5 rounded bg-[#0d1117] border border-[#30363d]">Cheerio & Axios</span>
+            <span class="px-2 py-0.5 rounded bg-[#0d1117] border border-[#30363d]">Deep Talent Scaling</span>
+          </div>
+        </div>
+
+        <!-- Card 2: RESTful API Engine -->
+        <div class="matte-card p-6 rounded-2xl bg-[#161b22] border border-[#30363d] hover:border-red-500/40 transition-all space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-400">
+            <i class="ti ti-api text-xl"></i>
+          </div>
+          <h3 class="text-base font-bold text-white">Modular RESTful API & Endpoints</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Strictly versioned endpoints (<code class="text-red-300">/api/v1/characters</code>, <code class="text-red-300">/api/v1/weapons</code>, <code class="text-red-300">/api/v1/artifacts</code>) featuring rich JSON schemas, multi-dimensional query filters (by Element, Weapon Type, Rarity, Region), and integrated rate-limiting middleware.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 rounded bg-[#0d1117] border border-[#30363d]">Express REST</span>
+            <span class="px-2 py-0.5 rounded bg-[#0d1117] border border-[#30363d]">Filtering & Search</span>
+            <span class="px-2 py-0.5 rounded bg-[#0d1117] border border-[#30363d]">Rate Limiting</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Multi-Tier Database & CDN -->
+        <div class="matte-card p-6 rounded-2xl bg-[#161b22] border border-[#30363d] hover:border-indigo-500/40 transition-all space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+            <i class="ti ti-database text-xl"></i>
+          </div>
+          <h3 class="text-base font-bold text-white">MongoDB Layer & Cloudinary CDN</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Optimized MongoDB document schemas storing full nested structures without truncation. Built-in Cloudinary asset pipeline automatically mirrors external HoYo images into permanent, high-availability CDN links for zero broken assets.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 rounded bg-[#0d1117] border border-[#30363d]">Mongoose ODM</span>
+            <span class="px-2 py-0.5 rounded bg-[#0d1117] border border-[#30363d]">Auto Cloudinary Mirroring</span>
+            <span class="px-2 py-0.5 rounded bg-[#0d1117] border border-[#30363d]">Fast Document Indexes</span>
+          </div>
+        </div>
+
+        <!-- Card 4: RBAC & Security -->
+        <div class="matte-card p-6 rounded-2xl bg-[#161b22] border border-[#30363d] hover:border-emerald-500/40 transition-all space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+            <i class="ti ti-shield-check text-xl"></i>
+          </div>
+          <h3 class="text-base font-bold text-white">Role-Based Access Control & Security</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Multi-tiered role-based security separating Administrator privileges (sync, raw editing, deletion, schema admin) from standard User privileges (viewing, inspecting). Features Bcrypt hashing, Helmet CSP headers, and protected express-session cookies.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 rounded bg-[#0d1117] border border-[#30363d]">RBAC Security</span>
+            <span class="px-2 py-0.5 rounded bg-[#0d1117] border border-[#30363d]">Bcrypt Auth</span>
+            <span class="px-2 py-0.5 rounded bg-[#0d1117] border border-[#30363d]">Session Management</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section 2: Technology Stack -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-2.5">
+        <i class="ti ti-stack-2 text-amber-400 text-xl"></i>
+        <h2 class="text-xl font-bold text-white tracking-tight">Technology & Tooling Stack</h2>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="p-4 rounded-xl bg-[#161b22] border border-[#30363d] text-center">
+          <p class="text-sm font-bold text-white">Node.js & Express</p>
+          <p class="text-[10px] text-slate-400 mt-0.5">Core Runtime & API Framework</p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#161b22] border border-[#30363d] text-center">
+          <p class="text-sm font-bold text-white">TypeScript</p>
+          <p class="text-[10px] text-slate-400 mt-0.5">Type-Safe Architecture</p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#161b22] border border-[#30363d] text-center">
+          <p class="text-sm font-bold text-white">MongoDB & Mongoose</p>
+          <p class="text-[10px] text-slate-400 mt-0.5">NoSQL Document Store</p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#161b22] border border-[#30363d] text-center">
+          <p class="text-sm font-bold text-white">Tailwind CSS</p>
+          <p class="text-[10px] text-slate-400 mt-0.5">Diluc Matte Dark Design</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Lead Architect & Developer Profile (Vedant Kale) -->
+    <div class="space-y-6 pt-4">
+      <div class="flex items-center gap-2.5">
+        <i class="ti ti-code text-rose-400 text-xl"></i>
+        <h2 class="text-xl font-bold text-white tracking-tight">Lead Architect & Developer</h2>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-3xl bg-[#161b22] border border-[#30363d] shadow-2xl relative overflow-hidden space-y-6">
+        <!-- Top Gradient Accent Line -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-600 via-amber-500 to-rose-600"></div>
+
+        <!-- Top Row: Avatar, Identity & Quick Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 pb-5 border-b border-[#30363d]/80">
+          <div class="flex items-center gap-4">
+            <div class="relative shrink-0">
+              <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-red-500/60 shadow-xl bg-[#0d1117] flex items-center justify-center">
+                <img src="https://vedantkale.in/public/assets/images/vedant.png" alt="Vedant Kale" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center font-black text-2xl text-red-400 bg-red-950/40\'>VK</div>'" />
+              </div>
+              <span class="absolute -bottom-1.5 -right-1.5 px-2 py-0.2 rounded-full text-[8px] font-black uppercase tracking-wider bg-black/90 text-amber-300 border border-amber-500/50 shadow-md">
+                Author
+              </span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white tracking-tight">Vedant Kale</h3>
+              <p class="text-xs text-red-400 font-semibold mt-0.5">Back-End & Systems Engineer</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
+            <a href="https://vedantkale.in" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-none px-4 py-2 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-200 hover:text-white text-xs font-semibold border border-[#30363d] transition-colors flex items-center justify-center gap-2" title="Visit Developer Website">
+              <i class="ti ti-world text-sm text-red-400"></i>
+              <span>vedantkale.in</span>
+            </a>
+            <a href="mailto:vedantkale.node@gmail.com" class="flex-1 sm:flex-none px-4 py-2 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-200 hover:text-white text-xs font-semibold border border-[#30363d] transition-colors flex items-center justify-center gap-2" title="Send Email">
+              <i class="ti ti-mail text-sm text-amber-400"></i>
+              <span>vedantkale.node@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bio & Engineering Philosophy -->
+        <div class="space-y-3">
+          <span class="text-[10px] font-mono uppercase tracking-widest text-amber-400 font-bold">About the Engineer</span>
+          <p class="text-sm text-slate-300 leading-relaxed font-light">
+            Vedant Kale is a dedicated Back-End Engineer specializing in scalable RESTful APIs, secure authentication systems, database schema architecture, and high-performance server runtimes with Node.js, Express, TypeScript, and MongoDB.
+          </p>
+          <p class="text-xs text-slate-400 leading-relaxed italic">
+            "I enjoy designing clean architectures, solving complex problems, and figuring out how systems work behind the scenes. Many of my projects are inspired by real-world challenges, which is why I focus on building software that is practical, reliable, and genuinely useful."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Footer -->
+    <div class="pt-6 border-t border-[#30363d] text-center text-xs text-slate-500 space-y-1">
+      <p>FlameForge Reforged &bull; Built with passion by Vedant Kale</p>
+      <p class="text-[10px] font-mono">Genshin Impact is a registered trademark of Cognosphere / miHoYo. Unofficial Fan API.</p>
+    </div>
+
+  </div>
+</div>

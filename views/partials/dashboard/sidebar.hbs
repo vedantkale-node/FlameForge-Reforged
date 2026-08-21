@@ -1,0 +1,155 @@
+<div class="sidebar-inner flex flex-col h-full justify-between select-none">
+  <div>
+    <!-- Top Bar with Logo, Title (Reforged) & Collapse Toggle -->
+    <div class="sidebar-top-bar flex items-center justify-between pb-3 mb-3">
+      <div class="flex items-center space-x-2 overflow-hidden sidebar-text">
+        <img src="/assets/images/dawn.webp" width="26" height="26" alt="FlameForge" class="w-6 h-6 flex-shrink-0">
+        <div class="flex items-baseline gap-1 truncate">
+          <span class="text-sm font-bold text-white tracking-wide">FlameForge</span>
+          <span class="text-[10px] font-bold text-red-400 uppercase tracking-wider">(Reforged)</span>
+        </div>
+      </div>
+      <div class="sidebar-top-actions flex items-center">
+        <button id="btnToggleSidebar" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-[#21262d] transition-colors flex items-center justify-center flex-shrink-0 cursor-pointer" title="Toggle Sidebar">
+          <i class="ti ti-layout-sidebar-left-collapse text-lg" id="sidebarCollapseIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- User Namecard & PFP Account Card (With Pencil to Edit Profile) -->
+    <div class="account-card p-3 rounded-2xl bg-[#161b22] mb-4 relative overflow-hidden flex items-center justify-between shadow-lg shadow-black/40" style="background-image: linear-gradient(to right, rgba(13, 17, 23, 0.85) 0%, rgba(13, 17, 23, 0.55) 50%, rgba(13, 17, 23, 0.15) 100%), url('{{#if loggedUser.namecard}}{{loggedUser.namecard}}{{else}}/assets/images/namecards/diluc.webp{{/if}}'); background-size: cover; background-position: left center; background-repeat: no-repeat;">
+      <div class="flex items-center min-w-0">
+        <div class="sidebar-card-pfp flex-shrink-0 mr-2.5">
+          <img src="{{#if loggedUser.profilePic}}{{loggedUser.profilePic}}{{else}}/assets/images/profilePics/diluc_skin.webp{{/if}}" alt="Avatar" width="44" height="44" class="w-11 h-11 rounded-full object-cover border border-red-500/60 shadow-md bg-[#0d1117]" onerror="this.src='/assets/images/profilePics/diluc_skin.webp'" />
+        </div>
+        <div class="account-details min-w-0 z-10">
+          {{#if user}}
+          <p class="text-xs font-bold text-white truncate drop-shadow-md">{{loggedUser.username}}</p>
+          {{/if}}
+          <div class="flex items-center space-x-1.5 mt-0.5">
+            <span class="px-2 py-0.2 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/60 text-red-300 border border-red-500/50 backdrop-blur-xs">{{loggedUser.role}}</span>
+          </div>
+        </div>
+      </div>
+      <a href="/dashboard/profile" class="account-details w-8 h-8 rounded-xl text-slate-200 hover:text-white bg-black/40 hover:bg-amber-600 transition-colors flex items-center justify-center flex-shrink-0 ml-1 border border-white/10 cursor-pointer shadow-sm" title="Edit Profile">
+        <i class="ti ti-pencil text-base leading-none flex items-center justify-center"></i>
+      </a>
+    </div>
+
+    <!-- Navigation List (Home at Top Above Characters) -->
+    <div class="space-y-4 text-xs font-medium">
+      
+      <!-- Top Home Item -->
+      <div>
+        <ul class="space-y-1">
+          <li>
+            <button class="sidebar-btn nav-btn flex items-center hover:bg-[#21262d] rounded-xl text-slate-300 hover:text-white py-2 px-2.5 w-full transition-colors text-left group cursor-pointer" id="nav-0" title="Overview">
+              <i class="ti ti-home text-slate-400 group-hover:text-white mr-3 text-lg flex items-center justify-center w-5 h-5 flex-shrink-0"></i>
+              <span class="sidebar-text">Overview</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 1: Archive (With Tabler Icons & Vibrant Pills) -->
+      <div>
+        <p class="sidebar-group-title px-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Archive</p>
+        <ul class="space-y-1">
+          <li>
+            <button class="sidebar-btn nav-btn flex items-center hover:bg-[#21262d] rounded-xl text-slate-300 hover:text-white py-2 px-2.5 w-full transition-colors text-left group cursor-pointer" id="nav-1" title="Characters">
+              <i class="ti ti-users text-slate-400 group-hover:text-red-400 mr-3 text-lg flex items-center justify-center w-5 h-5 flex-shrink-0 transition-colors"></i>
+              <span class="sidebar-text">Characters</span>
+              <span class="sidebar-badge ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-500/20 text-red-300 border border-red-500/40 shadow-sm shadow-red-500/15">{{characterCount}}</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-btn nav-btn flex items-center hover:bg-[#21262d] rounded-xl text-slate-300 hover:text-white py-2 px-2.5 w-full transition-colors text-left group cursor-pointer" id="nav-2" title="Weapons">
+              <i class="ti ti-swords text-slate-400 group-hover:text-amber-400 mr-3 text-lg flex items-center justify-center w-5 h-5 flex-shrink-0 transition-colors"></i>
+              <span class="sidebar-text">Weapons</span>
+              <span class="sidebar-badge ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm shadow-amber-500/15">{{weaponCount}}</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-btn nav-btn flex items-center hover:bg-[#21262d] rounded-xl text-slate-300 hover:text-white py-2 px-2.5 w-full transition-colors text-left group cursor-pointer" id="nav-3" title="Artifacts">
+              <i class="ti ti-sparkles text-slate-400 group-hover:text-indigo-400 mr-3 text-lg flex items-center justify-center w-5 h-5 flex-shrink-0 transition-colors"></i>
+              <span class="sidebar-text">Artifacts</span>
+              <span class="sidebar-badge ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 shadow-sm shadow-indigo-500/15">{{artifactCount}}</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 2: Community -->
+      <div>
+        <p class="sidebar-group-title px-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Community</p>
+        <ul class="space-y-1">
+          <li>
+            <button class="sidebar-btn nav-btn flex items-center hover:bg-[#21262d] rounded-xl text-slate-300 hover:text-white py-2 px-2.5 w-full transition-colors text-left group cursor-pointer" id="nav-5" title="User Directory">
+              <i class="ti ti-users text-slate-400 group-hover:text-amber-400 mr-3 text-lg flex items-center justify-center w-5 h-5 flex-shrink-0 transition-colors"></i>
+              <span class="sidebar-text">User Directory</span>
+              <span class="sidebar-badge ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-[#30363d]">{{users.length}}</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 3: Staff Tools & Scraper Engine -->
+      {{#if (isStaff role)}}
+      <div>
+        <p class="sidebar-group-title px-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+          {{#if (eq role 'admin')}}Admin Tools{{else}}Staff Tools{{/if}}
+        </p>
+        <ul class="space-y-1">
+          <li>
+            <button class="sidebar-btn nav-btn flex items-center hover:bg-[#21262d] rounded-xl text-slate-300 hover:text-white py-2 px-2.5 w-full transition-colors text-left group cursor-pointer" id="nav-8" title="HoYo Scraper Studio">
+              <i class="ti ti-bolt text-amber-400 mr-3 text-lg flex items-center justify-center w-5 h-5 flex-shrink-0"></i>
+              <span class="sidebar-text">Scraper Studio</span>
+              <span class="sidebar-badge ml-auto text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-500/25 text-amber-300 border border-amber-500/40 shadow-sm shadow-amber-500/20 animate-pulse">Live</span>
+            </button>
+          </li>
+          {{#if (eq role 'admin')}}
+          <li>
+            <button class="sidebar-btn nav-btn flex items-center hover:bg-[#21262d] rounded-xl text-slate-300 hover:text-white py-2 px-2.5 w-full transition-colors text-left group cursor-pointer" id="nav-4" title="Admin Database Control">
+              <i class="ti ti-shield-lock text-slate-400 group-hover:text-white mr-3 text-lg flex items-center justify-center w-5 h-5 flex-shrink-0"></i>
+              <span class="sidebar-text">Database Admin</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidebar-btn nav-btn flex items-center hover:bg-[#21262d] rounded-xl text-slate-300 hover:text-white py-2 px-2.5 w-full transition-colors text-left group cursor-pointer" id="nav-6" title="System Settings">
+              <i class="ti ti-settings text-slate-400 group-hover:text-white mr-3 text-lg flex items-center justify-center w-5 h-5 flex-shrink-0"></i>
+              <span class="sidebar-text">Settings</span>
+            </button>
+          </li>
+          {{/if}}
+        </ul>
+      </div>
+      {{/if}}
+
+    </div>
+  </div>
+
+  <!-- Sidebar Footer Actions (Icons Only in 1 Row: API Docs, About & Sign Out) & Version -->
+  <div class="pt-3 space-y-2 select-none">
+    <div class="sidebar-footer-row flex items-center justify-center gap-2">
+      <!-- API Docs Button (Icon Only) -->
+      <a href="/" target="_blank" class="sidebar-footer-btn h-9 rounded-xl bg-[#161b22] hover:bg-[#21262d] text-slate-400 hover:text-red-400 border border-[#30363d] hover:border-red-500/40 transition-all flex items-center justify-center flex-1 cursor-pointer shadow-sm group" title="OpenAPI Documentation & Swagger UI">
+        <i class="ti ti-book text-lg transition-transform group-hover:scale-110"></i>
+      </a>
+
+      <!-- About Button (Icon Only) -->
+      <a href="/about" class="sidebar-footer-btn h-9 rounded-xl bg-[#161b22] hover:bg-[#21262d] text-slate-400 hover:text-amber-400 border border-[#30363d] hover:border-amber-500/40 transition-all flex items-center justify-center flex-1 cursor-pointer shadow-sm group" title="About FlameForge & System Architecture">
+        <i class="ti ti-info-circle text-lg transition-transform group-hover:scale-110"></i>
+      </a>
+
+      <!-- Sign Out Button (Icon Only) -->
+      <button id="nav-logout" class="sidebar-footer-btn h-9 rounded-xl bg-[#161b22] hover:bg-red-500/15 text-slate-400 hover:text-red-400 border border-[#30363d] hover:border-red-500/40 transition-all flex items-center justify-center flex-1 cursor-pointer shadow-sm group" title="Sign Out">
+        <i class="ti ti-logout text-lg transition-transform group-hover:scale-110"></i>
+      </button>
+    </div>
+
+    <!-- Footer Version Tag -->
+    <div class="text-center pt-0.5 sidebar-text">
+      {{> version}}
+    </div>
+  </div>
+</div>

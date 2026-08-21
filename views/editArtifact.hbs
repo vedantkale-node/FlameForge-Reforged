@@ -1,0 +1,200 @@
+<div class="bg-[#0d1117] fixed inset-0 z-50 flex flex-col justify-center items-center" id="loader">
+  <span class="loader mb-3"></span>
+  <p class="text-slate-400 font-medium text-xs tracking-wider uppercase">Loading Artifact Set Record...</p>
+</div>
+
+<div class="min-h-screen bg-[#0d1117] text-slate-100 py-8 px-4 sm:px-8 font-sans">
+  <div class="max-w-5xl mx-auto space-y-5">
+    
+    <!-- Top Navigation Bar -->
+    <div class="flex items-center justify-between">
+      <a href="/dashboard" class="px-3.5 py-1.5 rounded-lg bg-[#161b22] hover:bg-[#21262d] text-slate-300 border border-[#30363d] text-xs font-semibold transition-colors flex items-center gap-1.5">
+        <i class="ti ti-arrow-left text-sm"></i> Return to Dashboard
+      </a>
+      <span class="text-xs text-slate-400 font-mono">ID: {{artifact._id}}</span>
+    </div>
+
+    <!-- Artifact Header Card -->
+    <div class="matte-card-diluc p-6 rounded-2xl relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start gap-5">
+      <div class="relative">
+        <img src="{{artifact.fullSet.flower.icon}}" alt="{{artifact.name}}" class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover border-2 border-indigo-500/60 bg-[#0d1117]" />
+      </div>
+      <div class="text-center sm:text-left flex-1">
+        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+          <h1 class="text-2xl sm:text-3xl font-bold text-white">{{artifact.name}}</h1>
+          <span class="px-2.5 py-0.5 rounded-lg bg-indigo-500/20 text-indigo-300 font-bold text-xs border border-indigo-500/30">5★ Artifact Set</span>
+        </div>
+        <p class="text-xs text-slate-300 mt-2 leading-relaxed max-w-3xl"><strong>2-Pc:</strong> {{artifact.effect.twoPc}}</p>
+        <p class="text-xs text-slate-300 mt-1 leading-relaxed max-w-3xl"><strong>4-Pc:</strong> {{artifact.effect.fourPc}}</p>
+      </div>
+    </div>
+
+    <!-- Edit Form -->
+    <form class="space-y-5" action="/dashboard/artifact/edit/{{artifact._id}}" method="POST">
+      
+      <!-- 1. Core Set Info & Effects -->
+      <div class="matte-card p-5 rounded-2xl space-y-3.5">
+        <h2 class="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
+          <i class="ti ti-sparkles text-base"></i> 1. Set Bonuses & Effects
+        </h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div>
+            <label for="name" class="block font-bold text-slate-300 mb-1">Artifact Set Name</label>
+            <input type="text" name="name" id="name" value="{{artifact.name}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+          </div>
+          <div>
+            <label for="wikiUrl" class="block font-bold text-slate-300 mb-1">HoYoWiki / Wiki URL</label>
+            <input type="url" name="wikiUrl" id="wikiUrl" value="{{artifact.wikiUrl}}" class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+          </div>
+        </div>
+
+        <div class="space-y-2.5 pt-1 text-xs">
+          <div>
+            <label for="twoPc" class="block font-bold text-slate-300 mb-1">2-Piece Set Bonus Effect</label>
+            <textarea name="twoPc" id="twoPc" rows="2" required class="w-full matte-input p-3 rounded-lg text-xs leading-relaxed resize-none">{{artifact.effect.twoPc}}</textarea>
+          </div>
+          <div>
+            <label for="fourPc" class="block font-bold text-slate-300 mb-1">4-Piece Set Bonus Effect</label>
+            <textarea name="fourPc" id="fourPc" rows="3" required class="w-full matte-input p-3 rounded-lg text-xs leading-relaxed resize-none">{{artifact.effect.fourPc}}</textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Individual Artifact Pieces (5 Pieces) -->
+      <div class="matte-card p-5 rounded-2xl space-y-4">
+        <h2 class="text-xs font-bold text-teal-400 uppercase tracking-wider flex items-center gap-1.5">
+          <i class="ti ti-cards text-base"></i> 2. Set Pieces (5-Piece Collection)
+        </h2>
+
+        <!-- Flower of Life -->
+        <div class="p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-2.5">
+          <div class="flex items-center space-x-2.5">
+            <img src="{{artifact.fullSet.flower.icon}}" alt="flower" class="w-8 h-8 rounded-lg object-cover bg-[#161b22] border border-teal-500/40" />
+            <span class="font-bold text-teal-300 text-xs">🌸 Flower of Life</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Title</label>
+              <input type="text" name="flowerTitle" value="{{artifact.fullSet.flower.title}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+            </div>
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Piece Name</label>
+              <input type="text" name="flowerPiece" value="{{artifact.fullSet.flower.piece}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+            </div>
+          </div>
+          <div class="text-xs">
+            <label class="block font-bold text-slate-300 mb-1">Icon URL</label>
+            <input type="url" name="flowerIcon" value="{{artifact.fullSet.flower.icon}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+          </div>
+        </div>
+
+        <!-- Plume of Death -->
+        <div class="p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-2.5">
+          <div class="flex items-center space-x-2.5">
+            <img src="{{artifact.fullSet.plume.icon}}" alt="plume" class="w-8 h-8 rounded-lg object-cover bg-[#161b22] border border-teal-500/40" />
+            <span class="font-bold text-teal-300 text-xs">🪶 Plume of Death</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Title</label>
+              <input type="text" name="plumeTitle" value="{{artifact.fullSet.plume.title}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+            </div>
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Piece Name</label>
+              <input type="text" name="plumePiece" value="{{artifact.fullSet.plume.piece}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+            </div>
+          </div>
+          <div class="text-xs">
+            <label class="block font-bold text-slate-300 mb-1">Icon URL</label>
+            <input type="url" name="plumeIcon" value="{{artifact.fullSet.plume.icon}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+          </div>
+        </div>
+
+        <!-- Sands of Eon -->
+        <div class="p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-2.5">
+          <div class="flex items-center space-x-2.5">
+            <img src="{{artifact.fullSet.sands.icon}}" alt="sands" class="w-8 h-8 rounded-lg object-cover bg-[#161b22] border border-teal-500/40" />
+            <span class="font-bold text-teal-300 text-xs">⏳ Sands of Eon</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Title</label>
+              <input type="text" name="sandsTitle" value="{{artifact.fullSet.sands.title}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+            </div>
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Piece Name</label>
+              <input type="text" name="sandsPiece" value="{{artifact.fullSet.sands.piece}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+            </div>
+          </div>
+          <div class="text-xs">
+            <label class="block font-bold text-slate-300 mb-1">Icon URL</label>
+            <input type="url" name="sandsIcon" value="{{artifact.fullSet.sands.icon}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+          </div>
+        </div>
+
+        <!-- Goblet of Eonothem -->
+        <div class="p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-2.5">
+          <div class="flex items-center space-x-2.5">
+            <img src="{{artifact.fullSet.goblet.icon}}" alt="goblet" class="w-8 h-8 rounded-lg object-cover bg-[#161b22] border border-teal-500/40" />
+            <span class="font-bold text-teal-300 text-xs">🏆 Goblet of Eonothem</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Title</label>
+              <input type="text" name="gobletTitle" value="{{artifact.fullSet.goblet.title}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+            </div>
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Piece Name</label>
+              <input type="text" name="gobletPiece" value="{{artifact.fullSet.goblet.piece}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+            </div>
+          </div>
+          <div class="text-xs">
+            <label class="block font-bold text-slate-300 mb-1">Icon URL</label>
+            <input type="url" name="gobletIcon" value="{{artifact.fullSet.goblet.icon}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+          </div>
+        </div>
+
+        <!-- Circlet of Logos -->
+        <div class="p-3.5 rounded-xl bg-[#0d1117] border border-[#30363d] space-y-2.5">
+          <div class="flex items-center space-x-2.5">
+            <img src="{{artifact.fullSet.circlet.icon}}" alt="circlet" class="w-8 h-8 rounded-lg object-cover bg-[#161b22] border border-teal-500/40" />
+            <span class="font-bold text-teal-300 text-xs">👑 Circlet of Logos</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Title</label>
+              <input type="text" name="circletTitle" value="{{artifact.fullSet.circlet.title}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+            </div>
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Piece Name</label>
+              <input type="text" name="circletPiece" value="{{artifact.fullSet.circlet.piece}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+            </div>
+          </div>
+          <div class="text-xs">
+            <label class="block font-bold text-slate-300 mb-1">Icon URL</label>
+            <input type="url" name="circletIcon" value="{{artifact.fullSet.circlet.icon}}" required class="w-full matte-input px-3 py-2 rounded-lg text-xs" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex justify-end space-x-2.5 pt-3">
+        <a href="/dashboard" class="px-5 py-2.5 rounded-xl bg-[#161b22] hover:bg-[#21262d] text-slate-300 font-bold text-xs transition-colors border border-[#30363d]">Cancel</a>
+        <button type="submit" class="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs transition-colors shadow-md shadow-indigo-600/30 flex items-center gap-1.5 cursor-pointer">
+          <i class="ti ti-device-floppy text-base"></i> Save Artifact Set
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    if (loader) loader.style.display = 'none';
+  });
+</script>

@@ -1,0 +1,14 @@
+<div class="flex items-center justify-center min-h-screen p-4 bg-[#0d1117] text-slate-100 font-sans">
+    <div class="matte-card-diluc p-8 sm:p-10 w-full max-w-md text-center shadow-2xl relative overflow-hidden border border-red-500/30">
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-600 via-amber-500 to-red-600"></div>
+        <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <i class="ti ti-shield-lock text-3xl"></i>
+        </div>
+        <h2 class="text-white text-xl sm:text-2xl mb-2 font-bold">{{#if heading}}{{heading}}{{else}}Unauthorized Access{{/if}}</h2>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">{{#if message}}{{message}}{{else}}You do not have administrative privileges to access this sector of FlameForge.{{/if}}</p>
+        <a class="inline-flex items-center gap-2 text-white font-bold bg-gradient-to-r from-red-600 to-amber-600 py-3 px-6 rounded-xl hover:from-red-700 hover:to-amber-700 transition-all text-xs uppercase tracking-wider shadow-lg shadow-red-600/30 cursor-pointer" href="/sign-in">
+            <i class="ti ti-arrow-left text-sm"></i>
+            <span>Return to Sign In</span>
+        </a>
+    </div>
+</div>

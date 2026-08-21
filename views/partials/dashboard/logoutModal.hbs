@@ -1,0 +1,32 @@
+<div class="modal hidden z-50 fixed inset-0 bg-black/80 flex items-center justify-center p-4" id="modal">
+  <div class="bg-[#161b22] p-6 sm:p-7 w-full max-w-sm rounded-2xl shadow-2xl relative border border-[#30363d] text-slate-100 modal-card text-center overflow-hidden">
+    
+    <!-- Top Flame Accent Line -->
+    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-600 via-amber-500 to-red-600"></div>
+
+    <!-- Logout Icon Emblem -->
+    <div class="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/30 flex items-center justify-center mx-auto mb-3.5 text-red-400">
+      <i class="ti ti-logout text-2xl"></i>
+    </div>
+
+    <!-- Title & Explanation -->
+    <h3 class="text-lg font-bold text-white tracking-tight">Confirm Sign Out</h3>
+    <p class="text-xs text-slate-400 mt-1.5 mb-6 leading-relaxed">
+      Are you sure you want to exit your developer session? You will need to sign in again to access the workspace.
+    </p>
+
+    <!-- Modal Action Buttons -->
+    <div class="flex items-center gap-2.5">
+      <button type="button" id="btn-modal-close" class="w-1/2 py-2.5 px-4 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 font-bold text-xs transition-colors border border-[#30363d] cursor-pointer">
+        Cancel
+      </button>
+      <form class="w-1/2" action="/dashboard/logout" method="GET">
+        <button type="submit" id="btn-modal-logout" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-bold text-xs transition-all shadow-md shadow-red-600/30 flex items-center justify-center gap-1.5 cursor-pointer">
+          <i class="ti ti-logout text-sm"></i>
+          <span>Log Out</span>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</div>

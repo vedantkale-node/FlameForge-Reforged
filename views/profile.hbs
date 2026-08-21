@@ -1,0 +1,507 @@
+<!-- Toast Notifications -->
+<div id="alertBox" class="toast-box text-white bg-emerald-700 border border-emerald-500/50"></div>
+<div id="alertBoxError" class="toast-box text-white bg-red-800 border border-red-500/50"></div>
+
+<div class="min-h-screen bg-[#0d1117] text-slate-100 font-sans py-8 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto space-y-6">
+    
+    <!-- Top Navigation Header -->
+    <div class="flex items-center justify-between pb-4 border-b border-[#30363d]">
+      <a href="/dashboard" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#161b22] hover:bg-[#21262d] border border-[#30363d] text-xs font-semibold text-slate-300 hover:text-white transition-colors cursor-pointer">
+        <i class="ti ti-arrow-left text-sm"></i>
+        <span>Return to Dashboard</span>
+      </a>
+      <div class="flex items-center gap-2">
+        <img src="/assets/images/dawn.webp" width="22" height="22" alt="FlameForge" class="w-5 h-5 flex-shrink-0">
+        <span class="text-xs font-bold text-slate-300">Account Management & Customization</span>
+      </div>
+    </div>
+
+    <!-- Flash Message Banners -->
+    {{#if messages.error}}
+    <div class="flex items-start gap-2.5 p-4 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-300 text-xs leading-relaxed shadow-lg">
+      <i class="ti ti-alert-triangle text-red-400 text-lg shrink-0"></i>
+      <span>{{messages.error}}</span>
+    </div>
+    {{/if}}
+
+    {{#if messages.success}}
+    <div class="flex items-start gap-2.5 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs leading-relaxed shadow-lg">
+      <i class="ti ti-circle-check text-emerald-400 text-lg shrink-0"></i>
+      <span>{{messages.success}}</span>
+    </div>
+    {{/if}}
+
+    <!-- ========================================== -->
+    <!-- LIVE PROFILE IDENTITY & NAMECARD BANNER -->
+    <!-- ========================================== -->
+    <div id="previewNamecardContainer" class="p-6 sm:p-8 rounded-3xl bg-[#161b22] border border-[#30363d] shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6 transition-all duration-300" style="background-image: linear-gradient(to right, rgba(13, 17, 23, 0.9) 0%, rgba(13, 17, 23, 0.65) 55%, rgba(13, 17, 23, 0.25) 100%), url('{{#if loggedUser.namecard}}{{loggedUser.namecard}}{{else}}/assets/images/namecards/diluc.webp{{/if}}'); background-size: cover; background-position: left center; background-repeat: no-repeat;">
+      
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 z-10 min-w-0">
+        <!-- Interactive Avatar with Edit Trigger -->
+        <div class="relative group cursor-pointer" id="avatarPreviewTrigger" title="Click to change profile avatar">
+          <img id="avatarPreviewImg" src="{{#if loggedUser.profilePic}}{{loggedUser.profilePic}}{{else}}/assets/images/profilePics/diluc_skin.webp{{/if}}" alt="{{loggedUser.username}}" class="avatar-icon-img w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-red-500/80 shadow-2xl bg-[#0d1117] transition-transform duration-200 group-hover:scale-105" />
+          <div class="absolute inset-0 rounded-full bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1">
+            <i class="ti ti-camera text-base"></i>
+          </div>
+          <span class="absolute -bottom-1 -right-1 px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/80 text-red-300 border border-red-500/50 backdrop-blur-xs shadow-md">
+            {{loggedUser.role}}
+          </span>
+        </div>
+
+        <div class="space-y-1.5 min-w-0">
+          <div class="flex items-center gap-2">
+            <h2 id="previewFullName" class="text-xl sm:text-2xl font-black text-white tracking-tight drop-shadow-md">
+              {{loggedUser.firstName}} {{loggedUser.lastName}}
+            </h2>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-red-500/20 text-red-300 border border-red-500/40">
+              @<span id="previewUsername">{{loggedUser.username}}</span>
+            </span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2 pt-1">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono bg-[#0d1117]/80 text-slate-300 border border-[#30363d]">
+              <i class="ti ti-mail mr-1 text-slate-400"></i>{{loggedUser.email}}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons on Namecard -->
+      <div class="flex flex-wrap sm:flex-col gap-2.5 z-10 shrink-0 w-full sm:w-auto">
+        <button type="button" id="btnChangeAvatar" class="px-4 py-2.5 rounded-xl bg-[#161b22]/90 hover:bg-[#21262d] text-white border border-[#30363d] hover:border-amber-500/60 text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer group">
+          <i class="ti ti-user-circle text-amber-400 text-base transition-transform group-hover:scale-110"></i>
+          <span>Change Avatar</span>
+        </button>
+        <button type="button" id="btnChangeNamecard" class="px-4 py-2.5 rounded-xl bg-[#161b22]/90 hover:bg-[#21262d] text-white border border-[#30363d] hover:border-red-500/60 text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer group">
+          <i class="ti ti-photo text-red-400 text-base transition-transform group-hover:scale-110"></i>
+          <span>Change Namecard</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- EDIT PROFILE FORM -->
+    <!-- ========================================== -->
+    <div class="matte-card p-6 sm:p-8 rounded-2xl bg-[#161b22] border border-[#30363d] shadow-xl">
+      <form action="/dashboard/profile" method="POST" class="space-y-6" id="profileEditForm">
+        
+        <!-- Hidden Inputs for Selected Avatar & Namecard -->
+        <input type="hidden" id="inputProfilePic" name="profilePic" value="{{#if loggedUser.profilePic}}{{loggedUser.profilePic}}{{else}}/assets/images/profilePics/diluc_skin.webp{{/if}}" />
+        <input type="hidden" id="inputNamecard" name="namecard" value="{{#if loggedUser.namecard}}{{loggedUser.namecard}}{{else}}/assets/images/namecards/diluc.webp{{/if}}" />
+
+        <!-- Section 1: Basic Information -->
+        <div>
+          <div class="flex items-center gap-2 pb-2 mb-4 border-b border-[#30363d]">
+            <i class="ti ti-user text-red-400 text-base"></i>
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider">Account Details & Identity</h3>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- First Name -->
+            <div>
+              <label for="firstName" class="block text-xs font-semibold text-slate-300 mb-1.5">First Name</label>
+              <input type="text" id="firstName" name="firstName" value="{{loggedUser.firstName}}" required autocomplete="given-name" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-red-500 focus:outline-none transition-colors" />
+            </div>
+
+            <!-- Last Name -->
+            <div>
+              <label for="lastName" class="block text-xs font-semibold text-slate-300 mb-1.5">Last Name</label>
+              <input type="text" id="lastName" name="lastName" value="{{loggedUser.lastName}}" required autocomplete="family-name" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-red-500 focus:outline-none transition-colors" />
+            </div>
+
+            <!-- Username -->
+            <div>
+              <label for="username" class="block text-xs font-semibold text-slate-300 mb-1.5">Username</label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500 text-xs font-mono">@</span>
+                <input type="text" id="username" name="username" value="{{loggedUser.username}}" required autocomplete="username" class="w-full pl-8 pr-3.5 py-2.5 rounded-xl bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-red-500 focus:outline-none transition-colors font-mono" />
+              </div>
+            </div>
+
+            <!-- Email Address -->
+            <div>
+              <label for="email" class="block text-xs font-semibold text-slate-300 mb-1.5">Email Address</label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500 text-xs"><i class="ti ti-mail"></i></span>
+                <input type="email" id="email" name="email" value="{{loggedUser.email}}" required autocomplete="email" class="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-red-500 focus:outline-none transition-colors" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Security & Password Change -->
+        <div>
+          <div class="flex items-center gap-2 pb-2 mb-4 border-b border-[#30363d]">
+            <i class="ti ti-lock text-amber-400 text-base"></i>
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider">Change Password (Optional)</h3>
+          </div>
+          <p class="text-[11px] text-slate-400 mb-4">Leave these fields empty if you do not wish to change your password.</p>
+
+          <div class="space-y-4">
+            <!-- Current Password -->
+            <div>
+              <label for="currentPassword" class="block text-xs font-semibold text-slate-300 mb-1.5">Current Password</label>
+              <input type="password" id="currentPassword" name="currentPassword" autocomplete="current-password" placeholder="Enter current password to verify" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-red-500 focus:outline-none transition-colors" />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- New Password -->
+              <div>
+                <label for="newPassword" class="block text-xs font-semibold text-slate-300 mb-1.5">New Password</label>
+                <input type="password" id="newPassword" name="newPassword" autocomplete="new-password" placeholder="Minimum 6 characters" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-red-500 focus:outline-none transition-colors" />
+              </div>
+
+              <!-- Confirm Password -->
+              <div>
+                <label for="confirmPassword" class="block text-xs font-semibold text-slate-300 mb-1.5">Confirm New Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password" placeholder="Re-type new password" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-red-500 focus:outline-none transition-colors" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="pt-4 border-t border-[#30363d] flex items-center justify-end gap-3">
+          <a href="/dashboard" class="px-5 py-2.5 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 hover:text-white font-bold text-xs transition-colors border border-[#30363d] cursor-pointer">
+            Cancel
+          </a>
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-bold text-xs transition-all shadow-md shadow-red-600/30 flex items-center gap-2 cursor-pointer">
+            <i class="ti ti-device-floppy text-sm"></i>
+            <span>Save Profile Changes</span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Danger Zone Card -->
+    <div class="bg-[#161b22] border border-rose-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-4">
+      <div class="flex items-center gap-2.5 text-rose-400">
+        <i class="ti ti-alert-triangle text-xl"></i>
+        <h3 class="text-base font-bold uppercase tracking-wider">Danger Zone</h3>
+      </div>
+      <p class="text-xs text-slate-300">
+        Permanently delete your FlameForge user account and all associated profile preferences. This action is irreversible. Type <strong class="text-rose-400 font-mono">"DISAPPEAR"</strong> to confirm.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center pt-2">
+        <input type="text" id="input-delete-profile" placeholder='Type "DISAPPEAR"' class="flex-1 bg-[#0d1117] text-white text-xs border border-rose-500/30 focus:border-rose-500 rounded-xl px-4 py-2.5 outline-none transition-all placeholder-slate-600 font-mono" />
+        <button id="btn-delete-profile" data-userid="{{loggedUser._id}}" class="px-5 py-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-300 font-bold text-xs transition-all opacity-50 pointer-events-none flex items-center justify-center gap-2 cursor-pointer shrink-0">
+          <i class="ti ti-trash text-sm"></i>
+          <span>Delete Account</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- MODAL 1: CHOOSE AVATAR (PFP) MODAL -->
+<!-- ================================================================= -->
+<div id="avatarModal" style="display: none;" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
+  <div class="bg-[#161b22] border border-[#30363d] rounded-2xl max-w-2xl w-full p-4 sm:p-6 shadow-2xl space-y-4 max-h-[90vh] flex flex-col">
+    
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between pb-3 border-b border-[#30363d]">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+          <i class="ti ti-user-circle text-lg"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white">Select Character Avatar</h3>
+          <p class="text-[11px] text-slate-400">Choose from local character avatars archive</p>
+        </div>
+      </div>
+      <button type="button" id="btnCloseAvatarModal" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-[#21262d] transition-colors cursor-pointer">
+        <i class="ti ti-x text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Avatar Search -->
+    <div class="relative">
+      <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500 text-xs">
+        <i class="ti ti-search"></i>
+      </span>
+      <input type="text" id="avatarSearchInput" placeholder="Search by character name (e.g. Diluc, Raiden, Xiao, Hu Tao)..." class="w-full pl-8 pr-3 py-2 rounded-xl bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-amber-500 focus:outline-none transition-colors" />
+    </div>
+
+    <!-- Avatars Grid -->
+    <div class="flex-1 overflow-y-auto pr-1 max-h-[55vh]">
+      <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2.5" id="avatarGrid">
+        {{#each avatars}}
+        <button type="button" class="avatar-item p-2 rounded-2xl bg-[#0d1117] hover:bg-[#21262d] border border-[#30363d] hover:border-amber-500/80 transition-all flex flex-col items-center justify-center cursor-pointer group text-center" data-url="{{this.icon}}" data-name="{{this.name}}" title="{{this.name}}">
+          <img src="{{this.icon}}" alt="{{this.name}}" class="avatar-icon-img w-12 h-12 rounded-full object-cover border border-white/10 group-hover:border-amber-500 group-hover:scale-105 transition-all bg-[#161b22]" loading="lazy" />
+          <span class="text-[9px] font-medium text-slate-300 truncate w-full mt-1.5 group-hover:text-amber-300">{{this.name}}</span>
+        </button>
+        {{/each}}
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="pt-3 border-t border-[#30363d] flex justify-end">
+      <button type="button" id="btnCancelAvatarModal" class="px-4 py-2 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 hover:text-white text-xs font-semibold border border-[#30363d] cursor-pointer">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- MODAL 2: CHOOSE NAMECARD BANNER MODAL -->
+<!-- ================================================================= -->
+<div id="namecardModal" style="display: none;" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
+  <div class="bg-[#161b22] border border-[#30363d] rounded-2xl max-w-3xl w-full p-4 sm:p-6 shadow-2xl space-y-4 max-h-[90vh] flex flex-col">
+    
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between pb-3 border-b border-[#30363d]">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-400">
+          <i class="ti ti-photo text-lg"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white">Select Official Namecard Banner</h3>
+          <p class="text-[11px] text-slate-400">Choose from local official Genshin namecards archive</p>
+        </div>
+      </div>
+      <button type="button" id="btnCloseNamecardModal" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-[#21262d] transition-colors cursor-pointer">
+        <i class="ti ti-x text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Namecard Search -->
+    <div class="relative">
+      <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500 text-xs">
+        <i class="ti ti-search"></i>
+      </span>
+      <input type="text" id="namecardSearchInput" placeholder="Search by namecard title (e.g. Diluc, Snezhnaya, Frostfarer, Fontaine)..." class="w-full pl-8 pr-3 py-2 rounded-xl bg-[#0d1117] text-white text-xs border border-[#30363d] focus:border-red-500 focus:outline-none transition-colors" />
+    </div>
+
+    <!-- Namecards Grid -->
+    <div class="flex-1 overflow-y-auto pr-1 max-h-[55vh]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3" id="namecardGrid">
+        {{#each namecards}}
+        <button type="button" class="namecard-item p-2.5 rounded-2xl bg-[#0d1117] hover:bg-[#21262d] border border-[#30363d] hover:border-red-500/80 transition-all flex flex-col gap-2 cursor-pointer group text-left" data-url="{{this.icon}}" data-name="{{this.name}}" title="{{this.name}}">
+          <div class="w-full h-18 rounded-xl overflow-hidden bg-[#161b22] border border-[#30363d] group-hover:border-red-500/50 shadow-sm relative">
+            <img src="{{this.icon}}" alt="{{this.name}}" class="namecard-banner-img w-full h-full object-cover transition-transform group-hover:scale-105" loading="lazy" />
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-300 truncate group-hover:text-red-300">{{this.name}}</span>
+            <i class="ti ti-check text-xs text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+          </div>
+        </button>
+        {{/each}}
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="pt-3 border-t border-[#30363d] flex justify-end">
+      <button type="button" id="btnCancelNamecardModal" class="px-4 py-2 rounded-xl bg-[#21262d] hover:bg-[#30363d] text-slate-300 hover:text-white text-xs font-semibold border border-[#30363d] cursor-pointer">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for Live Preview & Modal Selectors (CSP Safe & Compliant) -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Name live sync
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
+    const previewFullName = document.getElementById('previewFullName');
+
+    function updateNamePreview() {
+      if (previewFullName && firstNameInput && lastNameInput) {
+        previewFullName.innerText = (firstNameInput.value.trim() + ' ' + lastNameInput.value.trim()).trim() || 'User Profile';
+      }
+    }
+    if (firstNameInput) firstNameInput.addEventListener('input', updateNamePreview);
+    if (lastNameInput) lastNameInput.addEventListener('input', updateNamePreview);
+
+    // 3. Avatar Modal
+    const avatarModal = document.getElementById('avatarModal');
+    const avatarSearchInput = document.getElementById('avatarSearchInput');
+    const btnChangeAvatar = document.getElementById('btnChangeAvatar');
+    const avatarPreviewTrigger = document.getElementById('avatarPreviewTrigger');
+    const btnCloseAvatarModal = document.getElementById('btnCloseAvatarModal');
+    const btnCancelAvatarModal = document.getElementById('btnCancelAvatarModal');
+    const avatarGrid = document.getElementById('avatarGrid');
+
+    function openAvatarModal() {
+      if (avatarModal) {
+        avatarModal.style.display = 'flex';
+        if (avatarSearchInput) {
+          avatarSearchInput.value = '';
+          filterAvatars('');
+        }
+      }
+    }
+
+    function closeAvatarModal() {
+      if (avatarModal) avatarModal.style.display = 'none';
+    }
+
+    function selectAvatar(url, name) {
+      const input = document.getElementById('inputProfilePic');
+      const img = document.getElementById('avatarPreviewImg');
+      if (input) input.value = url;
+      if (img) img.src = url;
+      closeAvatarModal();
+      if (typeof window.showAlertBox === 'function') {
+        window.showAlertBox('Avatar selected: ' + name);
+      }
+    }
+
+    function filterAvatars(q) {
+      const items = document.querySelectorAll('.avatar-item');
+      items.forEach(item => {
+        const name = (item.getAttribute('data-name') || '').toLowerCase();
+        item.style.display = name.includes(q.toLowerCase().trim()) ? 'flex' : 'none';
+      });
+    }
+
+    if (btnChangeAvatar) btnChangeAvatar.addEventListener('click', openAvatarModal);
+    if (avatarPreviewTrigger) avatarPreviewTrigger.addEventListener('click', openAvatarModal);
+    if (btnCloseAvatarModal) btnCloseAvatarModal.addEventListener('click', closeAvatarModal);
+    if (btnCancelAvatarModal) btnCancelAvatarModal.addEventListener('click', closeAvatarModal);
+    if (avatarSearchInput) {
+      avatarSearchInput.addEventListener('input', (e) => filterAvatars(e.target.value));
+    }
+
+    if (avatarGrid) {
+      avatarGrid.addEventListener('click', (e) => {
+        const btn = e.target.closest('.avatar-item');
+        if (btn) {
+          const url = btn.getAttribute('data-url');
+          const name = btn.getAttribute('data-name');
+          if (url) selectAvatar(url, name);
+        }
+      });
+    }
+
+    // 4. Namecard Modal
+    const namecardModal = document.getElementById('namecardModal');
+    const namecardSearchInput = document.getElementById('namecardSearchInput');
+    const btnChangeNamecard = document.getElementById('btnChangeNamecard');
+    const btnCloseNamecardModal = document.getElementById('btnCloseNamecardModal');
+    const btnCancelNamecardModal = document.getElementById('btnCancelNamecardModal');
+    const namecardGrid = document.getElementById('namecardGrid');
+    const previewNamecardContainer = document.getElementById('previewNamecardContainer');
+
+    function openNamecardModal() {
+      if (namecardModal) {
+        namecardModal.style.display = 'flex';
+        if (namecardSearchInput) {
+          namecardSearchInput.value = '';
+          filterNamecards('');
+        }
+      }
+    }
+
+    function closeNamecardModal() {
+      if (namecardModal) namecardModal.style.display = 'none';
+    }
+
+    function selectNamecard(url, name) {
+      const input = document.getElementById('inputNamecard');
+      if (input) input.value = url;
+      if (previewNamecardContainer) {
+        previewNamecardContainer.style.backgroundImage = `linear-gradient(to right, rgba(13, 17, 23, 0.9) 0%, rgba(13, 17, 23, 0.65) 55%, rgba(13, 17, 23, 0.25) 100%), url('${url}')`;
+      }
+      closeNamecardModal();
+      if (typeof window.showAlertBox === 'function') {
+        window.showAlertBox('Namecard banner selected: ' + name);
+      }
+    }
+
+    function filterNamecards(q) {
+      const items = document.querySelectorAll('.namecard-item');
+      items.forEach(item => {
+        const name = (item.getAttribute('data-name') || '').toLowerCase();
+        item.style.display = name.includes(q.toLowerCase().trim()) ? 'flex' : 'none';
+      });
+    }
+
+    if (btnChangeNamecard) btnChangeNamecard.addEventListener('click', openNamecardModal);
+    if (btnCloseNamecardModal) btnCloseNamecardModal.addEventListener('click', closeNamecardModal);
+    if (btnCancelNamecardModal) btnCancelNamecardModal.addEventListener('click', closeNamecardModal);
+    if (namecardSearchInput) {
+      namecardSearchInput.addEventListener('input', (e) => filterNamecards(e.target.value));
+    }
+
+    if (namecardGrid) {
+      namecardGrid.addEventListener('click', (e) => {
+        const btn = e.target.closest('.namecard-item');
+        if (btn) {
+          const url = btn.getAttribute('data-url');
+          const name = btn.getAttribute('data-name');
+          if (url) selectNamecard(url, name);
+        }
+      });
+    }
+
+    // 5. Image Fallback Event Handlers
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('error', function() {
+        if (this.classList.contains('avatar-icon-img') || this.id === 'avatarPreviewImg') {
+          this.src = '/assets/images/profilePics/diluc_skin.webp';
+        } else if (this.classList.contains('namecard-banner-img')) {
+          this.src = '/assets/images/namecards/diluc.webp';
+        }
+      });
+    });
+
+    // 6. Escape Key and Backdrop Clicking
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAvatarModal();
+        closeNamecardModal();
+      }
+    });
+
+    if (avatarModal) {
+      avatarModal.addEventListener('click', (e) => {
+        if (e.target === avatarModal) closeAvatarModal();
+      });
+    }
+
+    if (namecardModal) {
+      namecardModal.addEventListener('click', (e) => {
+        if (e.target === namecardModal) closeNamecardModal();
+      });
+    }
+
+    // 7. Danger Zone Account Deletion Safeguard
+    const deleteInputProfile = document.getElementById('input-delete-profile');
+    const deleteBtnProfile = document.getElementById('btn-delete-profile');
+    if (deleteBtnProfile && deleteInputProfile) {
+      deleteInputProfile.addEventListener('input', () => {
+        if (deleteInputProfile.value === 'DISAPPEAR') {
+          deleteBtnProfile.classList.remove('opacity-50', 'pointer-events-none');
+          deleteBtnProfile.classList.add('bg-rose-600', 'text-white');
+        } else {
+          deleteBtnProfile.classList.add('opacity-50', 'pointer-events-none');
+          deleteBtnProfile.classList.remove('bg-rose-600', 'text-white');
+        }
+      });
+
+      deleteBtnProfile.addEventListener('click', async () => {
+        const userId = deleteBtnProfile.dataset.userid;
+        if (!userId) return;
+        try {
+          deleteBtnProfile.disabled = true;
+          deleteBtnProfile.innerHTML = '<i class="ti ti-loader-2 animate-spin text-sm"></i><span>Deleting...</span>';
+          const res = await axios.delete(`/dashboard/delete/${userId}`);
+          if (res.status === 200) {
+            window.location.href = '/sign-in';
+          }
+        } catch (err) {
+          deleteBtnProfile.disabled = false;
+          deleteBtnProfile.innerHTML = '<i class="ti ti-trash text-sm"></i><span>Delete Account</span>';
+          alert('Failed to delete account. Please try again.');
+        }
+      });
+    }
+  });
+</script>

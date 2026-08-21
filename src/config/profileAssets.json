@@ -1,0 +1,2358 @@
+{
+  "generatedAt": "2026-08-18T08:45:28.621Z",
+  "avatarsCount": 123,
+  "namecardsCount": 289,
+  "avatars": [
+    {
+      "name": "Traveler (Aether)",
+      "file": "traveler_aether.png",
+      "path": "/assets/images/profilePics/traveler_aether.png"
+    },
+    {
+      "name": "Traveler (Lumine)",
+      "file": "traveler_lumine.png",
+      "path": "/assets/images/profilePics/traveler_lumine.png"
+    },
+    {
+      "name": "Diluc (Red Dead of Night)",
+      "file": "diluc_skin.webp",
+      "path": "/assets/images/profilePics/diluc_skin.webp"
+    },
+    {
+      "name": "Alyosha",
+      "file": "alyosha.png",
+      "path": "/assets/images/profilePics/alyosha.png"
+    },
+    {
+      "name": "Odette",
+      "file": "odette.png",
+      "path": "/assets/images/profilePics/odette.png"
+    },
+    {
+      "name": "Sandrone",
+      "file": "sandrone.png",
+      "path": "/assets/images/profilePics/sandrone.png"
+    },
+    {
+      "name": "Prune",
+      "file": "prune.png",
+      "path": "/assets/images/profilePics/prune.png"
+    },
+    {
+      "name": "Lohen",
+      "file": "lohen.png",
+      "path": "/assets/images/profilePics/lohen.png"
+    },
+    {
+      "name": "Nicole",
+      "file": "nicole.png",
+      "path": "/assets/images/profilePics/nicole.png"
+    },
+    {
+      "name": "Linnea",
+      "file": "linnea.png",
+      "path": "/assets/images/profilePics/linnea.png"
+    },
+    {
+      "name": "Varka",
+      "file": "varka.png",
+      "path": "/assets/images/profilePics/varka.png"
+    },
+    {
+      "name": "Illuga",
+      "file": "illuga.png",
+      "path": "/assets/images/profilePics/illuga.png"
+    },
+    {
+      "name": "Zibai",
+      "file": "zibai.png",
+      "path": "/assets/images/profilePics/zibai.png"
+    },
+    {
+      "name": "Columbina",
+      "file": "columbina.png",
+      "path": "/assets/images/profilePics/columbina.png"
+    },
+    {
+      "name": "Manekina",
+      "file": "manekina.png",
+      "path": "/assets/images/profilePics/manekina.png"
+    },
+    {
+      "name": "Manekin",
+      "file": "manekin.png",
+      "path": "/assets/images/profilePics/manekin.png"
+    },
+    {
+      "name": "Jahoda",
+      "file": "jahoda.png",
+      "path": "/assets/images/profilePics/jahoda.png"
+    },
+    {
+      "name": "Durin",
+      "file": "durin.png",
+      "path": "/assets/images/profilePics/durin.png"
+    },
+    {
+      "name": "Nefer",
+      "file": "nefer.png",
+      "path": "/assets/images/profilePics/nefer.png"
+    },
+    {
+      "name": "Flins",
+      "file": "flins.png",
+      "path": "/assets/images/profilePics/flins.png"
+    },
+    {
+      "name": "Aino",
+      "file": "aino.png",
+      "path": "/assets/images/profilePics/aino.png"
+    },
+    {
+      "name": "Lauma",
+      "file": "lauma.png",
+      "path": "/assets/images/profilePics/lauma.png"
+    },
+    {
+      "name": "Ineffa",
+      "file": "ineffa.png",
+      "path": "/assets/images/profilePics/ineffa.png"
+    },
+    {
+      "name": "Dahlia",
+      "file": "dahlia.png",
+      "path": "/assets/images/profilePics/dahlia.png"
+    },
+    {
+      "name": "Skirk",
+      "file": "skirk.png",
+      "path": "/assets/images/profilePics/skirk.png"
+    },
+    {
+      "name": "Ifa",
+      "file": "ifa.png",
+      "path": "/assets/images/profilePics/ifa.png"
+    },
+    {
+      "name": "Escoffier",
+      "file": "escoffier.png",
+      "path": "/assets/images/profilePics/escoffier.png"
+    },
+    {
+      "name": "Iansan",
+      "file": "iansan.png",
+      "path": "/assets/images/profilePics/iansan.png"
+    },
+    {
+      "name": "Varesa",
+      "file": "varesa.png",
+      "path": "/assets/images/profilePics/varesa.png"
+    },
+    {
+      "name": "Yumemizuki Mizuki",
+      "file": "yumemizuki_mizuki.png",
+      "path": "/assets/images/profilePics/yumemizuki_mizuki.png"
+    },
+    {
+      "name": "Lan Yan",
+      "file": "lan_yan.png",
+      "path": "/assets/images/profilePics/lan_yan.png"
+    },
+    {
+      "name": "Citlali",
+      "file": "citlali.png",
+      "path": "/assets/images/profilePics/citlali.png"
+    },
+    {
+      "name": "Mavuika",
+      "file": "mavuika.png",
+      "path": "/assets/images/profilePics/mavuika.png"
+    },
+    {
+      "name": "Chasca",
+      "file": "chasca.png",
+      "path": "/assets/images/profilePics/chasca.png"
+    },
+    {
+      "name": "Ororon",
+      "file": "ororon.png",
+      "path": "/assets/images/profilePics/ororon.png"
+    },
+    {
+      "name": "Xilonen",
+      "file": "xilonen.png",
+      "path": "/assets/images/profilePics/xilonen.png"
+    },
+    {
+      "name": "Mualani",
+      "file": "mualani.png",
+      "path": "/assets/images/profilePics/mualani.png"
+    },
+    {
+      "name": "Kachina",
+      "file": "kachina.png",
+      "path": "/assets/images/profilePics/kachina.png"
+    },
+    {
+      "name": "Kinich",
+      "file": "kinich.png",
+      "path": "/assets/images/profilePics/kinich.png"
+    },
+    {
+      "name": "Emilie",
+      "file": "emilie.png",
+      "path": "/assets/images/profilePics/emilie.png"
+    },
+    {
+      "name": "Sethos",
+      "file": "sethos.png",
+      "path": "/assets/images/profilePics/sethos.png"
+    },
+    {
+      "name": "Sigewinne",
+      "file": "sigewinne.png",
+      "path": "/assets/images/profilePics/sigewinne.png"
+    },
+    {
+      "name": "Clorinde",
+      "file": "clorinde.png",
+      "path": "/assets/images/profilePics/clorinde.png"
+    },
+    {
+      "name": "Arlecchino",
+      "file": "arlecchino.png",
+      "path": "/assets/images/profilePics/arlecchino.png"
+    },
+    {
+      "name": "Chiori",
+      "file": "chiori.png",
+      "path": "/assets/images/profilePics/chiori.png"
+    },
+    {
+      "name": "Gaming",
+      "file": "gaming.png",
+      "path": "/assets/images/profilePics/gaming.png"
+    },
+    {
+      "name": "Xianyun",
+      "file": "xianyun.png",
+      "path": "/assets/images/profilePics/xianyun.png"
+    },
+    {
+      "name": "Chevreuse",
+      "file": "chevreuse.png",
+      "path": "/assets/images/profilePics/chevreuse.png"
+    },
+    {
+      "name": "Navia",
+      "file": "navia.png",
+      "path": "/assets/images/profilePics/navia.png"
+    },
+    {
+      "name": "Charlotte",
+      "file": "charlotte.png",
+      "path": "/assets/images/profilePics/charlotte.png"
+    },
+    {
+      "name": "Furina",
+      "file": "furina.png",
+      "path": "/assets/images/profilePics/furina.png"
+    },
+    {
+      "name": "Neuvillette",
+      "file": "neuvillette.png",
+      "path": "/assets/images/profilePics/neuvillette.png"
+    },
+    {
+      "name": "Wriothesley",
+      "file": "wriothesley.png",
+      "path": "/assets/images/profilePics/wriothesley.png"
+    },
+    {
+      "name": "Freminet",
+      "file": "freminet.png",
+      "path": "/assets/images/profilePics/freminet.png"
+    },
+    {
+      "name": "Lyney",
+      "file": "lyney.png",
+      "path": "/assets/images/profilePics/lyney.png"
+    },
+    {
+      "name": "Lynette",
+      "file": "lynette.png",
+      "path": "/assets/images/profilePics/lynette.png"
+    },
+    {
+      "name": "Kirara",
+      "file": "kirara.png",
+      "path": "/assets/images/profilePics/kirara.png"
+    },
+    {
+      "name": "Baizhu",
+      "file": "baizhu.png",
+      "path": "/assets/images/profilePics/baizhu.png"
+    },
+    {
+      "name": "Kaveh",
+      "file": "kaveh.png",
+      "path": "/assets/images/profilePics/kaveh.png"
+    },
+    {
+      "name": "Dehya",
+      "file": "dehya.png",
+      "path": "/assets/images/profilePics/dehya.png"
+    },
+    {
+      "name": "Mika",
+      "file": "mika.png",
+      "path": "/assets/images/profilePics/mika.png"
+    },
+    {
+      "name": "Alhaitham",
+      "file": "alhaitham.png",
+      "path": "/assets/images/profilePics/alhaitham.png"
+    },
+    {
+      "name": "Yaoyao",
+      "file": "yaoyao.png",
+      "path": "/assets/images/profilePics/yaoyao.png"
+    },
+    {
+      "name": "Wanderer",
+      "file": "wanderer.png",
+      "path": "/assets/images/profilePics/wanderer.png"
+    },
+    {
+      "name": "Faruzan",
+      "file": "faruzan.png",
+      "path": "/assets/images/profilePics/faruzan.png"
+    },
+    {
+      "name": "Layla",
+      "file": "layla.png",
+      "path": "/assets/images/profilePics/layla.png"
+    },
+    {
+      "name": "Nahida",
+      "file": "nahida.png",
+      "path": "/assets/images/profilePics/nahida.png"
+    },
+    {
+      "name": "Candace",
+      "file": "candace.png",
+      "path": "/assets/images/profilePics/candace.png"
+    },
+    {
+      "name": "Cyno",
+      "file": "cyno.png",
+      "path": "/assets/images/profilePics/cyno.png"
+    },
+    {
+      "name": "Nilou",
+      "file": "nilou.png",
+      "path": "/assets/images/profilePics/nilou.png"
+    },
+    {
+      "name": "Dori",
+      "file": "dori.png",
+      "path": "/assets/images/profilePics/dori.png"
+    },
+    {
+      "name": "Collei",
+      "file": "collei.png",
+      "path": "/assets/images/profilePics/collei.png"
+    },
+    {
+      "name": "Tighnari",
+      "file": "tighnari.png",
+      "path": "/assets/images/profilePics/tighnari.png"
+    },
+    {
+      "name": "Shikanoin Heizou",
+      "file": "shikanoin_heizou.png",
+      "path": "/assets/images/profilePics/shikanoin_heizou.png"
+    },
+    {
+      "name": "Kuki Shinobu",
+      "file": "kuki_shinobu.png",
+      "path": "/assets/images/profilePics/kuki_shinobu.png"
+    },
+    {
+      "name": "Yelan",
+      "file": "yelan.png",
+      "path": "/assets/images/profilePics/yelan.png"
+    },
+    {
+      "name": "Xiao",
+      "file": "xiao.png",
+      "path": "/assets/images/profilePics/xiao.png"
+    },
+    {
+      "name": "Xiangling",
+      "file": "xiangling.png",
+      "path": "/assets/images/profilePics/xiangling.png"
+    },
+    {
+      "name": "Raiden Shogun",
+      "file": "raiden_shogun.png",
+      "path": "/assets/images/profilePics/raiden_shogun.png"
+    },
+    {
+      "name": "Razor",
+      "file": "razor.png",
+      "path": "/assets/images/profilePics/razor.png"
+    },
+    {
+      "name": "Albedo",
+      "file": "albedo.png",
+      "path": "/assets/images/profilePics/albedo.png"
+    },
+    {
+      "name": "Zhongli",
+      "file": "zhongli.png",
+      "path": "/assets/images/profilePics/zhongli.png"
+    },
+    {
+      "name": "Chongyun",
+      "file": "chongyun.png",
+      "path": "/assets/images/profilePics/chongyun.png"
+    },
+    {
+      "name": "Diona",
+      "file": "diona.png",
+      "path": "/assets/images/profilePics/diona.png"
+    },
+    {
+      "name": "Diluc",
+      "file": "diluc.png",
+      "path": "/assets/images/profilePics/diluc.png"
+    },
+    {
+      "name": "Tartaglia",
+      "file": "tartaglia.png",
+      "path": "/assets/images/profilePics/tartaglia.png"
+    },
+    {
+      "name": "Xinyan",
+      "file": "xinyan.png",
+      "path": "/assets/images/profilePics/xinyan.png"
+    },
+    {
+      "name": "Noelle",
+      "file": "noelle.png",
+      "path": "/assets/images/profilePics/noelle.png"
+    },
+    {
+      "name": "Xingqiu",
+      "file": "xingqiu.png",
+      "path": "/assets/images/profilePics/xingqiu.png"
+    },
+    {
+      "name": "Fischl",
+      "file": "fischl.png",
+      "path": "/assets/images/profilePics/fischl.png"
+    },
+    {
+      "name": "Mona",
+      "file": "mona.png",
+      "path": "/assets/images/profilePics/mona.png"
+    },
+    {
+      "name": "Arataki Itto",
+      "file": "arataki_itto.png",
+      "path": "/assets/images/profilePics/arataki_itto.png"
+    },
+    {
+      "name": "Barbara",
+      "file": "barbara.png",
+      "path": "/assets/images/profilePics/barbara.png"
+    },
+    {
+      "name": "Hu Tao",
+      "file": "hu_tao.png",
+      "path": "/assets/images/profilePics/hu_tao.png"
+    },
+    {
+      "name": "Rosaria",
+      "file": "rosaria.png",
+      "path": "/assets/images/profilePics/rosaria.png"
+    },
+    {
+      "name": "Kamisato Ayaka",
+      "file": "kamisato_ayaka.png",
+      "path": "/assets/images/profilePics/kamisato_ayaka.png"
+    },
+    {
+      "name": "Kamisato Ayato",
+      "file": "kamisato_ayato.png",
+      "path": "/assets/images/profilePics/kamisato_ayato.png"
+    },
+    {
+      "name": "Sucrose",
+      "file": "sucrose.png",
+      "path": "/assets/images/profilePics/sucrose.png"
+    },
+    {
+      "name": "Shenhe",
+      "file": "shenhe.png",
+      "path": "/assets/images/profilePics/shenhe.png"
+    },
+    {
+      "name": "Ganyu",
+      "file": "ganyu.png",
+      "path": "/assets/images/profilePics/ganyu.png"
+    },
+    {
+      "name": "Jean",
+      "file": "jean.png",
+      "path": "/assets/images/profilePics/jean.png"
+    },
+    {
+      "name": "Bennett",
+      "file": "bennett.png",
+      "path": "/assets/images/profilePics/bennett.png"
+    },
+    {
+      "name": "Sangonomiya Kokomi",
+      "file": "sangonomiya_kokomi.png",
+      "path": "/assets/images/profilePics/sangonomiya_kokomi.png"
+    },
+    {
+      "name": "Yanfei",
+      "file": "yanfei.png",
+      "path": "/assets/images/profilePics/yanfei.png"
+    },
+    {
+      "name": "Venti",
+      "file": "venti.png",
+      "path": "/assets/images/profilePics/venti.png"
+    },
+    {
+      "name": "Kaedehara Kazuha",
+      "file": "kaedehara_kazuha.png",
+      "path": "/assets/images/profilePics/kaedehara_kazuha.png"
+    },
+    {
+      "name": "Sayu",
+      "file": "sayu.png",
+      "path": "/assets/images/profilePics/sayu.png"
+    },
+    {
+      "name": "Thoma",
+      "file": "thoma.png",
+      "path": "/assets/images/profilePics/thoma.png"
+    },
+    {
+      "name": "Yoimiya",
+      "file": "yoimiya.png",
+      "path": "/assets/images/profilePics/yoimiya.png"
+    },
+    {
+      "name": "Amber",
+      "file": "amber.png",
+      "path": "/assets/images/profilePics/amber.png"
+    },
+    {
+      "name": "Aloy",
+      "file": "aloy.png",
+      "path": "/assets/images/profilePics/aloy.png"
+    },
+    {
+      "name": "Klee",
+      "file": "klee.png",
+      "path": "/assets/images/profilePics/klee.png"
+    },
+    {
+      "name": "Beidou",
+      "file": "beidou.png",
+      "path": "/assets/images/profilePics/beidou.png"
+    },
+    {
+      "name": "Keqing",
+      "file": "keqing.png",
+      "path": "/assets/images/profilePics/keqing.png"
+    },
+    {
+      "name": "Kaeya",
+      "file": "kaeya.png",
+      "path": "/assets/images/profilePics/kaeya.png"
+    },
+    {
+      "name": "Ningguang",
+      "file": "ningguang.png",
+      "path": "/assets/images/profilePics/ningguang.png"
+    },
+    {
+      "name": "Yae Miko",
+      "file": "yae_miko.png",
+      "path": "/assets/images/profilePics/yae_miko.png"
+    },
+    {
+      "name": "Eula",
+      "file": "eula.png",
+      "path": "/assets/images/profilePics/eula.png"
+    },
+    {
+      "name": "Gorou",
+      "file": "gorou.png",
+      "path": "/assets/images/profilePics/gorou.png"
+    },
+    {
+      "name": "Yun Jin",
+      "file": "yun_jin.png",
+      "path": "/assets/images/profilePics/yun_jin.png"
+    },
+    {
+      "name": "Kujou Sara",
+      "file": "kujou_sara.png",
+      "path": "/assets/images/profilePics/kujou_sara.png"
+    },
+    {
+      "name": "Lisa",
+      "file": "lisa.png",
+      "path": "/assets/images/profilePics/lisa.png"
+    },
+    {
+      "name": "Qiqi",
+      "file": "qiqi.png",
+      "path": "/assets/images/profilePics/qiqi.png"
+    }
+  ],
+  "namecards": [
+    {
+      "id": "6075",
+      "name": "Diluc: Flames (Dawn Winery)",
+      "file": "diluc.webp",
+      "path": "/assets/images/namecards/diluc.webp"
+    },
+    {
+      "id": "11515",
+      "name": "Travel Notes: Frostfarer",
+      "file": "banner_11515_travel_notes_frostfarer.png",
+      "path": "/assets/images/namecards/banner_11515_travel_notes_frostfarer.png"
+    },
+    {
+      "id": "11513",
+      "name": "Snezhnaya: Fleeting Glimpses",
+      "file": "banner_11513_snezhnaya_fleeting_glimpses.png",
+      "path": "/assets/images/namecards/banner_11513_snezhnaya_fleeting_glimpses.png"
+    },
+    {
+      "id": "10965",
+      "name": "Nod-Krai: Moonbright",
+      "file": "banner_10965_nod-krai_moonbright.png",
+      "path": "/assets/images/namecards/banner_10965_nod-krai_moonbright.png"
+    },
+    {
+      "id": "11508",
+      "name": "Odette: The Singular Swan",
+      "file": "banner_11508_odette_the_singular_swan.png",
+      "path": "/assets/images/namecards/banner_11508_odette_the_singular_swan.png"
+    },
+    {
+      "id": "11512",
+      "name": "Achievement: Treading Snow",
+      "file": "banner_11512_achievement_treading_snow.png",
+      "path": "/assets/images/namecards/banner_11512_achievement_treading_snow.png"
+    },
+    {
+      "id": "11509",
+      "name": "Alyosha: Sit",
+      "file": "banner_11509_alyosha_sit.png",
+      "path": "/assets/images/namecards/banner_11509_alyosha_sit.png"
+    },
+    {
+      "id": "11511",
+      "name": "Snezhnaya: Long Night",
+      "file": "banner_11511_snezhnaya_long_night.png",
+      "path": "/assets/images/namecards/banner_11511_snezhnaya_long_night.png"
+    },
+    {
+      "id": "10768",
+      "name": "Travel Notes: Gift of Splendor",
+      "file": "banner_10768_travel_notes_gift_of_splendor.png",
+      "path": "/assets/images/namecards/banner_10768_travel_notes_gift_of_splendor.png"
+    },
+    {
+      "id": "10766",
+      "name": "Lohen: Benevolence",
+      "file": "banner_10766_lohen_benevolence.png",
+      "path": "/assets/images/namecards/banner_10766_lohen_benevolence.png"
+    },
+    {
+      "id": "10767",
+      "name": "Prune: Judgment",
+      "file": "banner_10767_prune_judgment.png",
+      "path": "/assets/images/namecards/banner_10767_prune_judgment.png"
+    },
+    {
+      "id": "10966",
+      "name": "Travel Notes: Sunny Summer",
+      "file": "banner_10966_travel_notes_sunny_summer.png",
+      "path": "/assets/images/namecards/banner_10966_travel_notes_sunny_summer.png"
+    },
+    {
+      "id": "10765",
+      "name": "Nicole: Heavenly Stairway",
+      "file": "banner_10765_nicole_heavenly_stairway.png",
+      "path": "/assets/images/namecards/banner_10765_nicole_heavenly_stairway.png"
+    },
+    {
+      "id": "10499",
+      "name": "Empty Temple: Overflowing Memories",
+      "file": "banner_10499_empty_temple_overflowing_memories.png",
+      "path": "/assets/images/namecards/banner_10499_empty_temple_overflowing_memories.png"
+    },
+    {
+      "id": "9473",
+      "name": "Travel Notes: Northerly Winds",
+      "file": "banner_9473_travel_notes_northerly_winds.png",
+      "path": "/assets/images/namecards/banner_9473_travel_notes_northerly_winds.png"
+    },
+    {
+      "id": "10497",
+      "name": "Linnea: Rattling Resonance",
+      "file": "banner_10497_linnea_rattling_resonance.png",
+      "path": "/assets/images/namecards/banner_10497_linnea_rattling_resonance.png"
+    },
+    {
+      "id": "10964",
+      "name": "Sandrone: Tea Break",
+      "file": "banner_10964_sandrone_tea_break.png",
+      "path": "/assets/images/namecards/banner_10964_sandrone_tea_break.png"
+    },
+    {
+      "id": "10498",
+      "name": "Mondstadt: Watchtower",
+      "file": "banner_10498_mondstadt_watchtower.png",
+      "path": "/assets/images/namecards/banner_10498_mondstadt_watchtower.png"
+    },
+    {
+      "id": "9236",
+      "name": "Travel Notes: Lanternlit Ode",
+      "file": "banner_9236_travel_notes_lanternlit_ode.png",
+      "path": "/assets/images/namecards/banner_9236_travel_notes_lanternlit_ode.png"
+    },
+    {
+      "id": "10500",
+      "name": "Travel Notes: Homecoming",
+      "file": "banner_10500_travel_notes_homecoming.png",
+      "path": "/assets/images/namecards/banner_10500_travel_notes_homecoming.png"
+    },
+    {
+      "id": "9472",
+      "name": "Varka: Lead Wolf",
+      "file": "banner_9472_varka_lead_wolf.png",
+      "path": "/assets/images/namecards/banner_9472_varka_lead_wolf.png"
+    },
+    {
+      "id": "11514",
+      "name": "Achievement: Enigmatic Core",
+      "file": "banner_11514_achievement_enigmatic_core.png",
+      "path": "/assets/images/namecards/banner_11514_achievement_enigmatic_core.png"
+    },
+    {
+      "id": "9233",
+      "name": "Illuga: Nightmare Songbird",
+      "file": "banner_9233_illuga_nightmare_songbird.png",
+      "path": "/assets/images/namecards/banner_9233_illuga_nightmare_songbird.png"
+    },
+    {
+      "id": "11510",
+      "name": "Achievement: Resplendence",
+      "file": "banner_11510_achievement_resplendence.png",
+      "path": "/assets/images/namecards/banner_11510_achievement_resplendence.png"
+    },
+    {
+      "id": "9232",
+      "name": "Zibai: Veiled Vista",
+      "file": "banner_9232_zibai_veiled_vista.png",
+      "path": "/assets/images/namecards/banner_9232_zibai_veiled_vista.png"
+    },
+    {
+      "id": "9068",
+      "name": "Celebration: Dream Reader",
+      "file": "banner_9068_celebration_dream_reader.png",
+      "path": "/assets/images/namecards/banner_9068_celebration_dream_reader.png"
+    },
+    {
+      "id": "9065",
+      "name": "Durin: Radiant Heart",
+      "file": "banner_9065_durin_radiant_heart.png",
+      "path": "/assets/images/namecards/banner_9065_durin_radiant_heart.png"
+    },
+    {
+      "id": "8576",
+      "name": "Achievement: Time Apart",
+      "file": "banner_8576_achievement_time_apart.png",
+      "path": "/assets/images/namecards/banner_8576_achievement_time_apart.png"
+    },
+    {
+      "id": "9234",
+      "name": "Achievement: Far-Sighted",
+      "file": "banner_9234_achievement_far-sighted.png",
+      "path": "/assets/images/namecards/banner_9234_achievement_far-sighted.png"
+    },
+    {
+      "id": "9231",
+      "name": "Columbina: Someday",
+      "file": "banner_9231_columbina_someday.png",
+      "path": "/assets/images/namecards/banner_9231_columbina_someday.png"
+    },
+    {
+      "id": "9066",
+      "name": "Jahoda: Helping Hand",
+      "file": "banner_9066_jahoda_helping_hand.png",
+      "path": "/assets/images/namecards/banner_9066_jahoda_helping_hand.png"
+    },
+    {
+      "id": "8975",
+      "name": "Nefer: Secrets",
+      "file": "banner_8975_nefer_secrets.png",
+      "path": "/assets/images/namecards/banner_8975_nefer_secrets.png"
+    },
+    {
+      "id": "8578",
+      "name": "Celebration: Sublime Flavors",
+      "file": "banner_8578_celebration_sublime_flavors.png",
+      "path": "/assets/images/namecards/banner_8578_celebration_sublime_flavors.png"
+    },
+    {
+      "id": "9067",
+      "name": "Travel Notes: Blazing Snow",
+      "file": "banner_9067_travel_notes_blazing_snow.png",
+      "path": "/assets/images/namecards/banner_9067_travel_notes_blazing_snow.png"
+    },
+    {
+      "id": "8577",
+      "name": "Travel Notes: Glacial Moon",
+      "file": "banner_8577_travel_notes_glacial_moon.png",
+      "path": "/assets/images/namecards/banner_8577_travel_notes_glacial_moon.png"
+    },
+    {
+      "id": "8976",
+      "name": "Travel Notes: Bygone Ruins",
+      "file": "banner_8976_travel_notes_bygone_ruins.png",
+      "path": "/assets/images/namecards/banner_8976_travel_notes_bygone_ruins.png"
+    },
+    {
+      "id": "9235",
+      "name": "Nod-Krai: Lantern of Longest Night",
+      "file": "banner_9235_nod-krai_lantern_of_longest_night.png",
+      "path": "/assets/images/namecards/banner_9235_nod-krai_lantern_of_longest_night.png"
+    },
+    {
+      "id": "8573",
+      "name": "Aino: Whoopsie Ducksie",
+      "file": "banner_8573_aino_whoopsie_ducksie.png",
+      "path": "/assets/images/namecards/banner_8573_aino_whoopsie_ducksie.png"
+    },
+    {
+      "id": "8571",
+      "name": "Lauma: Branched Antlers",
+      "file": "banner_8571_lauma_branched_antlers.png",
+      "path": "/assets/images/namecards/banner_8571_lauma_branched_antlers.png"
+    },
+    {
+      "id": "8575",
+      "name": "Nod-Krai: Sacred Realm",
+      "file": "banner_8575_nod-krai_sacred_realm.png",
+      "path": "/assets/images/namecards/banner_8575_nod-krai_sacred_realm.png"
+    },
+    {
+      "id": "7791",
+      "name": "Celebration: Lavish Gala",
+      "file": "banner_7791_celebration_lavish_gala.png",
+      "path": "/assets/images/namecards/banner_7791_celebration_lavish_gala.png"
+    },
+    {
+      "id": "8303",
+      "name": "Natlan: Wheel of Flame",
+      "file": "banner_8303_natlan_wheel_of_flame.png",
+      "path": "/assets/images/namecards/banner_8303_natlan_wheel_of_flame.png"
+    },
+    {
+      "id": "8306",
+      "name": "Celebration: Tuna On Rice",
+      "file": "banner_8306_celebration_tuna_on_rice.png",
+      "path": "/assets/images/namecards/banner_8306_celebration_tuna_on_rice.png"
+    },
+    {
+      "id": "8305",
+      "name": "Travel Notes: Easy Breezy",
+      "file": "banner_8305_travel_notes_easy_breezy.png",
+      "path": "/assets/images/namecards/banner_8305_travel_notes_easy_breezy.png"
+    },
+    {
+      "id": "8302",
+      "name": "Ineffa: Command",
+      "file": "banner_8302_ineffa_command.png",
+      "path": "/assets/images/namecards/banner_8302_ineffa_command.png"
+    },
+    {
+      "id": "7792",
+      "name": "Travel Notes: Speculation",
+      "file": "banner_7792_travel_notes_speculation.png",
+      "path": "/assets/images/namecards/banner_7792_travel_notes_speculation.png"
+    },
+    {
+      "id": "8304",
+      "name": "Natlan: Chasing the Wind",
+      "file": "banner_8304_natlan_chasing_the_wind.png",
+      "path": "/assets/images/namecards/banner_8304_natlan_chasing_the_wind.png"
+    },
+    {
+      "id": "7789",
+      "name": "Skirk: Lone Shadow",
+      "file": "banner_7789_skirk_lone_shadow.png",
+      "path": "/assets/images/namecards/banner_7789_skirk_lone_shadow.png"
+    },
+    {
+      "id": "8572",
+      "name": "Flins: Oathkeeper's Lantern",
+      "file": "banner_8572_flins_oathkeepers_lantern.png",
+      "path": "/assets/images/namecards/banner_8572_flins_oathkeepers_lantern.png"
+    },
+    {
+      "id": "8574",
+      "name": "Nod-Krai: Moonlight",
+      "file": "banner_8574_nod-krai_moonlight.png",
+      "path": "/assets/images/namecards/banner_8574_nod-krai_moonlight.png"
+    },
+    {
+      "id": "7754",
+      "name": "Mavuika: Sun-Crowned",
+      "file": "banner_7754_mavuika_sun-crowned.png",
+      "path": "/assets/images/namecards/banner_7754_mavuika_sun-crowned.png"
+    },
+    {
+      "id": "7753",
+      "name": "Lan Yan: Silver Swallow",
+      "file": "banner_7753_lan_yan_silver_swallow.png",
+      "path": "/assets/images/namecards/banner_7753_lan_yan_silver_swallow.png"
+    },
+    {
+      "id": "7675",
+      "name": "Travel Notes: Balletica",
+      "file": "banner_7675_travel_notes_balletica.png",
+      "path": "/assets/images/namecards/banner_7675_travel_notes_balletica.png"
+    },
+    {
+      "id": "7749",
+      "name": "Achievement: Repertoire",
+      "file": "banner_7749_achievement_repertoire.png",
+      "path": "/assets/images/namecards/banner_7749_achievement_repertoire.png"
+    },
+    {
+      "id": "7748",
+      "name": "Travel Notes: The Flame Renewed",
+      "file": "banner_7748_travel_notes_the_flame_renewed.png",
+      "path": "/assets/images/namecards/banner_7748_travel_notes_the_flame_renewed.png"
+    },
+    {
+      "id": "7752",
+      "name": "Citlali: Opalstar",
+      "file": "banner_7752_citlali_opalstar.png",
+      "path": "/assets/images/namecards/banner_7752_citlali_opalstar.png"
+    },
+    {
+      "id": "7751",
+      "name": "Achievement: All-Seeing",
+      "file": "banner_7751_achievement_all-seeing.png",
+      "path": "/assets/images/namecards/banner_7751_achievement_all-seeing.png"
+    },
+    {
+      "id": "7790",
+      "name": "Dahlia: Sacred Duty",
+      "file": "banner_7790_dahlia_sacred_duty.png",
+      "path": "/assets/images/namecards/banner_7790_dahlia_sacred_duty.png"
+    },
+    {
+      "id": "7673",
+      "name": "Escoffier: Charm",
+      "file": "banner_7673_escoffier_charm.png",
+      "path": "/assets/images/namecards/banner_7673_escoffier_charm.png"
+    },
+    {
+      "id": "7750",
+      "name": "Achievement: Blaze",
+      "file": "banner_7750_achievement_blaze.png",
+      "path": "/assets/images/namecards/banner_7750_achievement_blaze.png"
+    },
+    {
+      "id": "7577",
+      "name": "Travel Notes: Blooming Glory",
+      "file": "banner_7577_travel_notes_blooming_glory.png",
+      "path": "/assets/images/namecards/banner_7577_travel_notes_blooming_glory.png"
+    },
+    {
+      "id": "7573",
+      "name": "Varesa: Powerhouse",
+      "file": "banner_7573_varesa_powerhouse.png",
+      "path": "/assets/images/namecards/banner_7573_varesa_powerhouse.png"
+    },
+    {
+      "id": "7576",
+      "name": "Achievement: Tranquil Peace",
+      "file": "banner_7576_achievement_tranquil_peace.png",
+      "path": "/assets/images/namecards/banner_7576_achievement_tranquil_peace.png"
+    },
+    {
+      "id": "7454",
+      "name": "Celebration: Scorch",
+      "file": "banner_7454_celebration_scorch.png",
+      "path": "/assets/images/namecards/banner_7454_celebration_scorch.png"
+    },
+    {
+      "id": "7676",
+      "name": "Ifa: Bro",
+      "file": "banner_7676_ifa_bro.png",
+      "path": "/assets/images/namecards/banner_7676_ifa_bro.png"
+    },
+    {
+      "id": "7575",
+      "name": "Natlan: Draconic Gaze",
+      "file": "banner_7575_natlan_draconic_gaze.png",
+      "path": "/assets/images/namecards/banner_7575_natlan_draconic_gaze.png"
+    },
+    {
+      "id": "7453",
+      "name": "Yumemizuki Mizuki: Nightmare Devourer",
+      "file": "banner_7453_yumemizuki_mizuki_nightmare_devourer.png",
+      "path": "/assets/images/namecards/banner_7453_yumemizuki_mizuki_nightmare_devourer.png"
+    },
+    {
+      "id": "7455",
+      "name": "Travel Notes: Wondrous Reverie",
+      "file": "banner_7455_travel_notes_wondrous_reverie.png",
+      "path": "/assets/images/namecards/banner_7455_travel_notes_wondrous_reverie.png"
+    },
+    {
+      "id": "7219",
+      "name": "Travel Notes: Spiritweaver",
+      "file": "banner_7219_travel_notes_spiritweaver.png",
+      "path": "/assets/images/namecards/banner_7219_travel_notes_spiritweaver.png"
+    },
+    {
+      "id": "7216",
+      "name": "Ororon: Nightshade",
+      "file": "banner_7216_ororon_nightshade.png",
+      "path": "/assets/images/namecards/banner_7216_ororon_nightshade.png"
+    },
+    {
+      "id": "7574",
+      "name": "Iansan: Unyielding",
+      "file": "banner_7574_iansan_unyielding.png",
+      "path": "/assets/images/namecards/banner_7574_iansan_unyielding.png"
+    },
+    {
+      "id": "7215",
+      "name": "Chasca: Fully Loaded",
+      "file": "banner_7215_chasca_fully_loaded.png",
+      "path": "/assets/images/namecards/banner_7215_chasca_fully_loaded.png"
+    },
+    {
+      "id": "7217",
+      "name": "Natlan: Fleeting Dreams",
+      "file": "banner_7217_natlan_fleeting_dreams.png",
+      "path": "/assets/images/namecards/banner_7217_natlan_fleeting_dreams.png"
+    },
+    {
+      "id": "6628",
+      "name": "Celebration: Crispy and Sweet",
+      "file": "banner_6628_celebration_crispy_and_sweet.png",
+      "path": "/assets/images/namecards/banner_6628_celebration_crispy_and_sweet.png"
+    },
+    {
+      "id": "7218",
+      "name": "Achievement: Fighting Spirit",
+      "file": "banner_7218_achievement_fighting_spirit.png",
+      "path": "/assets/images/namecards/banner_7218_achievement_fighting_spirit.png"
+    },
+    {
+      "id": "7060",
+      "name": "Travel Notes: Sabzeruz",
+      "file": "banner_7060_travel_notes_sabzeruz.png",
+      "path": "/assets/images/namecards/banner_7060_travel_notes_sabzeruz.png"
+    },
+    {
+      "id": "6626",
+      "name": "Achievement: Lord of the Night",
+      "file": "banner_6626_achievement_lord_of_the_night.png",
+      "path": "/assets/images/namecards/banner_6626_achievement_lord_of_the_night.png"
+    },
+    {
+      "id": "6619",
+      "name": "Mualani: Sharky",
+      "file": "banner_6619_mualani_sharky.png",
+      "path": "/assets/images/namecards/banner_6619_mualani_sharky.png"
+    },
+    {
+      "id": "6618",
+      "name": "Kinich: Ajaw",
+      "file": "banner_6618_kinich_ajaw.png",
+      "path": "/assets/images/namecards/banner_6618_kinich_ajaw.png"
+    },
+    {
+      "id": "6621",
+      "name": "Natlan: Divine Army",
+      "file": "banner_6621_natlan_divine_army.png",
+      "path": "/assets/images/namecards/banner_6621_natlan_divine_army.png"
+    },
+    {
+      "id": "6623",
+      "name": "Achievement: Endpoint",
+      "file": "banner_6623_achievement_endpoint.png",
+      "path": "/assets/images/namecards/banner_6623_achievement_endpoint.png"
+    },
+    {
+      "id": "6622",
+      "name": "Natlan: Fiery Dragon",
+      "file": "banner_6622_natlan_fiery_dragon.png",
+      "path": "/assets/images/namecards/banner_6622_natlan_fiery_dragon.png"
+    },
+    {
+      "id": "6620",
+      "name": "Kachina: Twirly",
+      "file": "banner_6620_kachina_twirly.png",
+      "path": "/assets/images/namecards/banner_6620_kachina_twirly.png"
+    },
+    {
+      "id": "6625",
+      "name": "Natlan: Return of the Flame",
+      "file": "banner_6625_natlan_return_of_the_flame.png",
+      "path": "/assets/images/namecards/banner_6625_natlan_return_of_the_flame.png"
+    },
+    {
+      "id": "6627",
+      "name": "Travel Notes: Primal Fire",
+      "file": "banner_6627_travel_notes_primal_fire.png",
+      "path": "/assets/images/namecards/banner_6627_travel_notes_primal_fire.png"
+    },
+    {
+      "id": "7059",
+      "name": "Xilonen: Cue Point",
+      "file": "banner_7059_xilonen_cue_point.png",
+      "path": "/assets/images/namecards/banner_7059_xilonen_cue_point.png"
+    },
+    {
+      "id": "6272",
+      "name": "Travel Notes: Fanciful Fabrication",
+      "file": "banner_6272_travel_notes_fanciful_fabrication.png",
+      "path": "/assets/images/namecards/banner_6272_travel_notes_fanciful_fabrication.png"
+    },
+    {
+      "id": "6271",
+      "name": "Emilie: Base Note",
+      "file": "banner_6271_emilie_base_note.png",
+      "path": "/assets/images/namecards/banner_6271_emilie_base_note.png"
+    },
+    {
+      "id": "6268",
+      "name": "Sethos: Ba Fragment",
+      "file": "banner_6268_sethos_ba_fragment.png",
+      "path": "/assets/images/namecards/banner_6268_sethos_ba_fragment.png"
+    },
+    {
+      "id": "6270",
+      "name": "Travel Notes: Simulnation",
+      "file": "banner_6270_travel_notes_simulnation.png",
+      "path": "/assets/images/namecards/banner_6270_travel_notes_simulnation.png"
+    },
+    {
+      "id": "6267",
+      "name": "Sigewinne: Treatment",
+      "file": "banner_6267_sigewinne_treatment.png",
+      "path": "/assets/images/namecards/banner_6267_sigewinne_treatment.png"
+    },
+    {
+      "id": "6266",
+      "name": "Clorinde: Roleplay",
+      "file": "banner_6266_clorinde_roleplay.png",
+      "path": "/assets/images/namecards/banner_6266_clorinde_roleplay.png"
+    },
+    {
+      "id": "6265",
+      "name": "Travel Notes: The Realms Rocked",
+      "file": "banner_6265_travel_notes_the_realms_rocked.png",
+      "path": "/assets/images/namecards/banner_6265_travel_notes_the_realms_rocked.png"
+    },
+    {
+      "id": "6261",
+      "name": "Arlecchino: Edict",
+      "file": "banner_6261_arlecchino_edict.png",
+      "path": "/assets/images/namecards/banner_6261_arlecchino_edict.png"
+    },
+    {
+      "id": "6273",
+      "name": "Celebration: Feast (II)",
+      "file": "banner_6273_celebration_feast_ii.png",
+      "path": "/assets/images/namecards/banner_6273_celebration_feast_ii.png"
+    },
+    {
+      "id": "6269",
+      "name": "Achievement: Poetic Pages",
+      "file": "banner_6269_achievement_poetic_pages.png",
+      "path": "/assets/images/namecards/banner_6269_achievement_poetic_pages.png"
+    },
+    {
+      "id": "6264",
+      "name": "Fontaine: Lucine",
+      "file": "banner_6264_fontaine_lucine.png",
+      "path": "/assets/images/namecards/banner_6264_fontaine_lucine.png"
+    },
+    {
+      "id": "6262",
+      "name": "Fontaine: Attunement",
+      "file": "banner_6262_fontaine_attunement.png",
+      "path": "/assets/images/namecards/banner_6262_fontaine_attunement.png"
+    },
+    {
+      "id": "6624",
+      "name": "Achievement: Feline Fortune",
+      "file": "banner_6624_achievement_feline_fortune.png",
+      "path": "/assets/images/namecards/banner_6624_achievement_feline_fortune.png"
+    },
+    {
+      "id": "6259",
+      "name": "Chiori: Spectacular Sleeves",
+      "file": "banner_6259_chiori_spectacular_sleeves.png",
+      "path": "/assets/images/namecards/banner_6259_chiori_spectacular_sleeves.png"
+    },
+    {
+      "id": "6263",
+      "name": "Achievement: Whalewrangler",
+      "file": "banner_6263_achievement_whalewrangler.png",
+      "path": "/assets/images/namecards/banner_6263_achievement_whalewrangler.png"
+    },
+    {
+      "id": "6260",
+      "name": "Travel Notes: Arcane Amassing",
+      "file": "banner_6260_travel_notes_arcane_amassing.png",
+      "path": "/assets/images/namecards/banner_6260_travel_notes_arcane_amassing.png"
+    },
+    {
+      "id": "6258",
+      "name": "Album: The Stellar Moments",
+      "file": "banner_6258_album_the_stellar_moments.png",
+      "path": "/assets/images/namecards/banner_6258_album_the_stellar_moments.png"
+    },
+    {
+      "id": "6254",
+      "name": "Gaming: Man Chai",
+      "file": "banner_6254_gaming_man_chai.png",
+      "path": "/assets/images/namecards/banner_6254_gaming_man_chai.png"
+    },
+    {
+      "id": "6250",
+      "name": "Navia: Rosula",
+      "file": "banner_6250_navia_rosula.png",
+      "path": "/assets/images/namecards/banner_6250_navia_rosula.png"
+    },
+    {
+      "id": "6252",
+      "name": "Travel Notes: Time Inscribed",
+      "file": "banner_6252_travel_notes_time_inscribed.png",
+      "path": "/assets/images/namecards/banner_6252_travel_notes_time_inscribed.png"
+    },
+    {
+      "id": "6256",
+      "name": "Chenyu: Rainjade Rite",
+      "file": "banner_6256_chenyu_rainjade_rite.png",
+      "path": "/assets/images/namecards/banner_6256_chenyu_rainjade_rite.png"
+    },
+    {
+      "id": "6251",
+      "name": "Chevreuse: Type II",
+      "file": "banner_6251_chevreuse_type_ii.png",
+      "path": "/assets/images/namecards/banner_6251_chevreuse_type_ii.png"
+    },
+    {
+      "id": "6255",
+      "name": "Achievement: Adeptal Valley",
+      "file": "banner_6255_achievement_adeptal_valley.png",
+      "path": "/assets/images/namecards/banner_6255_achievement_adeptal_valley.png"
+    },
+    {
+      "id": "6249",
+      "name": "Travel Notes: Whirling Waltz",
+      "file": "banner_6249_travel_notes_whirling_waltz.png",
+      "path": "/assets/images/namecards/banner_6249_travel_notes_whirling_waltz.png"
+    },
+    {
+      "id": "6253",
+      "name": "Xianyun: White Clouds",
+      "file": "banner_6253_xianyun_white_clouds.png",
+      "path": "/assets/images/namecards/banner_6253_xianyun_white_clouds.png"
+    },
+    {
+      "id": "6246",
+      "name": "Furina: Banquet",
+      "file": "banner_6246_furina_banquet.png",
+      "path": "/assets/images/namecards/banner_6246_furina_banquet.png"
+    },
+    {
+      "id": "6257",
+      "name": "Travel Notes: Vibrant Harriers",
+      "file": "banner_6257_travel_notes_vibrant_harriers.png",
+      "path": "/assets/images/namecards/banner_6257_travel_notes_vibrant_harriers.png"
+    },
+    {
+      "id": "6245",
+      "name": "Fontaine: Redemption",
+      "file": "banner_6245_fontaine_redemption.png",
+      "path": "/assets/images/namecards/banner_6245_fontaine_redemption.png"
+    },
+    {
+      "id": "6240",
+      "name": "Neuvillette: Surge",
+      "file": "banner_6240_neuvillette_surge.png",
+      "path": "/assets/images/namecards/banner_6240_neuvillette_surge.png"
+    },
+    {
+      "id": "6247",
+      "name": "Charlotte: Exclusive",
+      "file": "banner_6247_charlotte_exclusive.png",
+      "path": "/assets/images/namecards/banner_6247_charlotte_exclusive.png"
+    },
+    {
+      "id": "6239",
+      "name": "Travel Notes: Primordial Waters",
+      "file": "banner_6239_travel_notes_primordial_waters.png",
+      "path": "/assets/images/namecards/banner_6239_travel_notes_primordial_waters.png"
+    },
+    {
+      "id": "6243",
+      "name": "Celebration: Euphonia",
+      "file": "banner_6243_celebration_euphonia.png",
+      "path": "/assets/images/namecards/banner_6243_celebration_euphonia.png"
+    },
+    {
+      "id": "6244",
+      "name": "Achievement: Perpetual",
+      "file": "banner_6244_achievement_perpetual.png",
+      "path": "/assets/images/namecards/banner_6244_achievement_perpetual.png"
+    },
+    {
+      "id": "6242",
+      "name": "Travel Notes: Falling Star",
+      "file": "banner_6242_travel_notes_falling_star.png",
+      "path": "/assets/images/namecards/banner_6242_travel_notes_falling_star.png"
+    },
+    {
+      "id": "6248",
+      "name": "Fontaine: Completeness",
+      "file": "banner_6248_fontaine_completeness.png",
+      "path": "/assets/images/namecards/banner_6248_fontaine_completeness.png"
+    },
+    {
+      "id": "6241",
+      "name": "Wriothesley: Detention",
+      "file": "banner_6241_wriothesley_detention.png",
+      "path": "/assets/images/namecards/banner_6241_wriothesley_detention.png"
+    },
+    {
+      "id": "6237",
+      "name": "Fontaine: Wondrous Machine",
+      "file": "banner_6237_fontaine_wondrous_machine.png",
+      "path": "/assets/images/namecards/banner_6237_fontaine_wondrous_machine.png"
+    },
+    {
+      "id": "6238",
+      "name": "Fontaine: Big News",
+      "file": "banner_6238_fontaine_big_news.png",
+      "path": "/assets/images/namecards/banner_6238_fontaine_big_news.png"
+    },
+    {
+      "id": "6230",
+      "name": "Travel Notes: Vivid Illumination",
+      "file": "banner_6230_travel_notes_vivid_illumination.png",
+      "path": "/assets/images/namecards/banner_6230_travel_notes_vivid_illumination.png"
+    },
+    {
+      "id": "6236",
+      "name": "Achievement: Mariner",
+      "file": "banner_6236_achievement_mariner.png",
+      "path": "/assets/images/namecards/banner_6236_achievement_mariner.png"
+    },
+    {
+      "id": "6234",
+      "name": "Fontaine: Judgment",
+      "file": "banner_6234_fontaine_judgment.png",
+      "path": "/assets/images/namecards/banner_6234_fontaine_judgment.png"
+    },
+    {
+      "id": "6232",
+      "name": "Lynette: Earnestness",
+      "file": "banner_6232_lynette_earnestness.png",
+      "path": "/assets/images/namecards/banner_6232_lynette_earnestness.png"
+    },
+    {
+      "id": "6231",
+      "name": "Lyney: Pretense",
+      "file": "banner_6231_lyney_pretense.png",
+      "path": "/assets/images/namecards/banner_6231_lyney_pretense.png"
+    },
+    {
+      "id": "6228",
+      "name": "Kirara: Neko Box",
+      "file": "banner_6228_kirara_neko_box.png",
+      "path": "/assets/images/namecards/banner_6228_kirara_neko_box.png"
+    },
+    {
+      "id": "6235",
+      "name": "Achievement: Orbits",
+      "file": "banner_6235_achievement_orbits.png",
+      "path": "/assets/images/namecards/banner_6235_achievement_orbits.png"
+    },
+    {
+      "id": "6229",
+      "name": "Travel Notes: Secrets",
+      "file": "banner_6229_travel_notes_secrets.png",
+      "path": "/assets/images/namecards/banner_6229_travel_notes_secrets.png"
+    },
+    {
+      "id": "6233",
+      "name": "Freminet: Progress",
+      "file": "banner_6233_freminet_progress.png",
+      "path": "/assets/images/namecards/banner_6233_freminet_progress.png"
+    },
+    {
+      "id": "6226",
+      "name": "Sumeru: Amrita",
+      "file": "banner_6226_sumeru_amrita.png",
+      "path": "/assets/images/namecards/banner_6226_sumeru_amrita.png"
+    },
+    {
+      "id": "6222",
+      "name": "Kaveh: Domed Court",
+      "file": "banner_6222_kaveh_domed_court.png",
+      "path": "/assets/images/namecards/banner_6222_kaveh_domed_court.png"
+    },
+    {
+      "id": "6224",
+      "name": "Achievement: Transient Twilight",
+      "file": "banner_6224_achievement_transient_twilight.png",
+      "path": "/assets/images/namecards/banner_6224_achievement_transient_twilight.png"
+    },
+    {
+      "id": "6227",
+      "name": "Travel Notes: Crown of Glory",
+      "file": "banner_6227_travel_notes_crown_of_glory.png",
+      "path": "/assets/images/namecards/banner_6227_travel_notes_crown_of_glory.png"
+    },
+    {
+      "id": "6219",
+      "name": "Mika: Index",
+      "file": "banner_6219_mika_index.png",
+      "path": "/assets/images/namecards/banner_6219_mika_index.png"
+    },
+    {
+      "id": "6214",
+      "name": "Yaoyao: Yuegui",
+      "file": "banner_6214_yaoyao_yuegui.png",
+      "path": "/assets/images/namecards/banner_6214_yaoyao_yuegui.png"
+    },
+    {
+      "id": "6215",
+      "name": "Celebration: Lenticular Clouds",
+      "file": "banner_6215_celebration_lenticular_clouds.png",
+      "path": "/assets/images/namecards/banner_6215_celebration_lenticular_clouds.png"
+    },
+    {
+      "id": "6223",
+      "name": "Achievement: Infinitum",
+      "file": "banner_6223_achievement_infinitum.png",
+      "path": "/assets/images/namecards/banner_6223_achievement_infinitum.png"
+    },
+    {
+      "id": "6218",
+      "name": "Dehya: Purifying Flame",
+      "file": "banner_6218_dehya_purifying_flame.png",
+      "path": "/assets/images/namecards/banner_6218_dehya_purifying_flame.png"
+    },
+    {
+      "id": "6225",
+      "name": "Sumeru: The Great Dream",
+      "file": "banner_6225_sumeru_the_great_dream.png",
+      "path": "/assets/images/namecards/banner_6225_sumeru_the_great_dream.png"
+    },
+    {
+      "id": "6221",
+      "name": "Baizhu: Relief",
+      "file": "banner_6221_baizhu_relief.png",
+      "path": "/assets/images/namecards/banner_6221_baizhu_relief.png"
+    },
+    {
+      "id": "6216",
+      "name": "Travel Notes: Rhythm and Rhyme",
+      "file": "banner_6216_travel_notes_rhythm_and_rhyme.png",
+      "path": "/assets/images/namecards/banner_6216_travel_notes_rhythm_and_rhyme.png"
+    },
+    {
+      "id": "6220",
+      "name": "Travel Notes: Artful Intent",
+      "file": "banner_6220_travel_notes_artful_intent.png",
+      "path": "/assets/images/namecards/banner_6220_travel_notes_artful_intent.png"
+    },
+    {
+      "id": "6211",
+      "name": "Achievement: Invoker",
+      "file": "banner_6211_achievement_invoker.png",
+      "path": "/assets/images/namecards/banner_6211_achievement_invoker.png"
+    },
+    {
+      "id": "6217",
+      "name": "Sumeru: Sandstorm",
+      "file": "banner_6217_sumeru_sandstorm.png",
+      "path": "/assets/images/namecards/banner_6217_sumeru_sandstorm.png"
+    },
+    {
+      "id": "6210",
+      "name": "Faruzan: Sealed Secret",
+      "file": "banner_6210_faruzan_sealed_secret.png",
+      "path": "/assets/images/namecards/banner_6210_faruzan_sealed_secret.png"
+    },
+    {
+      "id": "6212",
+      "name": "Travel Notes: Stellar Rivers",
+      "file": "banner_6212_travel_notes_stellar_rivers.png",
+      "path": "/assets/images/namecards/banner_6212_travel_notes_stellar_rivers.png"
+    },
+    {
+      "id": "6206",
+      "name": "Nahida: Crescent",
+      "file": "banner_6206_nahida_crescent.png",
+      "path": "/assets/images/namecards/banner_6206_nahida_crescent.png"
+    },
+    {
+      "id": "6209",
+      "name": "Wanderer: Drifter's Ballad",
+      "file": "banner_6209_wanderer_drifters_ballad.png",
+      "path": "/assets/images/namecards/banner_6209_wanderer_drifters_ballad.png"
+    },
+    {
+      "id": "6208",
+      "name": "Travel Notes: Fungus Land",
+      "file": "banner_6208_travel_notes_fungus_land.png",
+      "path": "/assets/images/namecards/banner_6208_travel_notes_fungus_land.png"
+    },
+    {
+      "id": "6207",
+      "name": "Layla: Daydream",
+      "file": "banner_6207_layla_daydream.png",
+      "path": "/assets/images/namecards/banner_6207_layla_daydream.png"
+    },
+    {
+      "id": "6213",
+      "name": "Alhaitham: Enlightenment",
+      "file": "banner_6213_alhaitham_enlightenment.png",
+      "path": "/assets/images/namecards/banner_6213_alhaitham_enlightenment.png"
+    },
+    {
+      "id": "6197",
+      "name": "Sumeru: Observance",
+      "file": "banner_6197_sumeru_observance.png",
+      "path": "/assets/images/namecards/banner_6197_sumeru_observance.png"
+    },
+    {
+      "id": "6203",
+      "name": "Achievement: Seven Lights",
+      "file": "banner_6203_achievement_seven_lights.png",
+      "path": "/assets/images/namecards/banner_6203_achievement_seven_lights.png"
+    },
+    {
+      "id": "6205",
+      "name": "Achievement: Mirrored Dreams",
+      "file": "banner_6205_achievement_mirrored_dreams.png",
+      "path": "/assets/images/namecards/banner_6205_achievement_mirrored_dreams.png"
+    },
+    {
+      "id": "6204",
+      "name": "Sumeru: Sandtreader",
+      "file": "banner_6204_sumeru_sandtreader.png",
+      "path": "/assets/images/namecards/banner_6204_sumeru_sandtreader.png"
+    },
+    {
+      "id": "6201",
+      "name": "Candace: Gray Heron",
+      "file": "banner_6201_candace_gray_heron.png",
+      "path": "/assets/images/namecards/banner_6201_candace_gray_heron.png"
+    },
+    {
+      "id": "6200",
+      "name": "Cyno: Silence",
+      "file": "banner_6200_cyno_silence.png",
+      "path": "/assets/images/namecards/banner_6200_cyno_silence.png"
+    },
+    {
+      "id": "6202",
+      "name": "Nilou: Lotus Dance",
+      "file": "banner_6202_nilou_lotus_dance.png",
+      "path": "/assets/images/namecards/banner_6202_nilou_lotus_dance.png"
+    },
+    {
+      "id": "6196",
+      "name": "Sumeru: Shimmering Woods",
+      "file": "banner_6196_sumeru_shimmering_woods.png",
+      "path": "/assets/images/namecards/banner_6196_sumeru_shimmering_woods.png"
+    },
+    {
+      "id": "6199",
+      "name": "Travel Notes: Returning Winds",
+      "file": "banner_6199_travel_notes_returning_winds.png",
+      "path": "/assets/images/namecards/banner_6199_travel_notes_returning_winds.png"
+    },
+    {
+      "id": "6198",
+      "name": "Sumeru: Unsullied",
+      "file": "banner_6198_sumeru_unsullied.png",
+      "path": "/assets/images/namecards/banner_6198_sumeru_unsullied.png"
+    },
+    {
+      "id": "6191",
+      "name": "Collei: Good Virtue",
+      "file": "banner_6191_collei_good_virtue.png",
+      "path": "/assets/images/namecards/banner_6191_collei_good_virtue.png"
+    },
+    {
+      "id": "6192",
+      "name": "Dori: Jinni",
+      "file": "banner_6192_dori_jinni.png",
+      "path": "/assets/images/namecards/banner_6192_dori_jinni.png"
+    },
+    {
+      "id": "6195",
+      "name": "Achievement: Fated Encounter",
+      "file": "banner_6195_achievement_fated_encounter.png",
+      "path": "/assets/images/namecards/banner_6195_achievement_fated_encounter.png"
+    },
+    {
+      "id": "6185",
+      "name": "Yelan: Throw",
+      "file": "banner_6185_yelan_throw.png",
+      "path": "/assets/images/namecards/banner_6185_yelan_throw.png"
+    },
+    {
+      "id": "6189",
+      "name": "Travel Notes: Azure Main",
+      "file": "banner_6189_travel_notes_azure_main.png",
+      "path": "/assets/images/namecards/banner_6189_travel_notes_azure_main.png"
+    },
+    {
+      "id": "6187",
+      "name": "Travel Notes: Divine Will",
+      "file": "banner_6187_travel_notes_divine_will.png",
+      "path": "/assets/images/namecards/banner_6187_travel_notes_divine_will.png"
+    },
+    {
+      "id": "6190",
+      "name": "Tighnari: Dew-Kissed",
+      "file": "banner_6190_tighnari_dew-kissed.png",
+      "path": "/assets/images/namecards/banner_6190_tighnari_dew-kissed.png"
+    },
+    {
+      "id": "6194",
+      "name": "Achievement: Roaming",
+      "file": "banner_6194_achievement_roaming.png",
+      "path": "/assets/images/namecards/banner_6194_achievement_roaming.png"
+    },
+    {
+      "id": "6193",
+      "name": "Travel Notes: Woodlands",
+      "file": "banner_6193_travel_notes_woodlands.png",
+      "path": "/assets/images/namecards/banner_6193_travel_notes_woodlands.png"
+    },
+    {
+      "id": "6186",
+      "name": "Kuki Shinobu: Net",
+      "file": "banner_6186_kuki_shinobu_net.png",
+      "path": "/assets/images/namecards/banner_6186_kuki_shinobu_net.png"
+    },
+    {
+      "id": "6188",
+      "name": "Shikanoin Heizou: Temari",
+      "file": "banner_6188_shikanoin_heizou_temari.png",
+      "path": "/assets/images/namecards/banner_6188_shikanoin_heizou_temari.png"
+    },
+    {
+      "id": "6182",
+      "name": "Achievement: Thunderclap",
+      "file": "banner_6182_achievement_thunderclap.png",
+      "path": "/assets/images/namecards/banner_6182_achievement_thunderclap.png"
+    },
+    {
+      "id": "6184",
+      "name": "Travel Notes: Irodori",
+      "file": "banner_6184_travel_notes_irodori.png",
+      "path": "/assets/images/namecards/banner_6184_travel_notes_irodori.png"
+    },
+    {
+      "id": "6180",
+      "name": "Kamisato Ayato: Ripple",
+      "file": "banner_6180_kamisato_ayato_ripple.png",
+      "path": "/assets/images/namecards/banner_6180_kamisato_ayato_ripple.png"
+    },
+    {
+      "id": "6183",
+      "name": "Achievement: Chasm",
+      "file": "banner_6183_achievement_chasm.png",
+      "path": "/assets/images/namecards/banner_6183_achievement_chasm.png"
+    },
+    {
+      "id": "6178",
+      "name": "Yae Miko: Kitsune Dreaming",
+      "file": "banner_6178_yae_miko_kitsune_dreaming.png",
+      "path": "/assets/images/namecards/banner_6178_yae_miko_kitsune_dreaming.png"
+    },
+    {
+      "id": "6181",
+      "name": "Lumens: Stone of Light",
+      "file": "banner_6181_lumens_stone_of_light.png",
+      "path": "/assets/images/namecards/banner_6181_lumens_stone_of_light.png"
+    },
+    {
+      "id": "6173",
+      "name": "Shenhe: Comb",
+      "file": "banner_6173_shenhe_comb.png",
+      "path": "/assets/images/namecards/banner_6173_shenhe_comb.png"
+    },
+    {
+      "id": "6175",
+      "name": "Inazuma: Tokoyo",
+      "file": "banner_6175_inazuma_tokoyo.png",
+      "path": "/assets/images/namecards/banner_6175_inazuma_tokoyo.png"
+    },
+    {
+      "id": "6172",
+      "name": "Travel Notes: Lyratum",
+      "file": "banner_6172_travel_notes_lyratum.png",
+      "path": "/assets/images/namecards/banner_6172_travel_notes_lyratum.png"
+    },
+    {
+      "id": "6179",
+      "name": "Travel Notes: Awakening",
+      "file": "banner_6179_travel_notes_awakening.png",
+      "path": "/assets/images/namecards/banner_6179_travel_notes_awakening.png"
+    },
+    {
+      "id": "6177",
+      "name": "Celebration: Binge Vessel",
+      "file": "banner_6177_celebration_binge_vessel.png",
+      "path": "/assets/images/namecards/banner_6177_celebration_binge_vessel.png"
+    },
+    {
+      "id": "6170",
+      "name": "Gorou: Leisurely Hound",
+      "file": "banner_6170_gorou_leisurely_hound.png",
+      "path": "/assets/images/namecards/banner_6170_gorou_leisurely_hound.png"
+    },
+    {
+      "id": "6176",
+      "name": "Travel Notes: Flowing Hues",
+      "file": "banner_6176_travel_notes_flowing_hues.png",
+      "path": "/assets/images/namecards/banner_6176_travel_notes_flowing_hues.png"
+    },
+    {
+      "id": "6171",
+      "name": "Itto: Oni Face",
+      "file": "banner_6171_itto_oni_face.png",
+      "path": "/assets/images/namecards/banner_6171_itto_oni_face.png"
+    },
+    {
+      "id": "6169",
+      "name": "Inazuma: Eagleplume",
+      "file": "banner_6169_inazuma_eagleplume.png",
+      "path": "/assets/images/namecards/banner_6169_inazuma_eagleplume.png"
+    },
+    {
+      "id": "6168",
+      "name": "Travel Notes: Heavenly General",
+      "file": "banner_6168_travel_notes_heavenly_general.png",
+      "path": "/assets/images/namecards/banner_6168_travel_notes_heavenly_general.png"
+    },
+    {
+      "id": "6167",
+      "name": "Thoma: Blazing Guard",
+      "file": "banner_6167_thoma_blazing_guard.png",
+      "path": "/assets/images/namecards/banner_6167_thoma_blazing_guard.png"
+    },
+    {
+      "id": "6161",
+      "name": "Aloy: Dawn",
+      "file": "banner_6161_aloy_dawn.png",
+      "path": "/assets/images/namecards/banner_6161_aloy_dawn.png"
+    },
+    {
+      "id": "6158",
+      "name": "Raiden Shogun: Enlightenment",
+      "file": "banner_6158_raiden_shogun_enlightenment.png",
+      "path": "/assets/images/namecards/banner_6158_raiden_shogun_enlightenment.png"
+    },
+    {
+      "id": "6159",
+      "name": "Sangonomiya Kokomi: The Deep",
+      "file": "banner_6159_sangonomiya_kokomi_the_deep.png",
+      "path": "/assets/images/namecards/banner_6159_sangonomiya_kokomi_the_deep.png"
+    },
+    {
+      "id": "6160",
+      "name": "Kujou Sara: Tengu",
+      "file": "banner_6160_kujou_sara_tengu.png",
+      "path": "/assets/images/namecards/banner_6160_kujou_sara_tengu.png"
+    },
+    {
+      "id": "6157",
+      "name": "Celebration: Wondrous Calculation",
+      "file": "banner_6157_celebration_wondrous_calculation.png",
+      "path": "/assets/images/namecards/banner_6157_celebration_wondrous_calculation.png"
+    },
+    {
+      "id": "6156",
+      "name": "Inazuma: Kujou Insignia",
+      "file": "banner_6156_inazuma_kujou_insignia.png",
+      "path": "/assets/images/namecards/banner_6156_inazuma_kujou_insignia.png"
+    },
+    {
+      "id": "6164",
+      "name": "Achievement: Nails",
+      "file": "banner_6164_achievement_nails.png",
+      "path": "/assets/images/namecards/banner_6164_achievement_nails.png"
+    },
+    {
+      "id": "6162",
+      "name": "Travel Notes: Moonchaser",
+      "file": "banner_6162_travel_notes_moonchaser.png",
+      "path": "/assets/images/namecards/banner_6162_travel_notes_moonchaser.png"
+    },
+    {
+      "id": "6166",
+      "name": "Celebration: Ikki",
+      "file": "banner_6166_celebration_ikki.png",
+      "path": "/assets/images/namecards/banner_6166_celebration_ikki.png"
+    },
+    {
+      "id": "6174",
+      "name": "Yun Jin: Rhyme",
+      "file": "banner_6174_yun_jin_rhyme.png",
+      "path": "/assets/images/namecards/banner_6174_yun_jin_rhyme.png"
+    },
+    {
+      "id": "6153",
+      "name": "Achievement: Traversal",
+      "file": "banner_6153_achievement_traversal.png",
+      "path": "/assets/images/namecards/banner_6153_achievement_traversal.png"
+    },
+    {
+      "id": "6150",
+      "name": "Inazuma: Raiden Emblem",
+      "file": "banner_6150_inazuma_raiden_emblem.png",
+      "path": "/assets/images/namecards/banner_6150_inazuma_raiden_emblem.png"
+    },
+    {
+      "id": "6163",
+      "name": "Inazuma: Sangonomiya Crest",
+      "file": "banner_6163_inazuma_sangonomiya_crest.png",
+      "path": "/assets/images/namecards/banner_6163_inazuma_sangonomiya_crest.png"
+    },
+    {
+      "id": "6154",
+      "name": "Achievement: Stone Dragon",
+      "file": "banner_6154_achievement_stone_dragon.png",
+      "path": "/assets/images/namecards/banner_6154_achievement_stone_dragon.png"
+    },
+    {
+      "id": "6155",
+      "name": "Achievement: Full Bloom",
+      "file": "banner_6155_achievement_full_bloom.png",
+      "path": "/assets/images/namecards/banner_6155_achievement_full_bloom.png"
+    },
+    {
+      "id": "6149",
+      "name": "Sayu: Muji-Muji Daruma",
+      "file": "banner_6149_sayu_muji-muji_daruma.png",
+      "path": "/assets/images/namecards/banner_6149_sayu_muji-muji_daruma.png"
+    },
+    {
+      "id": "6148",
+      "name": "Yoimiya: Auratus Spark",
+      "file": "banner_6148_yoimiya_auratus_spark.png",
+      "path": "/assets/images/namecards/banner_6148_yoimiya_auratus_spark.png"
+    },
+    {
+      "id": "6147",
+      "name": "Kamisato Ayaka: Folding Fan",
+      "file": "banner_6147_kamisato_ayaka_folding_fan.png",
+      "path": "/assets/images/namecards/banner_6147_kamisato_ayaka_folding_fan.png"
+    },
+    {
+      "id": "6142",
+      "name": "Celebration: Vastness",
+      "file": "banner_6142_celebration_vastness.png",
+      "path": "/assets/images/namecards/banner_6142_celebration_vastness.png"
+    },
+    {
+      "id": "6140",
+      "name": "Travel Notes: Midsummer",
+      "file": "banner_6140_travel_notes_midsummer.png",
+      "path": "/assets/images/namecards/banner_6140_travel_notes_midsummer.png"
+    },
+    {
+      "id": "6145",
+      "name": "Inazuma: Sacred Sakura",
+      "file": "banner_6145_inazuma_sacred_sakura.png",
+      "path": "/assets/images/namecards/banner_6145_inazuma_sacred_sakura.png"
+    },
+    {
+      "id": "6144",
+      "name": "Celebration: Battlesong",
+      "file": "banner_6144_celebration_battlesong.png",
+      "path": "/assets/images/namecards/banner_6144_celebration_battlesong.png"
+    },
+    {
+      "id": "6146",
+      "name": "Travel Notes: Grand Narukami Shrine",
+      "file": "banner_6146_travel_notes_grand_narukami_shrine.png",
+      "path": "/assets/images/namecards/banner_6146_travel_notes_grand_narukami_shrine.png"
+    },
+    {
+      "id": "6152",
+      "name": "Achievement: Gate",
+      "file": "banner_6152_achievement_gate.png",
+      "path": "/assets/images/namecards/banner_6152_achievement_gate.png"
+    },
+    {
+      "id": "6151",
+      "name": "Inazuma: Kamisato Crest",
+      "file": "banner_6151_inazuma_kamisato_crest.png",
+      "path": "/assets/images/namecards/banner_6151_inazuma_kamisato_crest.png"
+    },
+    {
+      "id": "6143",
+      "name": "Celebration: Kaboomball",
+      "file": "banner_6143_celebration_kaboomball.png",
+      "path": "/assets/images/namecards/banner_6143_celebration_kaboomball.png"
+    },
+    {
+      "id": "6141",
+      "name": "Achievement: Vacation Home",
+      "file": "banner_6141_achievement_vacation_home.png",
+      "path": "/assets/images/namecards/banner_6141_achievement_vacation_home.png"
+    },
+    {
+      "id": "6139",
+      "name": "Kaedehara Kazuha: Autumn Maple-Viewing",
+      "file": "banner_6139_kaedehara_kazuha_autumn_maple-viewing.png",
+      "path": "/assets/images/namecards/banner_6139_kaedehara_kazuha_autumn_maple-viewing.png"
+    },
+    {
+      "id": "6138",
+      "name": "Achievement: Tea Time",
+      "file": "banner_6138_achievement_tea_time.png",
+      "path": "/assets/images/namecards/banner_6138_achievement_tea_time.png"
+    },
+    {
+      "id": "6137",
+      "name": "Travel Notes: Sub-Space Recreation",
+      "file": "banner_6137_travel_notes_sub-space_recreation.png",
+      "path": "/assets/images/namecards/banner_6137_travel_notes_sub-space_recreation.png"
+    },
+    {
+      "id": "6135",
+      "name": "Yanfei: Impartial",
+      "file": "banner_6135_yanfei_impartial.png",
+      "path": "/assets/images/namecards/banner_6135_yanfei_impartial.png"
+    },
+    {
+      "id": "6136",
+      "name": "Eula: Ice-Sealed",
+      "file": "banner_6136_eula_ice-sealed.png",
+      "path": "/assets/images/namecards/banner_6136_eula_ice-sealed.png"
+    },
+    {
+      "id": "6130",
+      "name": "Travel Notes: Windblume",
+      "file": "banner_6130_travel_notes_windblume.png",
+      "path": "/assets/images/namecards/banner_6130_travel_notes_windblume.png"
+    },
+    {
+      "id": "6129",
+      "name": "Rosaria: Indenture",
+      "file": "banner_6129_rosaria_indenture.png",
+      "path": "/assets/images/namecards/banner_6129_rosaria_indenture.png"
+    },
+    {
+      "id": "6132",
+      "name": "Celebration: Shining Scale",
+      "file": "banner_6132_celebration_shining_scale.png",
+      "path": "/assets/images/namecards/banner_6132_celebration_shining_scale.png"
+    },
+    {
+      "id": "6131",
+      "name": "Celebration: Feast",
+      "file": "banner_6131_celebration_feast.png",
+      "path": "/assets/images/namecards/banner_6131_celebration_feast.png"
+    },
+    {
+      "id": "6133",
+      "name": "Celebration: Fruit of Wisdom",
+      "file": "banner_6133_celebration_fruit_of_wisdom.png",
+      "path": "/assets/images/namecards/banner_6133_celebration_fruit_of_wisdom.png"
+    },
+    {
+      "id": "6126",
+      "name": "Travel Notes: Mingxiao",
+      "file": "banner_6126_travel_notes_mingxiao.png",
+      "path": "/assets/images/namecards/banner_6126_travel_notes_mingxiao.png"
+    },
+    {
+      "id": "6125",
+      "name": "Hu Tao: Spirit Soother",
+      "file": "banner_6125_hu_tao_spirit_soother.png",
+      "path": "/assets/images/namecards/banner_6125_hu_tao_spirit_soother.png"
+    },
+    {
+      "id": "6134",
+      "name": "Celebration: Peekaboo!",
+      "file": "banner_6134_celebration_peekaboo.png",
+      "path": "/assets/images/namecards/banner_6134_celebration_peekaboo.png"
+    },
+    {
+      "id": "6128",
+      "name": "Celebration: Mechanicus",
+      "file": "banner_6128_celebration_mechanicus.png",
+      "path": "/assets/images/namecards/banner_6128_celebration_mechanicus.png"
+    },
+    {
+      "id": "6124",
+      "name": "Xiao: Mask",
+      "file": "banner_6124_xiao_mask.png",
+      "path": "/assets/images/namecards/banner_6124_xiao_mask.png"
+    },
+    {
+      "id": "6120",
+      "name": "Albedo: Sun Blossom",
+      "file": "banner_6120_albedo_sun_blossom.png",
+      "path": "/assets/images/namecards/banner_6120_albedo_sun_blossom.png"
+    },
+    {
+      "id": "6123",
+      "name": "Celebration: Hypostasis",
+      "file": "banner_6123_celebration_hypostasis.png",
+      "path": "/assets/images/namecards/banner_6123_celebration_hypostasis.png"
+    },
+    {
+      "id": "6121",
+      "name": "Travel Notes: Chalk",
+      "file": "banner_6121_travel_notes_chalk.png",
+      "path": "/assets/images/namecards/banner_6121_travel_notes_chalk.png"
+    },
+    {
+      "id": "6119",
+      "name": "Ganyu: Qilin",
+      "file": "banner_6119_ganyu_qilin.png",
+      "path": "/assets/images/namecards/banner_6119_ganyu_qilin.png"
+    },
+    {
+      "id": "6122",
+      "name": "Frostbearing: Ancient Tree",
+      "file": "banner_6122_frostbearing_ancient_tree.png",
+      "path": "/assets/images/namecards/banner_6122_frostbearing_ancient_tree.png"
+    },
+    {
+      "id": "6116",
+      "name": "Liyue: In the Clouds",
+      "file": "banner_6116_liyue_in_the_clouds.png",
+      "path": "/assets/images/namecards/banner_6116_liyue_in_the_clouds.png"
+    },
+    {
+      "id": "6118",
+      "name": "Achievement: Snowy Summit",
+      "file": "banner_6118_achievement_snowy_summit.png",
+      "path": "/assets/images/namecards/banner_6118_achievement_snowy_summit.png"
+    },
+    {
+      "id": "6127",
+      "name": "Celebration: Lantern-Light",
+      "file": "banner_6127_celebration_lantern-light.png",
+      "path": "/assets/images/namecards/banner_6127_celebration_lantern-light.png"
+    },
+    {
+      "id": "6117",
+      "name": "Achievement: Challenger III",
+      "file": "banner_6117_achievement_challenger_iii.png",
+      "path": "/assets/images/namecards/banner_6117_achievement_challenger_iii.png"
+    },
+    {
+      "id": "6109",
+      "name": "Diona: Meow!",
+      "file": "banner_6109_diona_meow.png",
+      "path": "/assets/images/namecards/banner_6109_diona_meow.png"
+    },
+    {
+      "id": "6110",
+      "name": "Zhongli: Planet Befall",
+      "file": "banner_6110_zhongli_planet_befall.png",
+      "path": "/assets/images/namecards/banner_6110_zhongli_planet_befall.png"
+    },
+    {
+      "id": "6112",
+      "name": "Childe: Foul Legacy",
+      "file": "banner_6112_childe_foul_legacy.png",
+      "path": "/assets/images/namecards/banner_6112_childe_foul_legacy.png"
+    },
+    {
+      "id": "6114",
+      "name": "Mondstadt: Blessing",
+      "file": "banner_6114_mondstadt_blessing.png",
+      "path": "/assets/images/namecards/banner_6114_mondstadt_blessing.png"
+    },
+    {
+      "id": "6106",
+      "name": "Chongyun: Spirit Blade",
+      "file": "banner_6106_chongyun_spirit_blade.png",
+      "path": "/assets/images/namecards/banner_6106_chongyun_spirit_blade.png"
+    },
+    {
+      "id": "6111",
+      "name": "Xinyan: Song's End",
+      "file": "banner_6111_xinyan_songs_end.png",
+      "path": "/assets/images/namecards/banner_6111_xinyan_songs_end.png"
+    },
+    {
+      "id": "6107",
+      "name": "Achievement: Challenger II",
+      "file": "banner_6107_achievement_challenger_ii.png",
+      "path": "/assets/images/namecards/banner_6107_achievement_challenger_ii.png"
+    },
+    {
+      "id": "6105",
+      "name": "Beidou: Weighing Anchor",
+      "file": "banner_6105_beidou_weighing_anchor.png",
+      "path": "/assets/images/namecards/banner_6105_beidou_weighing_anchor.png"
+    },
+    {
+      "id": "6108",
+      "name": "Travel Notes: Fading Star",
+      "file": "banner_6108_travel_notes_fading_star.png",
+      "path": "/assets/images/namecards/banner_6108_travel_notes_fading_star.png"
+    },
+    {
+      "id": "6115",
+      "name": "Liyue: A Thousand Ships",
+      "file": "banner_6115_liyue_a_thousand_ships.png",
+      "path": "/assets/images/namecards/banner_6115_liyue_a_thousand_ships.png"
+    },
+    {
+      "id": "6104",
+      "name": "Ningguang: Phoenix",
+      "file": "banner_6104_ningguang_phoenix.png",
+      "path": "/assets/images/namecards/banner_6104_ningguang_phoenix.png"
+    },
+    {
+      "id": "6100",
+      "name": "Achievement: Hill Dwellers",
+      "file": "banner_6100_achievement_hill_dwellers.png",
+      "path": "/assets/images/namecards/banner_6100_achievement_hill_dwellers.png"
+    },
+    {
+      "id": "6113",
+      "name": "Mondstadt: Hero's Fame",
+      "file": "banner_6113_mondstadt_heros_fame.png",
+      "path": "/assets/images/namecards/banner_6113_mondstadt_heros_fame.png"
+    },
+    {
+      "id": "6101",
+      "name": "Achievement: Snowy Land",
+      "file": "banner_6101_achievement_snowy_land.png",
+      "path": "/assets/images/namecards/banner_6101_achievement_snowy_land.png"
+    },
+    {
+      "id": "6103",
+      "name": "Achievement: Reunion",
+      "file": "banner_6103_achievement_reunion.png",
+      "path": "/assets/images/namecards/banner_6103_achievement_reunion.png"
+    },
+    {
+      "id": "6097",
+      "name": "Achievement: Bowmaster",
+      "file": "banner_6097_achievement_bowmaster.png",
+      "path": "/assets/images/namecards/banner_6097_achievement_bowmaster.png"
+    },
+    {
+      "id": "6099",
+      "name": "Achievement: Deep & Dark",
+      "file": "banner_6099_achievement_deep_dark.png",
+      "path": "/assets/images/namecards/banner_6099_achievement_deep_dark.png"
+    },
+    {
+      "id": "6102",
+      "name": "Achievement: Cliffhanger",
+      "file": "banner_6102_achievement_cliffhanger.png",
+      "path": "/assets/images/namecards/banner_6102_achievement_cliffhanger.png"
+    },
+    {
+      "id": "6091",
+      "name": "Achievement: Explorer",
+      "file": "banner_6091_achievement_explorer.png",
+      "path": "/assets/images/namecards/banner_6091_achievement_explorer.png"
+    },
+    {
+      "id": "6098",
+      "name": "Achievement: Challenger",
+      "file": "banner_6098_achievement_challenger.png",
+      "path": "/assets/images/namecards/banner_6098_achievement_challenger.png"
+    },
+    {
+      "id": "6094",
+      "name": "Mondstadt: Whistling Wind",
+      "file": "banner_6094_mondstadt_whistling_wind.png",
+      "path": "/assets/images/namecards/banner_6094_mondstadt_whistling_wind.png"
+    },
+    {
+      "id": "6090",
+      "name": "Keqing: Lightning Stiletto",
+      "file": "banner_6090_keqing_lightning_stiletto.png",
+      "path": "/assets/images/namecards/banner_6090_keqing_lightning_stiletto.png"
+    },
+    {
+      "id": "6087",
+      "name": "Xiangling: Fresh from the Pan",
+      "file": "banner_6087_xiangling_fresh_from_the_pan.png",
+      "path": "/assets/images/namecards/banner_6087_xiangling_fresh_from_the_pan.png"
+    },
+    {
+      "id": "6095",
+      "name": "Liyue: Stillness of Stone",
+      "file": "banner_6095_liyue_stillness_of_stone.png",
+      "path": "/assets/images/namecards/banner_6095_liyue_stillness_of_stone.png"
+    },
+    {
+      "id": "6093",
+      "name": "Achievement: Hero",
+      "file": "banner_6093_achievement_hero.png",
+      "path": "/assets/images/namecards/banner_6093_achievement_hero.png"
+    },
+    {
+      "id": "6096",
+      "name": "Achievement: Colors of the Rainbow",
+      "file": "banner_6096_achievement_colors_of_the_rainbow.png",
+      "path": "/assets/images/namecards/banner_6096_achievement_colors_of_the_rainbow.png"
+    },
+    {
+      "id": "6086",
+      "name": "Bennett: Recognition",
+      "file": "banner_6086_bennett_recognition.png",
+      "path": "/assets/images/namecards/banner_6086_bennett_recognition.png"
+    },
+    {
+      "id": "6088",
+      "name": "Xingqiu: Rainbow",
+      "file": "banner_6088_xingqiu_rainbow.png",
+      "path": "/assets/images/namecards/banner_6088_xingqiu_rainbow.png"
+    },
+    {
+      "id": "6085",
+      "name": "Mona: Starry Sky",
+      "file": "banner_6085_mona_starry_sky.png",
+      "path": "/assets/images/namecards/banner_6085_mona_starry_sky.png"
+    },
+    {
+      "id": "6084",
+      "name": "Noelle: Protector",
+      "file": "banner_6084_noelle_protector.png",
+      "path": "/assets/images/namecards/banner_6084_noelle_protector.png"
+    },
+    {
+      "id": "6092",
+      "name": "Achievement: Virtuoso",
+      "file": "banner_6092_achievement_virtuoso.png",
+      "path": "/assets/images/namecards/banner_6092_achievement_virtuoso.png"
+    },
+    {
+      "id": "6083",
+      "name": "Fischl: Night Raven",
+      "file": "banner_6083_fischl_night_raven.png",
+      "path": "/assets/images/namecards/banner_6083_fischl_night_raven.png"
+    },
+    {
+      "id": "6089",
+      "name": "Qiqi: Cold Storage",
+      "file": "banner_6089_qiqi_cold_storage.png",
+      "path": "/assets/images/namecards/banner_6089_qiqi_cold_storage.png"
+    },
+    {
+      "id": "6080",
+      "name": "Kaeya: Pavo Ocellus",
+      "file": "banner_6080_kaeya_pavo_ocellus.png",
+      "path": "/assets/images/namecards/banner_6080_kaeya_pavo_ocellus.png"
+    },
+    {
+      "id": "6082",
+      "name": "Sucrose: Bio-Alchemy",
+      "file": "banner_6082_sucrose_bio-alchemy.png",
+      "path": "/assets/images/namecards/banner_6082_sucrose_bio-alchemy.png"
+    },
+    {
+      "id": "6076",
+      "name": "Razor: Wolvensprint",
+      "file": "banner_6076_razor_wolvensprint.png",
+      "path": "/assets/images/namecards/banner_6076_razor_wolvensprint.png"
+    },
+    {
+      "id": "6077",
+      "name": "Venti: Azure Sky",
+      "file": "banner_6077_venti_azure_sky.png",
+      "path": "/assets/images/namecards/banner_6077_venti_azure_sky.png"
+    },
+    {
+      "id": "6081",
+      "name": "Lisa: Tempus Fugit",
+      "file": "banner_6081_lisa_tempus_fugit.png",
+      "path": "/assets/images/namecards/banner_6081_lisa_tempus_fugit.png"
+    },
+    {
+      "id": "6079",
+      "name": "Barbara: Flow",
+      "file": "banner_6079_barbara_flow.png",
+      "path": "/assets/images/namecards/banner_6079_barbara_flow.png"
+    },
+    {
+      "id": "6075",
+      "name": "Diluc: Flames",
+      "file": "banner_6075_diluc_flames.png",
+      "path": "/assets/images/namecards/banner_6075_diluc_flames.png"
+    },
+    {
+      "id": "6078",
+      "name": "Jean: The Winds' Course",
+      "file": "banner_6078_jean_the_winds_course.png",
+      "path": "/assets/images/namecards/banner_6078_jean_the_winds_course.png"
+    },
+    {
+      "id": "6074",
+      "name": "Klee: Explosive",
+      "file": "banner_6074_klee_explosive.png",
+      "path": "/assets/images/namecards/banner_6074_klee_explosive.png"
+    },
+    {
+      "id": "6072",
+      "name": "Travel Notes: Catch the Wind",
+      "file": "banner_6072_travel_notes_catch_the_wind.png",
+      "path": "/assets/images/namecards/banner_6072_travel_notes_catch_the_wind.png"
+    },
+    {
+      "id": "6071",
+      "name": "Genshin Impact: A New World",
+      "file": "banner_6071_genshin_impact_a_new_world.png",
+      "path": "/assets/images/namecards/banner_6071_genshin_impact_a_new_world.png"
+    },
+    {
+      "id": "6073",
+      "name": "Amber: Bunny",
+      "file": "banner_6073_amber_bunny.png",
+      "path": "/assets/images/namecards/banner_6073_amber_bunny.png"
+    }
+  ]
+}

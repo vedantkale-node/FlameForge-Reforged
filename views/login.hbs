@@ -1,0 +1,134 @@
+<div class="min-h-[100dvh] min-h-screen flex items-center justify-center p-4 sm:p-6 bg-[#0d1117] text-slate-100 relative overflow-x-hidden font-sans">
+  
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast-box text-white bg-emerald-800 border border-emerald-500/50">
+    <div id="toastContent" class="flex items-center gap-2.5">
+      <i id="toastIcon" class="ti ti-circle-check text-emerald-300 text-lg"></i>
+      <p id="toastMessage" class="text-xs font-medium"></p>
+    </div>
+  </div>
+
+  <!-- Matte Login Card (Sleek Width, Elegant Vertical Height) -->
+  <div class="relative w-[90%] sm:w-full max-w-[370px] sm:max-w-[420px] z-10 my-auto">
+    <div class="matte-card-diluc p-7 sm:p-9 md:p-10 shadow-2xl relative overflow-hidden border border-red-500/30 rounded-2xl">
+      
+      <!-- Top Subtle Flame Accent Line -->
+      <div class="absolute top-0 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r from-red-600 via-amber-500 to-red-600"></div>
+
+      <!-- Header with Increased Title Font Size -->
+      <div class="flex flex-col items-center text-center mb-6 sm:mb-8">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/15 border border-red-500/30 text-red-400 text-[10px] sm:text-[11px] font-bold tracking-wider uppercase mb-2.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+          Developer Portal &bull; Teyvat Engine
+        </div>
+        
+        <div class="flex items-baseline justify-center gap-2 flex-wrap mb-1.5">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">FlameForge</h1>
+          <span class="text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wider bg-gradient-to-r from-red-500 via-amber-400 to-red-500 bg-clip-text text-transparent">(Reforged)</span>
+        </div>
+        <p class="text-xs text-slate-400 mt-1 max-w-xs leading-relaxed">Enter your credentials to access the developer workspace & datasets.</p>
+      </div>
+
+      <!-- Flash Message Banners -->
+      {{#if messages.error}}
+      <div class="mb-5 flex items-start gap-2 p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 text-xs leading-relaxed">
+        <i class="ti ti-alert-triangle text-red-400 text-base shrink-0 mt-0.5"></i>
+        <span>{{messages.error}}</span>
+      </div>
+      {{/if}}
+
+      {{#if messages.success}}
+      <div class="mb-5 flex items-start gap-2 p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs leading-relaxed">
+        <i class="ti ti-circle-check text-emerald-400 text-base shrink-0 mt-0.5"></i>
+        <span>{{messages.success}}</span>
+      </div>
+      {{/if}}
+
+      <!-- Login Form with Comfortable Spacing -->
+      <form id="loginForm" action="/sign-in" method="POST" class="space-y-4 sm:space-y-5" novalidate>
+        
+        <!-- Email Field -->
+        <div>
+          <label for="email" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Email Address</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="ti ti-mail text-base"></i>
+            </div>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="w-full pl-11 pr-4 py-3 rounded-xl text-xs text-white placeholder-slate-500 outline-none matte-input"
+              placeholder="traveler@teyvat.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div>
+          <label for="password" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Password</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i class="ti ti-lock text-base"></i>
+            </div>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="w-full pl-11 pr-11 py-3 rounded-xl text-xs text-white placeholder-slate-500 outline-none matte-input"
+              placeholder="••••••••••••"
+              required
+              autocomplete="current-password"
+            />
+            <button
+              type="button"
+              id="showPasswordBtn"
+              aria-label="Toggle password visibility"
+              class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-red-300 transition-colors cursor-pointer"
+            >
+              <i id="showHideIcon" class="ti ti-eye-off text-base"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          id="submitBtn"
+          class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-bold text-xs tracking-wider uppercase transition-all shadow-lg shadow-red-600/30 flex items-center justify-center gap-2 mt-6 cursor-pointer"
+        >
+          <span>Sign In</span>
+          <i class="ti ti-arrow-right text-base"></i>
+        </button>
+      </form>
+
+      <!-- API Documentation Banner & Bottom Action Links -->
+      <div class="mt-6 pt-5 border-t border-[#30363d] space-y-3">
+        <a href="/" class="w-full py-2.5 px-3.5 rounded-xl bg-[#0d1117] hover:bg-[#21262d] text-slate-300 hover:text-white border border-[#30363d] text-xs font-semibold transition-colors flex items-center justify-between group cursor-pointer">
+          <div class="flex items-center gap-2">
+            <i class="ti ti-code text-red-400 text-base"></i>
+            <span>API Documentation</span>
+          </div>
+          <span class="text-[10px] text-slate-400 group-hover:text-red-400 font-mono flex items-center gap-1">
+            Explore REST API <i class="ti ti-chevron-right text-xs"></i>
+          </span>
+        </a>
+
+        <div class="flex items-center justify-between text-xs text-slate-400 pt-0.5">
+          <a href="/sign-up" class="hover:text-slate-200 transition-colors flex items-center gap-1 text-[11px]">
+            <span>Create an account</span>
+          </a>
+          <a href="/misc/report" class="hover:text-slate-200 transition-colors flex items-center gap-1 text-[11px]">
+            <i class="ti ti-bug text-xs"></i>
+            <span>Submit Report</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script defer src="/js/login.js"></script>
